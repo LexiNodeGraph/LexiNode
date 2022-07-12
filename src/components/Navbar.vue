@@ -24,6 +24,9 @@
                         <router-link class="py-2 px-6 font-semibold text-white rounded hover:bg-[#ffffff11] transition duration-300 mx-1" to="/">
                             <span>Meus Artigos</span>
                         </router-link>
+                        <router-link class="py-2 px-6 font-semibold text-white rounded hover:bg-[#ffffff11] transition duration-300 mx-1" to="/login">
+                            <span>Entrar</span>
+                        </router-link>
                     </div>
 
                     <!-- FIM ENTRAR -->
@@ -38,9 +41,16 @@
 </template>
 
 <script>
+import {useAuth0} from "@auth0/auth0-vue";
 
-
-export default {}
+export default {
+      setup() {
+        const {isAuthenticated} = useAuth0();
+        return {
+            isAuthenticated,
+        };
+    },
+}
 
 </script>
 
