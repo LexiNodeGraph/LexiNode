@@ -1,4 +1,4 @@
-# lexinode
+# LexiNode
 
 ## Project setup
 ```
