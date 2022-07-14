@@ -26,7 +26,6 @@ const GraphTitle: FC<{ filters: FiltersState }> = ({ filters }) => {
 
   return (
     <div className="graph-title">
-      <h1>LEXINODE</h1>
       <h2>
         <i>
           {graph.order} nó{graph.order > 1 ? "s" : ""}{" e "}
