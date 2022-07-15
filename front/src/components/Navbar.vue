@@ -6,7 +6,8 @@
                     <div>
                         <!-- White: #f8fafc -->
                         <router-link to="/" class="flex items-center py-6 px-2">
-                            <span class="text-white font-semibold text-2xl tracking-tight px-2">LEXINODE</span>
+                            <span class="text-blue-600 font-semibold text-2xl tracking-tight pl-2">LEXI</span>
+                            <span class="text-white font-semibold text-2xl tracking-tight pr-2">NODE</span>
                         </router-link>
                     </div>
                     <!-- FIM LOGO -->

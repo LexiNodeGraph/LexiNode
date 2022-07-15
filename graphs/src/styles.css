@@ -24,14 +24,14 @@
  * ************
  */
 body {
-  font-family: "Public Sans", sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   background: white;
   font-size: 0.9em;
   overflow: hidden;
 }
 h1,
 h2 {
-  font-family: Lora, serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 h2 {
   font-size: 1.3em;
