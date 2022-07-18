@@ -67,6 +67,7 @@ body {
 }
 .controls {
   position: absolute;
+  margin-bottom: 110px;
   bottom: var(--stage-padding);
   left: var(--stage-padding);
 }
@@ -92,6 +93,7 @@ body {
 .panels {
   position: absolute;
   bottom: 0;
+  margin-bottom: 110px;
   right: 0;
   width: 350px;
   max-height: calc(100vh - 2 * var(--stage-padding));

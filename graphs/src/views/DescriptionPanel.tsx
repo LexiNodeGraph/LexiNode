@@ -13,7 +13,7 @@ const DescriptionPanel: FC = () => {
         </>
       }
     >
-      desc
+      Descrição do LexiNode
     </Panel>
   );
 };
