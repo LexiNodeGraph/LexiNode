@@ -1,3 +1,17 @@
+<script>
+import {useAuth0} from "@auth0/auth0-vue";
+                            
+export default {
+    setup() {
+        const {isAuthenticated} = useAuth0();
+        return {
+            isAuthenticated,
+        };
+    },
+}
+                            
+</script>
+
 <template>
    <nav class="bg-black shadow-xl">
             <div class="max-w-6xl mx-auto px-4">
@@ -8,10 +22,8 @@
                             <span class="text-[#0952DB] font-semibold text-2xl tracking-tight pl-2">LEXI</span>
                             <span class="text-[#EEEEEE] font-semibold text-2xl tracking-tight pr-2">NODE</span>
                         </router-link>
-
                         
                     </div>
-                    
                     <!-- FIM LOGO -->
 
                     <!-- MENU -->
@@ -33,32 +45,11 @@
                             <span>Entrar</span>
                         </router-link>
                     </div>
-
                     <!-- FIM MENU -->
                 </div>
             </div>
         </nav>
 
-
-
-
-        
 </template>
 
-<script>
-import {useAuth0} from "@auth0/auth0-vue";
 
-export default {
-      setup() {
-        const {isAuthenticated} = useAuth0();
-        return {
-            isAuthenticated,
-        };
-    },
-}
-
-</script>
-
-<style>
-
-</style>
