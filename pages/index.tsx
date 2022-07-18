@@ -1,4 +1,5 @@
 import NavBar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 const Home: NextPage = () => {
   return (
@@ -8,6 +9,7 @@ const Home: NextPage = () => {
         Hello
       </h1>
 
+      <Footer />
     </div>
   )
 }
