@@ -1,7 +1,7 @@
 <template>
   <Navbar/>
   <router-view></router-view>
-  <Footer/>
+  <Footer class="fixed inset-x-0 bottom-0"/>
 </template>
 
 <script>

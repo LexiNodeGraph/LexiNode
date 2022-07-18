@@ -1,7 +1,3 @@
-<template>
-    <h1 class="flex justify-center py-[200px] text-4xl text-black font-semibold">Por favor aguarde. Estamos o redirecionando...</h1>
-</template>
-
 <script>
 import {useAuth0} from "@auth0/auth0-vue";
 export default {
@@ -18,5 +14,11 @@ export default {
     },
 };
 </script>
+
+<template>
+    <h1 class="flex justify-center py-[200px] text-4xl text-black font-semibold">Por favor aguarde. Estamos o redirecionando...</h1>
+
+</template>
+
 
 <style></style>
