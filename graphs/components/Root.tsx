@@ -21,6 +21,7 @@ import { BiRadioCircleMarked, BiBookContent } from "react-icons/bi";
 import { BsArrowsFullscreen, BsFullscreenExit, BsZoomIn, BsZoomOut } from "react-icons/bs";
 
 const Root: FC = () => {
+
   const [showContents, setShowContents] = useState(false);
   const [dataReady, setDataReady] = useState(false);
   const [dataset, setDataset] = useState<Dataset | null>(null);
@@ -33,6 +34,7 @@ const Root: FC = () => {
   // Load data on mount:
 
   useEffect(() => {
+
     
     //change fetch to axios
     fetch(`http://localhost:8087/data`)

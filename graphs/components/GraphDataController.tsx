@@ -11,7 +11,7 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState }> = ({ 
   /**
    * Feed graphology with the new dataset:
    */
-  useEffect(() => {
+  useEffect(() => {  
     if (!graph || !dataset) return;
 
     const clusters = keyBy(dataset.clusters, "key");
@@ -21,7 +21,7 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState }> = ({ 
       graph.addNode(node.key, {
         ...node,
         ...omit(clusters[node.cluster], "key"),
-        image: `${process.env.PUBLIC_URL}/images/${tags[node.tag].image}`,
+        image: `../../images/${tags[node.tag].image}`,
       }),
     );
     dataset.edges.forEach(([source, target]) => graph.addEdge(source, target, { size: 1 })); // tamanho da aresta
