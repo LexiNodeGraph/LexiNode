@@ -3,23 +3,6 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Lora&family=Public+Sans:ital@0;1&display=swap");
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 /**
  * VARIABLES:
  * **********
@@ -61,10 +44,7 @@ h2 > * {
   vertical-align: text-top;
 }
 a {
-  color: black !important;
-}
-a:hover {
-  opacity: var(--hover-opacity);
+  color: black;
 }
 
 /**

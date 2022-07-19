@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Links from 'next/link';
+
 const NavBar = () => {
     return (
         <nav className="bg-black shadow-xl z-50">
@@ -16,7 +16,7 @@ const NavBar = () => {
 
                     <div className="flex items-center py-2 px-2">
                         
-                    <Link href="/">
+                        <Link href="/">
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
                             >
                                 <span className='text-white'>Artigos</span>
