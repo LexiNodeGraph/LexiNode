@@ -37,7 +37,7 @@ const Root: FC = () => {
 
     
     //change fetch to axios
-    fetch(`http://localhost:8087/data`)
+    fetch(`http://localhost:3000/api/dataset`)
       .then((res) => res.json())
       .then((dataset: Dataset) => {
         setDataset(dataset);

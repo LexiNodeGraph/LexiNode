@@ -1,6 +1,8 @@
+import Link from 'next/link';
+import Links from 'next/link';
 const NavBar = () => {
     return (
-        <nav className="bg-black shadow-xl">
+        <nav className="bg-black shadow-xl z-50">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between">
 
@@ -14,28 +16,27 @@ const NavBar = () => {
 
                     <div className="flex items-center py-2 px-2">
                         
-                        <a className="py-2 px-6 font-semibold text-white rounded hover:bg-[#ffffff11] transition duration-300 mx-1" to="/artigos">
-                            <span>Artigos</span>
-                        </a>
+                    <Link href="https://google.com">
+                            <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
+                            >
+                                <span className='text-white'>Artigos</span>
+                            </a>
+                        </Link>
 
-                        <a className="py-2 px-6 font-semibold text-white rounded hover:bg-[#ffffff11] transition duration-300 mx-1" to="/autores">
-                            <span>Autores</span>
-                        </a>
+                        <Link href="https://google.com">
+                            <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
+                            >
+                                <span className='text-white'>Autores</span>
+                            </a>
+                        </Link>
 
-                        <a 
-                        className="py-2 px-6 font-semibold text-white rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
-
-                        >
-                            <span>Entrar</span>
-                        </a>
-
-                        <a 
-                        className="py-2 px-6 rounded-2xl bg-black hover:bg-[#ffffff11] transition duration-300" 
-
-                        >
-
-
-                        </a>
+                        <Link href='/'>
+                            <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
+                            onClick={() => alert('lol')}
+                            >
+                                <span className='text-white'>Entrar</span>
+                            </a>
+                        </Link>
 
                     </div>
 
