@@ -16,25 +16,30 @@ const NavBar = () => {
 
                     <div className="flex items-center py-2 px-2">
                         
-                    <Link href="https://google.com">
+                    <Link href="/">
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
                             >
                                 <span className='text-white'>Artigos</span>
                             </a>
                         </Link>
 
-                        <Link href="https://google.com">
+                        <Link href="/">
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
                             >
                                 <span className='text-white'>Autores</span>
                             </a>
                         </Link>
 
-                        <Link href='/'>
+                        <Link href='/api/auth/login'>
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
-                            onClick={() => alert('lol')}
                             >
                                 <span className='text-white'>Entrar</span>
+                            </a>
+                        </Link>
+                        <Link href='/api/auth/logout'>
+                            <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
+                            >
+                                <span className='text-white'>Sair</span>
                             </a>
                         </Link>
 
