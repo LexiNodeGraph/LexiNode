@@ -47,7 +47,7 @@ const NavBar = () => {
                                     </a>
                                 </Link>
                             )
-                        },
+                        }
                         {
                             user && (
                                 <Link href="/">
@@ -61,7 +61,7 @@ const NavBar = () => {
 
                                 </Link>
                             )
-                        },
+                        }
                         {
                             user && (
                                 <Link href="/api/auth/logout">
