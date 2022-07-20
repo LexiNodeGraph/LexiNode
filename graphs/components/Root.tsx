@@ -37,7 +37,10 @@ const Root: FC = () => {
 
     
     //change fetch to axios
-    fetch(`http://localhost:3000/api/dataset`)
+    // if(process.env.prod == "True"){
+
+    // }
+    fetch(`https://lexinode-lexiteam.vercel.app/api/dataset`)
       .then((res) => res.json())
       .then((dataset: Dataset) => {
         setDataset(dataset);
