@@ -40,7 +40,7 @@ const Root: FC = () => {
     // if(process.env.prod == "True"){
 
     // }
-    fetch(`https://lexinode.vercel.app//api/dataset`)
+    fetch(`https://lexinode.vercel.app/api/dataset`)
       .then((res) => res.json())
       .then((dataset: Dataset) => {
         setDataset(dataset);
