@@ -13,7 +13,7 @@ const NavBar = () => {
                 ">
 
                     <div>
-                        <a className="flex items-center py-6 px-2">
+                        <a className="flex items-center py-6 px-2" href='/'>
 
                             <span className="text-[#0952DB] font-semibold text-2xl tracking-tight pl-2">LEXI</span>
                             <span className="text-[#EEEEEE] font-semibold text-2xl tracking-tight pr-2">NODE</span>
@@ -23,14 +23,14 @@ const NavBar = () => {
 
                     <div className="flex items-center py-2 px-2">
                         
-                        <Link href="/">
+                        <Link href="/artigos">
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
                             >
                                 <span className='text-white'>Artigos</span>
                             </a>
                         </Link>
 
-                        <Link href="/">
+                        <Link href="/autores">
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
                             >
                                 <span className='text-white'>Autores</span>
