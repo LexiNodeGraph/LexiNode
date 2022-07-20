@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { useUser } from '@auth0/nextjs-auth0'
+  
 
 const NavBar = () => {
     const { user, error, isLoading } = useUser()
@@ -53,7 +54,7 @@ const NavBar = () => {
                                     <a 
                                     className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1"
                                     >
-                                        <Image src={user.picture} className='rounded-2xl' width='48' height='48'  />
+                                        <Image  className='rounded-2xl' src={user.picture || "https://imgs.search.brave.com/-yiLJsxhRrWENQJ_koHM2qy4gc7IbZDMqUrX_diJ6R0/rs:fit:1200:720:1/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS84/cUE0VU9MbkM1QS9t/YXhyZXNkZWZhdWx0/LmpwZw"} alt={user.name || "NAO CARREGOU"} width='48' height='48'  />
                                     </a>
 
 

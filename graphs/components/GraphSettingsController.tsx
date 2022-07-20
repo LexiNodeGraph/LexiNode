@@ -7,7 +7,7 @@ import useDebounce from "../use-debounce";
 const NODE_FADE_COLOR = "#bbb";
 const EDGE_FADE_COLOR = "#eee";
 
-const GraphSettingsController: FC<{ hoveredNode: string | null }> = ({ children, hoveredNode }) => {
+const GraphSettingsController: FC<{ hoveredNode: string | null }> = ({ hoveredNode }) => {
   const sigma = useSigma();
   const graph = sigma.getGraph();
 
@@ -54,7 +54,7 @@ const GraphSettingsController: FC<{ hoveredNode: string | null }> = ({ children,
     );
   }, [debouncedHoveredNode]);
 
-  return <>{children}</>;
+  return <>{hoveredNode}</>;
 };
 
 export default GraphSettingsController;

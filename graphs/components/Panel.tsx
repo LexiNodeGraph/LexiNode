@@ -4,10 +4,10 @@ import AnimateHeight from "react-animate-height";
 
 const DURATION = 300;
 
-const Panel: FC<{ title: JSX.Element | string; initiallyDeployed?: boolean }> = ({
+const Panel: FC<{ title: JSX.Element | string; initiallyDeployed?: boolean; children?: [] | JSX.Element | string; }> = ({
   title,
   initiallyDeployed,
-  children,
+  children
 }) => {
   const [isDeployed, setIsDeployed] = useState(initiallyDeployed || false);
   const dom = useRef<HTMLDivElement>(null);

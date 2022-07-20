@@ -4,7 +4,7 @@ import React from "react";
 
 import Root from "../graphs/components/Root"
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <div>
       <NavBar />

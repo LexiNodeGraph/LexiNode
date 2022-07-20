@@ -58,6 +58,7 @@ const TagsPanel: FC<{
         </>
       }
     >
+      <div>
       <p>
         <i className="text-muted">Click a category to show/hide related pages from the network.</i>
       </p>
@@ -108,6 +109,7 @@ const TagsPanel: FC<{
           );
         })}
       </ul>
+      </div>
     </Panel>
   );
 };

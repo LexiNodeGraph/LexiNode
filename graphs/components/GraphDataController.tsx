@@ -4,7 +4,7 @@ import { keyBy, omit } from "lodash";
 
 import { Dataset, FiltersState } from "../types";
 
-const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState }> = ({ dataset, filters, children }) => {
+const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; children?: [] | string | undefined }> = ({ dataset, filters, children }) => {
   const sigma = useSigma();
   const graph = sigma.getGraph();
 

@@ -43,6 +43,7 @@ const ClustersPanel: FC<{
   );
 
   return (
+    <>
     <Panel
       title={
         <>
@@ -57,7 +58,7 @@ const ClustersPanel: FC<{
           )}
         </>
       }
-    >
+    ><div>
       <p>
         <i className="text-muted">Click a cluster to show/hide related pages from the network.</i>
       </p>
@@ -105,7 +106,9 @@ const ClustersPanel: FC<{
           );
         })}
       </ul>
+      </div>
     </Panel>
+    </>
   );
 };
 
