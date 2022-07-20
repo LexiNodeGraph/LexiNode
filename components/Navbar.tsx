@@ -13,15 +13,16 @@ const NavBar = () => {
                 ">
 
                     <div>
-                        <a className="flex items-center py-6 px-2" href='/'>
-
-                            <span className="text-[#0952DB] font-semibold text-2xl tracking-tight pl-2">LEXI</span>
-                            <span className="text-[#EEEEEE] font-semibold text-2xl tracking-tight pr-2">NODE</span>
-                        </a>
+                        <Link href='/'>
+                            <a className="flex items-center py-6 px-2" >
+                                <span className="text-[#0952DB] font-semibold text-2xl tracking-tight pl-2">LEXI</span>
+                                <span className="text-[#EEEEEE] font-semibold text-2xl tracking-tight pr-2">NODE</span>
+                            </a>
+                        </Link>
                         
                     </div>
 
-                    <div className="flex items-center py-2 px-2">
+                    <div className="flex items-center py-1 px-2">
                         
                         <Link href="/artigos">
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1" 
@@ -52,7 +53,7 @@ const NavBar = () => {
                                     <a 
                                     className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1"
                                     >
-                                        <img className='rounded-2xl w-12 h-12' src={user.picture} />
+                                        <Image src={user.picture} className='rounded-2xl' width='48' height='48'  />
                                     </a>
 
 
