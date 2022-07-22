@@ -37,10 +37,19 @@ const Root: FC = () => {
 
     
     //change fetch to axios
-    // if(process.env.prod == "True"){
-
-    // }
-    fetch(`https://lexinode.vercel.app/api/dataset`)
+    if(process.env.PROD == "True"){
+      fetch(`https://lexinode.vercel.app/api/dataset`)
+      .then((res) => res.json())
+      .then((dataset: Dataset) => {
+        setDataset(dataset);
+        setFiltersState({
+          clusters: mapValues(keyBy(dataset.clusters, "key"), constant(true)),
+          tags: mapValues(keyBy(dataset.tags, "key"), constant(true)),
+        });
+        requestAnimationFrame(() => setDataReady(true));
+      });
+    }
+    fetch(`http://localhost:3000/api/dataset`)
       .then((res) => res.json())
       .then((dataset: Dataset) => {
         setDataset(dataset);
