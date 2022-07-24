@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.9.1",
+    "@prisma/client": "^4.1.0",
     "next": "12.2.2",
     "react": "^17.0.2",
     "react-sigma": "^1.2.35"
@@ -26,6 +27,7 @@
     "graphology-types": "^0.23.0",
     "lodash": "^4.17.21",
     "postcss": "^8.4.14",
+    "prisma": "^4.1.0",
     "react": "^17.0.2",
     "react-animate-height": "^2.0.23",
     "react-icons": "^4.3.1",
