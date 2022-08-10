@@ -49,8 +49,7 @@ const NavBar = () => {
                             )
                         }
                         {
-                            user?.email?.includes("@ifc.edu.br") || 
-                            user?.email?.includes("@pm.me") && (
+                            user?.email?.includes("@ifc.edu.br") && (
                                 <Link href="/">
                                     <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1"
                                     >
