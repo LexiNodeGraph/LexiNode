@@ -11,6 +11,8 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.9.1",
     "@prisma/client": "^4.1.0",
+    "headlessui": "^0.0.0",
+    "heroicons": "^1.0.6",
     "next": "12.2.2",
     "react": "^17.0.2",
     "react-sigma": "^1.2.35"

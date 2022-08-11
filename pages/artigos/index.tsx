@@ -10,8 +10,19 @@ const Artigos = () => {
     const [input, setInput] = useState("");
     const [artigos, setArtigos] = useState<any[]>([]);
 
+    useEffect(() => {
+        //change fetch to axios
+        // https://lexinode.vercel.app/api/dataset
+        // http://localhost:3000/api/dataset
+        fetch("https://lexinode.vercel.app/api/dataset")
+            .then((res) => res.json())
+            .then((data) => setArtigos(data.nodes));
+        return () => {
+            setArtigos([]);
+        };
+    }, []);
+
     return (
-        
         <>
             <NavBar />
 
@@ -49,8 +60,7 @@ const Artigos = () => {
             </div>
 
             <Footer />
-        </> 
-                                             
+        </>
     );
 };
 export default Artigos;
