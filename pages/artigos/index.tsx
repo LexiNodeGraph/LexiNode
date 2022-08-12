@@ -22,42 +22,47 @@ const Artigos = () => {
         };
     }, []);
 
+    function toggleFavorite(id: string) {
+        // Precisa da rota de favoritos no backend
+    }
+
     return (
         <>
             <NavBar />
-
-            <div className="artigos">
-                <div className="input-controls">
-                    <input type="text" value={input} onChange={(e) => setInput(e.target.value)} className="search-input" />
-                    <select name="" id="">
-                        <option value="filtro" selected>
-                            Filtrar por:
-                        </option>
-                        <option value="valor1">Valor 1</option>
-                        <option value="valor2">Valor 2</option>
-                        <option value="valor3">Valor 3</option>
+            <main className="p-4 ">
+                <div className="flex row w-full justify-around p-4">
+                    <input
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        className="block p-4 mx-2 pl-10 w-4/5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Pesquiar artigos"
+                    />
+                    <select className="bg-gray-50 border w-1/5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>Filtar por</option>
                     </select>
                 </div>
-                <div className="artigos-list">
+
+                <ul className="p-4">
                     {artigos.map(
                         (artigo) =>
                             artigo.label.toLowerCase().includes(input) && (
-                                <a href={artigo.URL} key={artigo.id} className="artigo">
-                                    <div className="artigo__header">
-                                        <div className="artigo__nome">
-                                            {artigo.label}{" "}
-                                            {user && (
-                                                <button className="artigo__fav-btn">
-                                                    <AiOutlineStar />
-                                                </button>
-                                            )}
-                                        </div>
+                                <li key={artigo.id} className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
+                                    <div className="flex flex-col w-full p-4">
+                                        <a href={artigo.URL} className=" font-bold ">
+                                            {artigo.label}
+                                        </a>
+                                        <span className="text-slate-600 "> NOME AUTOR</span>
+
+                                        <div className="bg-slate-100 my-2 p-2 rounded w-2/4">TAGS E MAIS DETALHES</div>
                                     </div>
-                                </a>
+
+                                    {user && <button className="text-xl p-2">{artigo.favorite ? <AiFillStar /> : <AiOutlineStar />}</button>}
+                                </li>
                             )
                     )}
-                </div>
-            </div>
+                </ul>
+            </main>
 
             <Footer />
         </>

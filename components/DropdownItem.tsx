@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {RiArrowDropDownLine} from "react-icons/ri";
 import Link from "next/link";
 
-function DropdownItem({children}) {
+function DropdownItem({children}: any) {
     const [isOpen, setIsOpen] = useState(false);
 
     function toggle() {
@@ -10,7 +10,7 @@ function DropdownItem({children}) {
     }
 
     useEffect(() => {
-        function closeDropdown(e) {
+        function closeDropdown(e: any) {
             if (e.composedPath()[1].tagName !== "SPAN") {
                 setIsOpen(false);
             }
@@ -38,7 +38,7 @@ function DropdownItem({children}) {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/artigos">
+                        <Link href="/artigos/favoritos">
                             <a className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Favoritos</a>
                         </Link>
                     </li>

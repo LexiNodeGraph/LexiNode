@@ -34,14 +34,14 @@ const NavBar = () => {
                                 </a>
                             </Link>
                         ) : (
-                            <a className="relative py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
+                            <div className="relative py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
                                 <DropdownItem>
                                     <span className="text-white flex items-center">
                                         Artigos
                                         <RiArrowDropDownLine className="text-white text-2xl" />
                                     </span>
                                 </DropdownItem>
-                            </a>
+                            </div>
                         )}
 
                         <Link href="/autores">
@@ -64,7 +64,7 @@ const NavBar = () => {
                             </Link>
                         )}
                         {user && (
-                            <a className="relative py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
+                            <div className="relative py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
                                 <DropdownUserItem user={user}>
                                     <span className="flex items-center">
                                         <RiArrowDropDownLine className="text-white text-2xl " />
@@ -77,7 +77,7 @@ const NavBar = () => {
                                         />
                                     </span>
                                 </DropdownUserItem>
-                            </a>
+                            </div>
                         )}
                     </div>
                 </div>

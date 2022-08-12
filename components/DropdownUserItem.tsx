@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 
 import Link from "next/link";
 
-function DropdownUserItem({children, user}) {
+function DropdownUserItem({children, user}: any) {
     const [isOpen, setIsOpen] = useState(false);
 
     function toggle() {
@@ -10,7 +10,7 @@ function DropdownUserItem({children, user}) {
     }
 
     useEffect(() => {
-        function closeDropdown(e) {
+        function closeDropdown(e: any) {
             if (e.composedPath()[1].tagName !== "SPAN") {
                 setIsOpen(false);
             }
