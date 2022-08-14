@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import {useUser} from "@auth0/nextjs-auth0";
 
 const Artigos = () => {
-    const {user, error, isLoading} = useUser();
+    const {user} = useUser();
 
     const [input, setInput] = useState("");
     const [artigos, setArtigos] = useState<any[]>([]);
@@ -42,22 +42,57 @@ const Artigos = () => {
             </div>
 
             <ul className="p-4">
-                {artigos.map(
-                    (artigo) =>
-                        artigo.label.toLowerCase().includes(input) && (
-                            <li key={artigo.id} className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
-                                <div className="flex flex-col w-full p-4">
-                                    <a href={artigo.URL} className=" font-bold ">
-                                        {artigo.label}
-                                    </a>
-                                    <span className="text-slate-600 "> NOME AUTOR</span>
+                {artigos.length > 0 &&
+                    artigos.map(
+                        (artigo) =>
+                            artigo.label.toLowerCase().includes(input) && (
+                                <li key={artigo.id} className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
+                                    <div className="flex flex-col w-full p-4">
+                                        <a href={artigo.URL} className=" font-bold ">
+                                            {artigo.label}
+                                        </a>
+                                        <span className="text-slate-600 "> NOME AUTOR</span>
 
-                                    <div className="bg-slate-100 my-2 p-2 rounded w-2/4">TAGS E MAIS DETALHES</div>
-                                </div>
+                                        <div className="bg-slate-100 my-2 p-2 rounded w-2/4">TAGS E MAIS DETALHES</div>
+                                    </div>
 
-                                {user && <button className="text-xl p-2">{artigo.favorite ? <AiFillStar /> : <AiOutlineStar />}</button>}
-                            </li>
-                        )
+                                    {user && <button className="text-xl p-2">{artigo.favorite ? <AiFillStar /> : <AiOutlineStar />}</button>}
+                                </li>
+                            )
+                    )}
+
+                {artigos.length == 0 && (
+                    <>
+                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
+                            <div className="flex flex-col w-full space-y-6 ">
+                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
+                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
+                            </div>
+                        </li>
+                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
+                            <div className="flex flex-col w-full space-y-6 ">
+                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
+                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
+                            </div>
+                        </li>
+
+                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
+                            <div className="flex flex-col w-full space-y-6 ">
+                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
+                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
+                            </div>
+                        </li>
+                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
+                            <div className="flex flex-col w-full space-y-6 ">
+                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
+                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
+                            </div>
+                        </li>
+                    </>
                 )}
             </ul>
         </main>
