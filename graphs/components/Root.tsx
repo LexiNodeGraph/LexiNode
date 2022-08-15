@@ -39,8 +39,6 @@ const Root: FC = () => {
     // Load data on mount:
     useEffect(() => {
         //change fetch to axios
-        // https://lexinode.vercel.app/api/dataset
-        // http://localhost:3000/api/dataset
         fetch(`${url}/api/dataset`)
             .then((res) => res.json())
             .then((dataset: Dataset) => {

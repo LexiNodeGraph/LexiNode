@@ -17,9 +17,6 @@ const Artigos = () => {
       
     useEffect(() => {
         
-        //change fetch to axios
-        // https://lexinode.vercel.app/api/dataset
-        // http://localhost:3000/api/dataset
         fetch(`${url}/api/dataset`)
             .then((res) => res.json())
             .then((data) => setArtigos(data.nodes));
