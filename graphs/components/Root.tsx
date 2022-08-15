@@ -30,13 +30,18 @@ const Root: FC = () => {
     });
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
-    // Load data on mount:
+    let url: string;
 
+    if (typeof window !== "undefined") {
+            window.location.protocol == 'http:' ? url = 'http://localhost:3000'  : url = 'https://lexinode.vercel.app';
+        }
+
+    // Load data on mount:
     useEffect(() => {
         //change fetch to axios
         // https://lexinode.vercel.app/api/dataset
         // http://localhost:3000/api/dataset
-        fetch(`https://lexinode.vercel.app/api/dataset`)
+        fetch(`${url}/api/dataset`)
             .then((res) => res.json())
             .then((dataset: Dataset) => {
                 setDataset(dataset);
@@ -64,6 +69,7 @@ const Root: FC = () => {
                     labelRenderedSizeThreshold: 15,
                     labelFont: "Lato, sans-serif",
                     zIndex: true,
+                    
                 }}
                 className="react-sigma"
             >

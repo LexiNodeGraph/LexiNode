@@ -6,15 +6,21 @@ import {useUser} from "@auth0/nextjs-auth0";
 
 const Artigos = () => {
     const {user} = useUser();
-
+    // import variables from .env
+    let url: string;
     const [input, setInput] = useState("");
     const [artigos, setArtigos] = useState<any[]>([]);
 
+    if (typeof window !== "undefined") {
+        window.location.protocol == 'http:' ? url = 'http://localhost:3000'  : url = 'https://lexinode.vercel.app';
+      }
+      
     useEffect(() => {
+        
         //change fetch to axios
         // https://lexinode.vercel.app/api/dataset
         // http://localhost:3000/api/dataset
-        fetch("https://lexinode.vercel.app/api/dataset")
+        fetch(`${url}/api/dataset`)
             .then((res) => res.json())
             .then((data) => setArtigos(data.nodes));
         return () => {
