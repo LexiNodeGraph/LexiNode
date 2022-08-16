@@ -35,10 +35,10 @@ const NavBar = () => {
                             </Link>
                         ) : (
                             <div className="relative py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
-                                <DropdownItem>
+                                <DropdownItem user={user}>
                                     <span className="text-white flex items-center">
-                                        Artigos
                                         <RiArrowDropDownLine className="text-white text-2xl" />
+                                        Artigos
                                     </span>
                                 </DropdownItem>
                             </div>
