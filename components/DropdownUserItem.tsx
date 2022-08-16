@@ -28,17 +28,18 @@ function DropdownUserItem({children, user}: any) {
                 {children}
             </span>
 
-            <div className={`${isOpen ? "" : "hidden"} absolute left-0 top-full z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700`}>
-                <ul className="py-1 text-sm text-gray-700 dark:text-gray-200">
+            <div className={`${isOpen ? "" : "hidden"} absolute left-0 top-full z-10 w-44 bg-stone-900 rounded divide-y divide-gray-100 shadow-2xl
+            ]`}>
+                <ul className="py-1 text-sm text-gray-700">
                     <li>
                         <Link href="/perfil">
-                            <a className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Meu perfil</a>
+                            <a className="block py-2 px-4 hover:bg-stone-800 text-white">Meu perfil</a>
                         </Link>
                     </li>
                     <li>
                         {user && (
                             <Link href="/api/auth/logout">
-                                <a className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sair</a>
+                                <a className="block py-2 px-4 hover:bg-stone-800 text-[#EF4444]">Sair</a>
                             </Link>
                         )}
                     </li>
