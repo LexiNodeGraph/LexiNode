@@ -19,23 +19,24 @@ const NavBarResp = () => {
     return (
         <>
         <div>
-      <nav className="bg-black h-16">
+      <nav className="bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
+          <div className="flex justify-between h-16">
 
-            {/* Logo */}
-              <div className="flex-shrink-0">
-                <Link href="/">
-                    <a className="flex items-center py-6 px-2">
-                        <span className="text-[#EEEEEE] font-semibold text-2xl tracking-tight pl-2">LEXI</span>
-                        <span className="text-[#0952DB] font-semibold text-2xl tracking-tight pr-2">NODE</span>
-                    </a>
-                </Link>
+            <div className="flex w-full justify-between items-center">
 
-              </div>
-            {/* Routes */}
-              <div className="hidden md:block">
+                {/* Logo */}
+                <div className="flex-shrink-0">
+                    <Link href="/">
+                        <a className="flex items-center py-6 px-2">
+                            <span className="text-[#EEEEEE] font-semibold text-2xl tracking-tight pl-2">LEXI</span>
+                            <span className="text-[#0952DB] font-semibold text-2xl tracking-tight pr-2">NODE</span>
+                        </a>
+                    </Link>
+
+                </div>
+                {/* Routes */}
+            <div className="hidden justify-between md:flex">
                 <div className="ml-10 items-center flex space-x-4">
                     {!user ? (
                         <Link href="/artigos">
@@ -77,10 +78,10 @@ const NavBarResp = () => {
                     )}
 
                     {user && (
-                        <div className="relative py-2 px-3 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
+                        <div className="relative py-2 px-3 font-semibold rounded-full transition duration-300 mx-1">
                             <DropdownUserItem user={user}>
                                 <span className="flex">
-                                   
+                                
                                     <Image
                                         className="rounded-full"
                                         src={user.picture || "https://i.imgur.com/eRWRaqG.png"}
@@ -94,7 +95,7 @@ const NavBarResp = () => {
                     )}
 
                 </div>
-              </div>              
+            </div>              
 
             </div>
 
