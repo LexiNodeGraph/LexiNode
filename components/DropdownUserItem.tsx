@@ -28,8 +28,7 @@ function DropdownUserItem({children, user}: any) {
                 {children}
             </span>
 
-            <div className={`${isOpen ? "" : "hidden"} absolute left-0 top-full z-10 w-44 bg-stone-900 rounded divide-y divide-gray-100 shadow-2xl
-            ]`}>
+            <div className={`${isOpen ? "" : "hidden"} absolute left-0 top-full z-10 w-44 bg-stone-900 rounded divide-y divide-gray-100 shadow-2xl`}>
                 <ul className="py-1 text-sm text-gray-700">
                     <li>
                         <Link href="/perfil">

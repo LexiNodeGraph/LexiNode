@@ -14,8 +14,7 @@ const NavBar = () => {
         <nav className="bg-black shadow-xl z-50">
             <div className="max-w-6xl mx-auto px-4">
                 <div
-                    className="flex justify-between
-                "
+                    className="flex justify-between"
                 >
                     <div>
                         <Link href="/">
