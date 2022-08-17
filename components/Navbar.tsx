@@ -3,9 +3,7 @@ import Image from "next/image";
 import React from "react";
 import DropdownItem from "../components/DropdownItem";
 import DropdownUserItem from "../components/DropdownUserItem";
-
 import {RiArrowDropDownLine} from "react-icons/ri";
-
 import {useUser} from "@auth0/nextjs-auth0";
 
 function toggleMenu() {

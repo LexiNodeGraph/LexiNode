@@ -1,15 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import DropdownItem from "../components/DropdownItem";
-import DropdownUserItem from "../components/DropdownUserItem";
 import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
 import {RiArrowDropDownLine} from "react-icons/ri";
 
-
-import Root from "../graphs/components/Root";
-
+import { Transition } from "@headlessui/react";
 import {useUser} from "@auth0/nextjs-auth0";
+
+import DropdownItem from "../components/DropdownItem";
+import DropdownUserItem from "../components/DropdownUserItem";
+
 
 const NavBarResp = () => {
     const {user, error, isLoading} = useUser();
@@ -160,40 +159,86 @@ const NavBarResp = () => {
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a
-                  href="#"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Dashboard
-                </a>
 
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Team
-                </a>
+                {!user && ( 
+                    <Link href="/artigos" >
 
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Projects
-                </a>
+                        <a 
+                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                            Artigos
+                        </a>
+                    </Link>
+                    )
 
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Calendar
-                </a>
+                }
+                {user && ( 
+                    <Link href="/artigos" >
 
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        <a 
+                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                            Todos os Artigos
+                        </a>
+                    </Link>
+                    )
+
+                }
+                {user && ( 
+                    <Link href="/artigos/favoritos" >
+
+                        <a 
+                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                            Favoritos
+                        </a>
+                    </Link>
+                    )
+
+                }
+
+                <Link
+                  href="/autores"
                 >
-                  Reports
-                </a>
+                    <a 
+                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                        Autores
+                    </a>
+                </Link>
+                {!user && ( 
+                    <Link href="/api/auth/login" >
+
+                        <a 
+                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                            Entrar
+                        </a>
+                    </Link>
+                    )
+
+                }
+                {user && ( 
+                    <Link href="/perfil" >
+
+                        <a 
+                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                            Meu Perfil
+                        </a>
+                    </Link>
+                    )
+
+                }
+
+                {user && ( 
+                    <Link href="/api/auth/logout" >
+
+                        <a 
+                        className="hover:bg-gray-700 text-[#EF4444] block px-3 py-2 rounded-md text-base font-medium">
+                            Sair
+                        </a>
+                    </Link>
+                    )
+
+                }
+
+                
               </div>
             </div>
           )}
