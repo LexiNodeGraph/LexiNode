@@ -54,7 +54,7 @@ const Root: FC = () => {
     if (!dataset) return null;
 
     return (
-        <div id="app-root" className={showContents ? "show-contents" : ""}>
+        <div id="app-root" className={"z-0" + (showContents ? "show-contents" : "")}>
             <SigmaContainer
                 graphOptions={{type: "directed"}}
                 initialSettings={{

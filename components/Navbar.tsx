@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import React from "react";
 import DropdownItem from "../components/DropdownItem";
 import DropdownUserItem from "../components/DropdownUserItem";
 
@@ -19,6 +19,7 @@ function toggleMenu() {
 
 const NavBar = () => {
     const {user, error, isLoading} = useUser();
+    const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
         <nav className="bg-black shadow-xl z-50 w-full">
             <div className="max-w-6xl mx-auto px-4">
@@ -32,22 +33,19 @@ const NavBar = () => {
                                 <span className="text-[#0952DB] font-semibold text-2xl tracking-tight pr-2">NODE</span>
                             </a>
                         </Link>
-
+                        
                     </div>
-                    
 
                     {/* RESPONSIVE */}
 
+                   <div className={"md:hidden w-full items-center md:w-auto mt-5 md:mt-0 border-t-2 md:border-none" + (navbarOpen ? " flex" : " hidden")}>
+                            <h3 className="block md:inline-block font-semibold text-white hover:text-blue-500 px-3 py-3 border-b-2 border-white md:border-none">Artigos</h3>
+                            <h3 className="block md:inline-block font-semibold text-white hover:text-blue-500 px-3 py-3 border-b-2 border-white md:border-none">Autores</h3>
 
-
-                    <div className="toggle md:hidden hidden w-full md:w-auto mt-5 md:mt-0 border-t-2 md:border-none">
-                        <h3 className="block md:inline-block font-semibold text-white hover:text-blue-500 px-3 py-3 border-b-2 border-white md:border-none">Artigos</h3>
-                        <h3 className="block md:inline-block font-semibold text-white hover:text-blue-500 px-3 py-3 border-b-2 border-white md:border-none">Autores</h3>
-
-                    </div>
+                        </div>
 
                     <div className="flex md:hidden">
-                        <button onClick={toggleMenu} id="hamburger">
+                        <button onClick={() => setNavbarOpen(!navbarOpen)} id="hamburger">
                             <img className="toggle block" src="/whiteMenu.png" width="40" height="40" />
                             <img className="toggle hidden" src="/whiteMenu.png" width="40" height="40" />
                         </button>

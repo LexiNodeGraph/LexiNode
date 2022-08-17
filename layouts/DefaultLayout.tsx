@@ -11,7 +11,7 @@ function DefaultLayout({children}: any) {
                 <title>LEXINODE</title>
                 <link rel="icon" href="/favicon.png" />
             </Head>
-            <NavBar />
+            <NavBarResp />
             <div>{children}</div>
             <Footer />
         </>

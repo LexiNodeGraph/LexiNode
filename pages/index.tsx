@@ -4,7 +4,7 @@ import React from "react";
 const Home = () => {
     return (
         <>
-            <main className="fixed h-screen w-full inset-x-0 top-20 z-0">
+            <main className="fixed h-screen w-full top-50 z-0">
                 <Root />
             </main>
         </>
