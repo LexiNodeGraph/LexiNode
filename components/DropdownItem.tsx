@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {RiArrowDropDownLine} from "react-icons/ri";
 import Link from "next/link";
 
-function DropdownItem({children}: any) {
+function DropdownItem({children, user}: any) {
     const [isOpen, setIsOpen] = useState(false);
 
     function toggle() {
@@ -37,6 +37,14 @@ function DropdownItem({children}: any) {
                             <a className="block py-2 px-4 hover:bg-stone-800 text-white">Todos os artigos</a>
                         </Link>
                     </li>
+
+                    {user.email.includes("@ifc.edu.br") && (
+                        <li>
+                            <Link href="/adicionar">
+                                <a className="block py-2 px-4 hover:bg-stone-800 text-white">Adicionar artigo</a>
+                            </Link>
+                        </li>
+                    )}
                     <li>
                         <Link href="/artigos/favoritos">
                             <a className="block py-2 px-4 hover:bg-stone-800 text-white">Favoritos</a>
