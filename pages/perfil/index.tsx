@@ -8,7 +8,7 @@ const Perfil = () => {
 
     return (
         <main>
-            <div className="flex justify-center mt-10 mb-96">
+            {/* <div className="flex justify-center mt-10 mb-96">
 
                 <div className="flex justify-start bg-gray-200 w-4/5 h-64 rounded-lg">
                     <div className="ml-12 mt-10">
@@ -37,7 +37,7 @@ const Perfil = () => {
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h2>
                     </div>  
                 </div>
-            </div>
+            </div> */}
         </main>
     );
 };

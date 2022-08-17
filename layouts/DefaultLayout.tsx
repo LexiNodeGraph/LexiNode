@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/Navbar";
 import Head from "next/head";
+import NavBarResp from "../components/NavBarResp";
 
 function DefaultLayout({children}: any) {
     return (
