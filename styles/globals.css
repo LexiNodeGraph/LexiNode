@@ -83,18 +83,12 @@ body {
     max-width: calc(100vw - var(--panels-width) - 3 * var(--stage-padding));
     padding: var(--stage-padding);
 }
-.graph-title h1 {
-    font-size: 1.8em;
-}
-.graph-title h1,
-.graph-title h2 {
-    margin: 0;
-    background: var(--transparent-white);
-}
+
+
 .panels {
     position: absolute;
     bottom: 0;
-    margin-bottom: 110px;
+    margin-bottom: 70px;
     right: 0;
     width: 350px;
     max-height: calc(100vh - 2 * var(--stage-padding));
