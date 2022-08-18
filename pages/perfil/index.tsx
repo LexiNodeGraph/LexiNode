@@ -7,8 +7,8 @@ const Perfil = () => {
     const {user, error, isLoading} = useUser();
 
     return (
-        <main>
-            <div className="flex justify-center mt-10 mb-96">
+        <main className="h-screen">
+            <div className="flex justify-center mt-10">
                 <div className="bg-gray-200 w-[20rem] h-72 md:w-3/5 md:h-44
                  rounded-lg">
                     <div className="grid md:flex mt-4 md:mt-5">
