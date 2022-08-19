@@ -23,6 +23,7 @@ const Artigos = () => {
         return () => {
             setArtigos([]);
         };
+        
     }, []);
 
     function toggleFavorite(id: string) {

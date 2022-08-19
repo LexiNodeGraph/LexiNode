@@ -1,22 +1,30 @@
 import Root from "../graphs/components/Root";
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
-import {useUser} from "@auth0/nextjs-auth0";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const Home = () => {
     const { user } = useUser();
-    
-    // const find = axios.get('/api/user/find')
-    //     .then(response => {
-    //         const email = response.data.email || "No email";
-    //         this.setState({ email });
-    //     })
-    
-        // const create = axios.post('/api/user/create', user || "");
+
+    const find = async () => await axios.get(`/api/user/find/${user?.email}`);
+    const create = async () => await axios.post('/api/user/create', user || {});
+
+
+    if (user) {
+        find().then((res) => {
+            if (res.data === null) {
+                create().then((res) => {
+                    console.log(res);
+                })
+            }
+        })
+
+    }
+
+    // const create = axios.post('/api/user/create', user || "");
 
     // console.log(user);
-
 
     return (
         <>
@@ -25,6 +33,7 @@ const Home = () => {
             </main>
         </>
     );
+
 };
 
 export default Home;
