@@ -6,15 +6,15 @@ import {useUser} from "@auth0/nextjs-auth0";
 
 const Artigos = () => {
     const {user} = useUser();
-    // import variables from .env
+
     let url: string;
+    
     const [input, setInput] = useState("");
     const [artigos, setArtigos] = useState<any[]>([]);
 
     if (typeof window !== "undefined") {
-        window.location.protocol == 'http:' ? url = 'http://localhost:3000'  : url = 'https://lexinode.vercel.app';
-      }
-      
+                    window.location.protocol == 'http:' ? url = 'http://localhost:3000'  : url = 'https://lexinode.vercel.app';
+                }
     useEffect(() => {
         
         fetch(`${url}/api/dataset`)
@@ -23,7 +23,7 @@ const Artigos = () => {
         return () => {
             setArtigos([]);
         };
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function toggleFavorite(id: string) {

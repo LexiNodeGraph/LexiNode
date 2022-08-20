@@ -11,9 +11,8 @@ import DropdownUserItem from "../components/DropdownUserItem";
 
 
 const NavBarResp = () => {
-    const {user, error, isLoading} = useUser();
     const [isOpen, setIsOpen] = useState(false);
-
+    const {user} = useUser();
 
     return (
         <>

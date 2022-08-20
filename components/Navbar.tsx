@@ -42,12 +42,12 @@ const NavBar = () => {
 
                         </div>
 
-                    <div className="flex md:hidden">
+                    {/* <div className="flex md:hidden">
                         <button onClick={() => setNavbarOpen(!navbarOpen)} id="hamburger">
                             <img className="toggle block" src="/whiteMenu.png" width="40" height="40" />
                             <img className="toggle hidden" src="/whiteMenu.png" width="40" height="40" />
                         </button>
-                    </div>
+                    </div> */}
 
                     
 
