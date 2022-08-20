@@ -17,6 +17,12 @@ model User {
   isAuthor  Boolean?
 }
 
+model Author {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String @unique
+  isAuthor  Boolean?
+}
 
 model Dataset {
   id        String @id @default(auto()) @map("_id") @db.ObjectId

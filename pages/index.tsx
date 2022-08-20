@@ -9,38 +9,37 @@ const Home = () => {
     const {user} = useUser();
     let [isOpen, setIsOpen] = useState(true);
 
-    const find = async () => await axios.get(`/api/user/find/${user?.email}`);
-    const create = async () => await axios.post('/api/user/create', user || {});
+    // Finding and createting user
+    const findUser = async () => await axios.get(`/api/user/find/${user?.email}`);
+    const createUser = async () => await axios.post('/api/user/create', user || {});
     
+    // Finding and createting author
+    const findAuthor = async () => await axios.get(`/api/author/find/${user?.email}`);
+    const createAuthor = async () => await axios.post('/api/author/create', user || {});
+
     function PopupHandler() {
-        find()
-            .then((res) => { 
-                if(res.data === null) {
-                    create();
-            }
-        });
+        if(user?.email?.includes("@ifc.edu.br")) {
+            findAuthor()
+                .then((res) => { 
+                    if(res.data === null) {
+                        createAuthor();
+                }
+            });
+        } else {
+            findUser()
+                .then((res) => { 
+                    if(res.data === null) {
+                        createUser();
+                }
+            });
+        }
         return setIsOpen(false);
     }
 
     return (
         <>  
             <main className="fixed h-screen w-full top-50 z-0">
-                
                 <Dialog className="relative z-50" open={isOpen} onClose={() => PopupHandler()}>
-                    {/* <Dialog.Panel>
-                        <Dialog.Title>Deactivate account</Dialog.Title>
-                        <Dialog.Description>
-                        This will permanently deactivate your account
-                        </Dialog.Description>
-
-                        <p>
-                        Are you sure you want to deactivate your account? All of your data
-                        will be permanently removed. This action cannot be undone.
-                        </p>
-
-                        <button onClick={() => setIsOpen(false)}>Deactivate</button>
-                        <button onClick={() => setIsOpen(false)}>Cancel</button>
-                    </Dialog.Panel> */}
                 </Dialog>
                 <Root />
             </main>

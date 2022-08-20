@@ -24,3 +24,14 @@ export async function findUser(email: string) {
     await prisma.$disconnect();
     return new response(200, "User found", user);
 }
+
+export async function findAuthor(email: string) {
+    await prisma.$connect();
+    const user = await prisma.author.findUnique({
+        where: {
+            email: email
+            } 
+          });
+    await prisma.$disconnect();
+    return new response(200, "User found", user);
+}
