@@ -7,15 +7,12 @@ import {useUser} from "@auth0/nextjs-auth0";
 
 const Home = () => {
     const {user} = useUser();
-    let [isOpen, setIsOpen] = useState(true)
-
-
-
+    let [isOpen, setIsOpen] = useState(true);
 
     const find = async () => await axios.get(`/api/user/find/${user?.email}`);
     const create = async () => await axios.post('/api/user/create', user || {});
     
-    function handleCreate() {
+    function PopupHandler() {
         find()
             .then((res) => { 
                 if(res.data === null) {
@@ -25,21 +22,11 @@ const Home = () => {
         return setIsOpen(false);
     }
 
-    // if(user) {
-    //     axios.get(`/api/user/find/${user?.email}`)
-    //         .then((res) => { 
-    //             if(res.data === null) {
-    //                 axios.post('/api/user/create', user || {})
-    //                     .then(res => console.log("created"));
-    //         }
-    //     });
-    // }
-
     return (
         <>  
             <main className="fixed h-screen w-full top-50 z-0">
                 
-                <Dialog className="relative z-50" open={isOpen} onClose={() => handleCreate()}>
+                <Dialog className="relative z-50" open={isOpen} onClose={() => PopupHandler()}>
                     {/* <Dialog.Panel>
                         <Dialog.Title>Deactivate account</Dialog.Title>
                         <Dialog.Description>
