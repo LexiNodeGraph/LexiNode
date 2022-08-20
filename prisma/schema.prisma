@@ -21,6 +21,7 @@ model Author {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   email     String @unique
+  picture   String
   isAuthor  Boolean?
 }
 

@@ -15,12 +15,13 @@ export async function createUser(name: string, email: string) {
     return new response(200, "User created", user);
 }
 
-export async function createAuthor(name: string, email: string) {
+export async function createAuthor(name: string, email: string, picture: string) {
     await prisma.$connect();
     const  user = await prisma.author.create({
         data: {
             name: name,
-            email: email
+            email: email,
+            picture: picture
         }
     });
     await prisma.$disconnect();
