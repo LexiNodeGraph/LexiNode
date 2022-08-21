@@ -7,7 +7,7 @@ const Autores = () => {
 
     useEffect(() => {
         
-        axios.get('http://localhost:3000/api/author/find/all')
+        axios.get('/api/author/find/all')
             .then((res) => setAuthors(res.data));
         return () => {
             setAuthors([]);
