@@ -19,6 +19,7 @@ const Autores = () => {
         <main>
             <h1 className="flex justify-center text-2xl">Autores</h1>
             <h2>{
+                    // Teste
                     authors.length > 0 && authors.map(
                         (author) => (
                             <li key={author.id} className="flex row justify-between m-2 bg-black drop-shadow-lg p-2 rounded">
