@@ -41,7 +41,6 @@ const TagsPanel: FC<{
     () => sortBy(tags, (tag) => (tag.key === "unknown" ? Infinity : -nodesPerTag[tag.key])),
     [tags, nodesPerTag],
   );
-
   return (
     <Panel
       title={
@@ -73,39 +72,67 @@ const TagsPanel: FC<{
       <ul>
         {sortedTags.map((tag) => {
           const nodesCount = nodesPerTag[tag.key];
+          // console.log(nodesCount);
           const visibleNodesCount = visibleNodesPerTag[tag.key] || 0;
+          console.log()
           return (
+            
             <li
               className="caption-row"
-              key={tag.key}
-              title={`${nodesCount} page${nodesCount > 1 ? "s" : ""}${
-                visibleNodesCount !== nodesCount ? ` (only ${visibleNodesCount} visible)` : ""
-              }`}
+              key={tag.key} 
             >
-              <input
-                type="checkbox"
-                checked={filters.tags[tag.key] || false}
-                onChange={() => toggleTag(tag.key)}
-                id={`tag-${tag.key}`}
-              />
-              <label htmlFor={`tag-${tag.key}`}>
-                <span
-                  className="circle"
-                  style={{ backgroundImage: `url(../../images/${tag.image})` }}
-                />{" "}
-                <div className="node-label">
-                  <span>{tag.key}</span>
-                  <div className="bar" style={{ width: (100 * nodesCount) / maxNodesPerTag + "%" }}>
-                    <div
-                      className="inside-bar"
-                      style={{
-                        width: (100 * visibleNodesCount) / nodesCount + "%",
-                      }}
+              {
+                nodesCount > 0 ? (
+                  <>
+                    <input
+                      type="checkbox"
+                      checked={filters.tags[tag.key] || false}
+                      onChange={() => toggleTag(tag.key)}
+                      id={`tag-${tag.key}`}
                     />
-                  </div>
-                </div>
-              </label>
+                    <label htmlFor={`tag-${tag.key}`}>
+                      <span
+                        className="circle"
+                        style={{ backgroundImage: `url(../../images/${tag.image})` }}
+                        />{" "}
+
+                      <div className="node-label">
+                      <span>{tag.key}</span>
+
+                      { nodesCount > 0 ? (
+                        <span className="text-muted text-small">
+                          {" "}
+                          ({visibleNodesCount} / {nodesCount})
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                  
+                      <div className="bar" style={{ width: (100 * nodesCount) / maxNodesPerTag + "%" }}>
+                        <div
+                          className="inside-bar"
+                          style={{
+                          width: (100 * visibleNodesCount) / nodesCount + "%",
+                          }}
+                        />
+
+                      </div>
+
+                      </div>
+
+                    </label>
+                  </> 
+                ) : (
+                  ""
+                )
+              }
+              
+
+
             </li>
+
+
+
           );
         })}
       </ul>

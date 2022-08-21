@@ -21,7 +21,7 @@ const Panel: FC<{ title: JSX.Element | string; initiallyDeployed?: boolean; chil
 
   return (
     <div className="panel" ref={dom}>
-      <h2>
+      <h2 className="text-black font-semibold">
         {title}{" "}
         <button type="button" onClick={() => setIsDeployed((v) => !v)}>
           {isDeployed ? <MdExpandLess /> : <MdExpandMore />}

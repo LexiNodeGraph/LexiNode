@@ -13,9 +13,11 @@ const GraphTitle: FC<{ filters: FiltersState }> = ({ filters }) => {
 
   const [visibleItems, setVisibleItems] = useState<{ nodes: number; edges: number }>({ nodes: 0, edges: 0 });
   useEffect(() => {
+
     // To ensure the graphology instance has up to data "hidden" values for
     // nodes, we wait for next frame before reindexing. This won't matter in the
     // UX, because of the visible nodes bar width transition.
+
     requestAnimationFrame(() => {
       const index = { nodes: 0, edges: 0 };
       graph.forEachNode((_, { hidden }) => !hidden && index.nodes++);
@@ -25,7 +27,7 @@ const GraphTitle: FC<{ filters: FiltersState }> = ({ filters }) => {
   }, [filters]);
 
   return (
-    <div className="graph-title">
+    <div className="graph-title text-black font-semibold text-lg">
       <h2>
         <i>
           {graph.order} nó{graph.order > 1 ? "s" : ""}{" e "}

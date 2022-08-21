@@ -69,7 +69,7 @@ body {
 }
 .controls {
     position: absolute;
-    margin-bottom: 110px;
+    margin-bottom: 70px;
     bottom: var(--stage-padding);
     left: var(--stage-padding);
 }
@@ -84,7 +84,6 @@ body {
     max-width: calc(100vw - var(--panels-width) - 3 * var(--stage-padding));
     padding: var(--stage-padding);
 }
-
 
 .panels {
     position: absolute;
@@ -183,7 +182,7 @@ ul > li {
  * ****************
  */
 .panel {
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 1em;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
