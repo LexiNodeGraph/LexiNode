@@ -17,9 +17,7 @@ const Home = () => {
     const createAuthor = async () => await axios.post('/api/author/create', user || {});
 
     function PopupHandler() {
-        // if(user?.email?.includes("@ifc.edu.br"))
-        // if(user?.email?.includes("venienn")) Teste de email
-        if(user?.email?.includes("venienn")) {
+        if(user?.email?.includes("@ifc.edu.br")) {
             findAuthor()
                 .then((res) => { 
                     if(res.data === null) {
