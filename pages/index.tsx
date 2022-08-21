@@ -9,17 +9,17 @@ const Home = () => {
     const {user} = useUser();
     let [isOpen, setIsOpen] = useState(true);
     // Finding and createting user
-    const findUser = async () => await axios.get(`/api/user/find/${user?.email}`);
+    const findUser = async () => await axios.get(`/api/user/find/${user?.nickname}`);
     const createUser = async () => await axios.post('/api/user/create', user || {});
     
     // Finding and createting author
-    const findAuthor = async () => await axios.get(`/api/author/find/${user?.email}`);
+    const findAuthor = async () => await axios.get(`/api/author/find/${user?.nickname}`);
     const createAuthor = async () => await axios.post('/api/author/create', user || {});
 
     function PopupHandler() {
         // if(user?.email?.includes("@ifc.edu.br"))
         // if(user?.email?.includes("venienn")) Teste de email
-        if(user?.email?.includes("@ifc.edu.br")) {
+        if(user?.email?.includes("venienn")) {
             findAuthor()
                 .then((res) => { 
                     if(res.data === null) {

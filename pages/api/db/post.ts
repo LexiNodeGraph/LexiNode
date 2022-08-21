@@ -3,27 +3,29 @@ import { response } from "../lib/response";
 
 const prisma = new PrismaClient();
 
-export async function createUser(name: string, email: string) {
+export async function createUser(name: string, nickname: string, email: string) {
     await prisma.$connect();
-    const  user = await prisma.user.create({
+    const createU = await prisma.user.create({
         data: {
             name: name,
+            nickname: nickname,
             email: email
         }
     });
     await prisma.$disconnect();
-    return new response(200, "User created", user);
+    return new response(200, "User created", createU);
 }
 
-export async function createAuthor(name: string, email: string, picture: string) {
+export async function createAuthor(name: string, nickname: string, email: string, picture: string) {
     await prisma.$connect();
-    const  user = await prisma.author.create({
+    const createA = await prisma.author.create({
         data: {
             name: name,
+            nickname: nickname,
             email: email,
             picture: picture
         }
     });
     await prisma.$disconnect();
-    return new response(200, "Author created", user);
+    return new response(200, "Author created", createA);
 }

@@ -6,8 +6,8 @@ export default async function handler(
    req: NextApiRequest, 
    res: NextApiResponse) {
 
-    const { name, email } = req.body;
-    const create = await createUser(name, email);
+    const { name, nickname, email } = req.body;
+    const create = await createUser(name, nickname, email);
     res.json(create);
     
 }

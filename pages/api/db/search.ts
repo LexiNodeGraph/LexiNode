@@ -14,24 +14,31 @@ export async function find_data(id: string) {
     return new response(200, "Data found", data);
 }
 
-export async function findUser(email: string) {
+export async function findUser(nickname: string) {
     await prisma.$connect();
     const user = await prisma.user.findUnique({
         where: {
-            email: email
+            nickname: nickname
             } 
           });
     await prisma.$disconnect();
     return new response(200, "User found", user);
 }
 
-export async function findAuthor(email: string) {
+export async function findAuthor(nickname: string) {
     await prisma.$connect();
     const user = await prisma.author.findUnique({
         where: {
-            email: email
+            nickname: nickname
             } 
           });
     await prisma.$disconnect();
     return new response(200, "User found", user);
+}
+
+export async function findAllAuthors() {
+    await prisma.$connect();
+    const authors = await prisma.author.findMany();
+    await prisma.$disconnect();
+    return new response(200, "Authors found", authors);
 }

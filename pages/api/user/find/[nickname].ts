@@ -9,8 +9,8 @@ export default async function handler(
 
     const query = req.query;
     
-    const { email } = query;
-    const find = await findUser(email as string);
+    const { nickname } = query;
+    const find = await findUser(nickname as string);
     res.json(find.content);
     
 }
