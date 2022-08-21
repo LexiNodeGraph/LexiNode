@@ -59,14 +59,16 @@ const TagsPanel: FC<{
     >
       <div>
       <p>
-        <i className="text-muted">Click a category to show/hide related pages from the network.</i>
+        <i className="text-muted">
+          Clique em uma categoria para filtrar os nós por ela.
+          </i>
       </p>
       <p className="buttons">
         <button className="btn" onClick={() => setTags(mapValues(keyBy(tags, "key"), () => true))}>
-          <AiOutlineCheckCircle /> Check all
+          <AiOutlineCheckCircle /> Mostrar todas
         </button>{" "}
         <button className="btn" onClick={() => setTags({})}>
-          <AiOutlineCloseCircle /> Uncheck all
+          <AiOutlineCloseCircle /> Esconder todas
         </button>
       </p>
       <ul>

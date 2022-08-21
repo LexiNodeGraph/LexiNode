@@ -60,14 +60,16 @@ const ClustersPanel: FC<{
       }
     ><div>
       <p>
-        <i className="text-muted">Click a cluster to show/hide related pages from the network.</i>
+        <i className="text-muted">
+          Clique em uma comunidade para filtrar os nós por ela.
+        </i>
       </p>
       <p className="buttons">
         <button className="btn" onClick={() => setClusters(mapValues(keyBy(clusters, "key"), () => true))}>
-          <AiOutlineCheckCircle /> Check all
+          <AiOutlineCheckCircle /> Mostrar todas
         </button>{" "}
         <button className="btn" onClick={() => setClusters({})}>
-          <AiOutlineCloseCircle /> Uncheck all
+          <AiOutlineCloseCircle /> Esconder todas
         </button>
       </p>
       <ul>
@@ -92,6 +94,14 @@ const ClustersPanel: FC<{
                 <span className="circle" style={{ background: cluster.color, borderColor: cluster.color }} />{" "}
                 <div className="node-label">
                   <span>{cluster.clusterLabel}</span>
+                  { nodesCount > 0 ? (
+                        <span className="text-muted text-small">
+                          {" "}
+                          ({visibleNodesCount} / {nodesCount})
+                        </span>
+                      ) : (
+                        ""
+                      )}
                   <div className="bar" style={{ width: (100 * nodesCount) / maxNodesPerCluster + "%" }}>
                     <div
                       className="inside-bar"
