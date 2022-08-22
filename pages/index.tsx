@@ -27,28 +27,26 @@ const Home = () => {
         return setIsOpen(false);
     }
 
-    useEffect(() => {
+    
         // Finding author
        
-        let find = axios.get(`/api/author/find/${user?.nickname}`).then((res) => {
-            if (res.data == null) {
-                setIsAuthor(false);
-            }
-            else {
-                setIsAuthor(true);
-            }
-        }).catch((err) => {
-            throw err;
-        })
-        
-    }, [isAuthor])
+    let find = async () => await axios.get(`/api/author/find/${user?.nickname}`).then((res) => {
+        if (res.data == null) {
+            setIsAuthor(false);
+        }
+        else {
+            setIsAuthor(true);
+        }
+    })
+    find();
+
 
 
     return (
         <>
             <main className="fixed h-screen w-full top-50 z-0">
 
-                {user?.email?.includes("@ifc") && isAuthor == false ? (
+                {user?.email?.includes("ven") && isAuthor == false ? (
 
                     <div>
                         <h1>~ FORMULÁRIO AUTOR~</h1>
