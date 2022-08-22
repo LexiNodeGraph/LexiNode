@@ -1,5 +1,7 @@
 import Root from "../graphs/components/Root";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import AuthorForm from "./componets/AuthorForm";
+
 import axios from "axios";
 import { Dialog } from '@headlessui/react'
 
@@ -15,52 +17,37 @@ const Home = () => {
     const findUser = async () => await axios.get(`/api/user/find/${user?.nickname}`);
     const createUser = async () => await axios.post('/api/user/create', user || {});
 
-    // const createAuthor = async () => await axios.post('/api/author/create', user || {});
+    const findAuthor = async () => await axios.get(`/api/author/find/${user?.nickname}`);
+    const createAuthor = async () => await axios.post('/api/author/create', user || {});
 
     function PopupHandler(): void {
-        findUser()
-            .then((res) => {
-                if (res.data === null) {
-                    createUser();
-                }
-            });
+
+        if(user?.email?.includes("@ifc.edu.br")) {
+            findAuthor()
+                .then((res) => {
+                    if (res.data === null) {
+                        createAuthor();
+                    }
+                });
+        } else {
+            findUser()
+                .then((res) => {
+                    if (res.data === null) {
+                        createUser();
+                    }
+                });
+        }
+
+
         return setIsOpen(false);
     }
-
-    
-        // Finding author
-       
-    let find = async () => await axios.get(`/api/author/find/${user?.nickname}`).then((res) => {
-        if (res.data == null) {
-            setIsAuthor(false);
-        }
-        else {
-            setIsAuthor(true);
-        }
-    })
-    find();
-
-
 
     return (
         <>
             <main className="fixed h-screen w-full top-50 z-0">
-
-                {user?.email?.includes("ven") && isAuthor == false ? (
-
-                    <div>
-                        <h1>~ FORMULÁRIO AUTOR~</h1>
-
-                    </div>
-                    
-                ) : (
-                    <div>
-                        <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}>
-                        </Dialog>
-                        <Root />
-                    </div>
-                )}
-
+                <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}>
+                </Dialog>
+                <Root />
 
 
 
