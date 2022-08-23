@@ -66,9 +66,9 @@ const NavBarResp = () => {
                             </a>
                         </Link>
                     )}
-
+                    {/* @ifc.edu.br */}
                     {user?.email?.includes("@ifc.edu.br") && (
-                        <Link href="/">
+                        <Link href="/perfil/publicar">
                             <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
                                 <span className="text-white">Adicionar Artigo</span>
                             </a>

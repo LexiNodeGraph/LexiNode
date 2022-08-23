@@ -1,6 +1,5 @@
 import Root from "../graphs/components/Root";
 import React, { useState, useRef } from "react";
-import AuthorForm from "./componets/AuthorForm";
 
 import axios from "axios";
 import { Dialog } from '@headlessui/react'
@@ -10,13 +9,12 @@ import { useUser } from "@auth0/nextjs-auth0";
 const Home = () => {
     const { user } = useUser();
     let [isOpen, setIsOpen] = useState(true);
-    let [isAuthor, setIsAuthor] = useState(false);
-    let completeButtonRef = useRef(null)
 
-    // Finding and createting user
+    // Finding and creating user
     const findUser = async () => await axios.get(`/api/user/find/${user?.nickname}`);
     const createUser = async () => await axios.post('/api/user/create', user || {});
 
+    // Finding and creating author
     const findAuthor = async () => await axios.get(`/api/author/find/${user?.nickname}`);
     const createAuthor = async () => await axios.post('/api/author/create', user || {});
 
@@ -48,9 +46,7 @@ const Home = () => {
                 <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}>
                 </Dialog>
                 <Root />
-
-
-
+                
             </main>
         </>
     );
