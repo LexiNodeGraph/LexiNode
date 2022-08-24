@@ -52,7 +52,7 @@ const Autores = () => {
                                     <p className="text-gray-800 font-sm">{author.email}</p>
                                 </main>
                             </header>
-                            <Link href={`/author/${author.nickname}`}>
+                            <Link href={`/autores/autor/${author.nickname}`}>
                                 <BiChevronRight className=" text-4xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
                             </Link>
                         </li>
