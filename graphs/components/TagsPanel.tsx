@@ -101,14 +101,14 @@ const TagsPanel: FC<{
                       <div className="node-label">
                       <span>{tag.key}</span>
 
-                      { nodesCount > 0 ? (
-                        <span className="text-muted text-small">
-                          {" "}
-                          ({visibleNodesCount} / {nodesCount})
-                        </span>
-                      ) : (
-                        ""
-                      )}
+                        {/* { nodesCount > 0 ? (
+                          <span className="text-muted text-small">
+                            {" "}
+                            ({visibleNodesCount} / {nodesCount})
+                          </span>
+                        ) : (
+                          ""
+                        )} */}
                   
                       <div className="bar" style={{ width: (100 * nodesCount) / maxNodesPerTag + "%" }}>
                         <div
