@@ -25,7 +25,7 @@ const GraphEventsController: FC<{ setHoveredNode: (node: string | null) => void 
         setHoveredNode(node);
         // TODO: Find a better way to get the DOM mouse layer:
         const mouseLayer = getMouseLayer();
-        if (mouseLayer) mouseLayer.classList.add("mouse-pointer");
+        if (mouseLayer) mouseLayer.classList.add("mouse-pointer"); // MOUSE HOVER
       },
       leaveNode() {
         setHoveredNode(null);

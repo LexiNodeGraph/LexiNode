@@ -8,6 +8,7 @@ const Publicar = () => {
         <Form />
 
         </div>
+        
     );
 }
 
