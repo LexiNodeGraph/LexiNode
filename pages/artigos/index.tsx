@@ -2,6 +2,8 @@ import {AiOutlineStar, AiFillStar} from "react-icons/ai";
 import {useEffect, useState} from "react";
 import {useUser} from "@auth0/nextjs-auth0";
 
+import ArtigoSkeleton from "../../components/skeletons/ArtigoSkeleton";
+
 const Artigos = () => {
     const {user} = useUser();
 
@@ -10,7 +12,7 @@ const Artigos = () => {
     const [input, setInput] = useState("");
     const [artigos, setArtigos] = useState<any[]>([]);
 
-    const filtredArtigos = artigos.filter((artigo) => artigo.title.toLowerCase().includes(input));
+    const filtredArtigos = artigos.filter((artigo) => artigo.label.toLowerCase().includes(input));
 
     if (typeof window !== "undefined") {
         window.location.protocol == "http:" ? (url = "http://localhost:3000") : (url = "https://lexinode.vercel.app");
@@ -61,39 +63,7 @@ const Artigos = () => {
                         </li>
                     ))}
 
-                {artigos.length == 0 && (
-                    <>
-                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
-                            <div className="flex flex-col w-full space-y-6 ">
-                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
-                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
-                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
-                            </div>
-                        </li>
-                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
-                            <div className="flex flex-col w-full space-y-6 ">
-                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
-                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
-                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
-                            </div>
-                        </li>
-
-                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
-                            <div className="flex flex-col w-full space-y-6 ">
-                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
-                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
-                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
-                            </div>
-                        </li>
-                        <li className="flex row justify-between m-2 h-36 bg-white drop-shadow-lg p-2 rounded">
-                            <div className="flex flex-col w-full space-y-6 ">
-                                <div className="w-1/2 bg-gray-300 h-6 rounded-md "></div>
-                                <div className="w-44 bg-gray-300 h-4 rounded"></div>
-                                <div className="w-1/4 h-6 my-2 p-2 rounded  bg-gray-300"></div>
-                            </div>
-                        </li>
-                    </>
-                )}
+                {artigos.length == 0 && <ArtigoSkeleton />}
             </ul>
         </main>
     );
