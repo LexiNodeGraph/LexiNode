@@ -5,6 +5,9 @@ import {BiChevronRight} from "react-icons/bi";
 
 const Autores = () => {
     const [authors, setAuthors] = useState<any[]>([]);
+    const [input, setInput] = useState("");
+
+    const filtredAuthors = authors.filter((author) => author.name.toLowerCase().includes(input));
 
     useEffect(() => {
         axios.get("/api/author/find/all").then((res) => setAuthors(res.data));
@@ -18,6 +21,8 @@ const Autores = () => {
         <main className="p-4">
             <div className="flex row w-full justify-around ">
                 <input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
                     type="text"
                     className="block p-4 mx-2 pl-10 w-4/5 text-sm text-white bg-black rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Pesquiar autores"
@@ -28,7 +33,7 @@ const Autores = () => {
             </div>
             <ul>
                 {authors.length > 0 &&
-                    authors.map((author) => (
+                    filtredAuthors.map((author) => (
                         <li key={author.id} className="flex row justify-between m-2 items-center bg-white drop-shadow-lg p-2 rounded">
                             <header className="flex items-center text-bold p-1 ">
                                 <Image

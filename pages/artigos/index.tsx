@@ -10,6 +10,8 @@ const Artigos = () => {
     const [input, setInput] = useState("");
     const [artigos, setArtigos] = useState<any[]>([]);
 
+    const filtredArtigos = artigos.filter((artigo) => artigo.title.toLowerCase().includes(input));
+
     if (typeof window !== "undefined") {
         window.location.protocol == "http:" ? (url = "http://localhost:3000") : (url = "https://lexinode.vercel.app");
     }
@@ -44,23 +46,20 @@ const Artigos = () => {
 
             <ul>
                 {artigos.length > 0 &&
-                    artigos.map(
-                        (artigo) =>
-                            artigo.label.toLowerCase().includes(input) && (
-                                <li key={artigo.id} className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
-                                    <div className="flex flex-col w-full p-4">
-                                        <a href={artigo.URL} className=" font-bold ">
-                                            {artigo.label}
-                                        </a>
-                                        <span className="text-slate-600 "> NOME AUTOR</span>
+                    filtredArtigos.map((artigo) => (
+                        <li key={artigo.id} className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
+                            <div className="flex flex-col w-full p-4">
+                                <a href={artigo.URL} className=" font-bold ">
+                                    {artigo.label}
+                                </a>
+                                <span className="text-slate-600 "> NOME AUTOR</span>
 
-                                        <div className="bg-slate-100 my-2 p-2 rounded w-2/4">TAGS E MAIS DETALHES</div>
-                                    </div>
+                                <div className="bg-slate-100 my-2 p-2 rounded w-2/4">TAGS E MAIS DETALHES</div>
+                            </div>
 
-                                    {user && <button className="text-xl p-2">{artigo.favorite ? <AiFillStar /> : <AiOutlineStar />}</button>}
-                                </li>
-                            )
-                    )}
+                            {user && <button className="text-xl p-2">{artigo.favorite ? <AiFillStar /> : <AiOutlineStar />}</button>}
+                        </li>
+                    ))}
 
                 {artigos.length == 0 && (
                     <>
