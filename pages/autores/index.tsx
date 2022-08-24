@@ -15,8 +15,8 @@ const Autores = () => {
     }, []);
 
     return (
-        <main>
-            <div className="flex row w-full justify-around p-4">
+        <main className="p-4">
+            <div className="flex row w-full justify-around ">
                 <input
                     type="text"
                     className="block p-4 mx-2 pl-10 w-4/5 text-sm text-white bg-black rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
@@ -26,7 +26,7 @@ const Autores = () => {
                     <option selected>Filtar por</option>
                 </select>
             </div>
-            <ul className="p-4">
+            <ul>
                 {authors.length > 0 &&
                     authors.map((author) => (
                         <li key={author.id} className="flex row justify-between m-2 items-center bg-white drop-shadow-lg p-2 rounded">

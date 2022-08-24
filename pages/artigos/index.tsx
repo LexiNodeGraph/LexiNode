@@ -1,5 +1,3 @@
-import NavBar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import {AiOutlineStar, AiFillStar} from "react-icons/ai";
 import {useEffect, useState} from "react";
 import {useUser} from "@auth0/nextjs-auth0";
@@ -8,15 +6,14 @@ const Artigos = () => {
     const {user} = useUser();
 
     let url: string;
-    
+
     const [input, setInput] = useState("");
     const [artigos, setArtigos] = useState<any[]>([]);
 
     if (typeof window !== "undefined") {
-                    window.location.protocol == 'http:' ? url = 'http://localhost:3000'  : url = 'https://lexinode.vercel.app';
-                }
+        window.location.protocol == "http:" ? (url = "http://localhost:3000") : (url = "https://lexinode.vercel.app");
+    }
     useEffect(() => {
-        
         fetch(`${url}/api/dataset`)
             .then((res) => res.json())
             .then((data) => setArtigos(data.nodes));
@@ -32,7 +29,7 @@ const Artigos = () => {
 
     return (
         <main className="p-4 ">
-            <div className="flex row w-full justify-around p-4">
+            <div className="flex row w-full justify-around mb-2">
                 <input
                     type="text"
                     value={input}
@@ -45,7 +42,7 @@ const Artigos = () => {
                 </select>
             </div>
 
-            <ul className="p-4">
+            <ul>
                 {artigos.length > 0 &&
                     artigos.map(
                         (artigo) =>
