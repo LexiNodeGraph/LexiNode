@@ -12,7 +12,10 @@ const Form = () => {
   function addInput() {
     setLoop([...loop, "name" + num.length]); 
   }
-  console.log(loop);
+  
+  function removeInput() {
+    setLoop(loop.slice(0, -1));
+  }
 
   return (
     <>
@@ -31,6 +34,9 @@ const Form = () => {
         <div className="flex justify-between">
           <div>
             <button className="bg-black w-14 h-5 text-white rounded-sm" onClick={addInput}>add</button>
+          </div>
+          <div>
+            <button className="bg-black w-14 h-5 text-white rounded-sm" onClick={removeInput}>remove</button>
           </div>
           <div>
             <button className="bg-black w-14 h-5 text-white rounded-sm" onClick={Submit => console.log("h1")}>submit</button>
