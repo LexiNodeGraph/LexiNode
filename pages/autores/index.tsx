@@ -27,12 +27,14 @@ const Autores = () => {
             <ul className="mt-4">
                 {authors.length > 0 ? (
                     ordenar === "crescente" ? (
-                        filtredAuthors.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0)).map((author) => <AutorItem author={author} />)
+                        filtredAuthors
+                            .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
+                            .map((author) => <AutorItem author={author} key={author.id} />)
                     ) : (
                         filtredAuthors
                             .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
                             .reverse()
-                            .map((author) => <AutorItem author={author} />)
+                            .map((author) => <AutorItem author={author} key={author.id} />)
                     )
                 ) : (
                     <AutorSkeleton />

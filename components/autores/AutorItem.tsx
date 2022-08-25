@@ -5,7 +5,7 @@ import {BiChevronRight} from "react-icons/bi";
 
 function AutorItem({author}: any) {
     return (
-        <li key={author.id} className="flex row justify-between m-2 items-center bg-white drop-shadow-lg p-2 rounded">
+        <li className="flex row justify-between m-2 items-center bg-white drop-shadow-lg p-2 rounded">
             <header className="flex items-center text-bold p-1 ">
                 <Image
                     className="rounded-full "

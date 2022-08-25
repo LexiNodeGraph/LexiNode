@@ -2,7 +2,7 @@ import {AiOutlineStar, AiFillStar} from "react-icons/ai";
 
 function ArtigoItem({artigo, user}: any) {
     return (
-        <li key={artigo.id} className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
+        <li className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
             <div className="flex flex-col w-full p-4">
                 <a href={artigo.URL} className=" font-bold ">
                     {artigo.label}
