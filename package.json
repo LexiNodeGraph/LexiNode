@@ -19,7 +19,6 @@
         "next": "12.2.2",
         "react": "^17.0.2",
         "react-hook-form": "^7.34.2",
-        "react-select": "^5.4.0",
         "react-sigma": "^1.2.35"
     },
     "devDependencies": {
