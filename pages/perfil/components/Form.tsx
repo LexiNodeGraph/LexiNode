@@ -14,7 +14,12 @@ const Form = () => {
   }
   
   function removeInput() {
-    setLoop(loop.slice(0, -1));
+    if(loop.length > 1) {
+      const index = loop.length - 1;
+      const allNames = [...loop];
+      allNames.splice(index, 1);
+      setLoop(allNames);
+    }
   }
 
   return (
