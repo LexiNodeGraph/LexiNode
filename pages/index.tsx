@@ -14,27 +14,14 @@ const Home = () => {
     const findUser = async () => await axios.get(`/api/user/find/${user?.nickname}`);
     const createUser = async () => await axios.post('/api/user/create', user || {});
 
-    // Finding and creating author
-    const findAuthor = async () => await axios.get(`/api/author/find/${user?.nickname}`);
-    const createAuthor = async () => await axios.post('/api/author/create', user || {});
-
     function PopupHandler(): void {
+        findUser()
+            .then((res) => {
+                if (res.data === null) {
+                    createUser();
+                }
+            });
 
-        if(user?.email?.includes("@ifc.edu.br")) {
-            findAuthor()
-                .then((res) => {
-                    if (res.data === null) {
-                        createAuthor();
-                    }
-                });
-        } else {
-            findUser()
-                .then((res) => {
-                    if (res.data === null) {
-                        createUser();
-                    }
-                });
-        }
 
 
         return setIsOpen(false);
