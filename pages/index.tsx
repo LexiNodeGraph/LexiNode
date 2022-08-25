@@ -15,7 +15,7 @@ const Home = () => {
     const createUser = async () => await axios.post('/api/user/create', user || {});
 
     function PopupHandler(): void {
-        findUser()
+        findUser() 
             .then((res) => {
                 if (res.data === null) {
                     createUser();

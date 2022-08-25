@@ -1,36 +1,45 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
-
-type FormData = {
-    firstName: string;
-    lastName: string;
-  };
+import { useState } from "react";
   
   
 const Form = () => {
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormData>();
-    const onSubmit = handleSubmit(data => console.log(data));
+  const [loop, setLoop] = useState([
+  "name0"
+  ]);
+  const num = loop;
 
-    return (
-        <div className="flex justify-center">
-        <form onSubmit={onSubmit}>
-          <label>First Name</label>
-          <input {...register("firstName")} />
-          <label>Last Name</label>
-          <input {...register("lastName")} />
-          <button
-            type="button"
-            onClick={() => {
-              setValue("lastName", "luo"); // ✅
-            }}
-          >
-            SetValue
-          </button>
-        </form>
+  function addInput() {
+    setLoop([...loop, "name" + num.length]); 
+  }
+  console.log(loop);
+
+  return (
+    <>
+    <div className="grid justify-center">
+
+      {
+        num.map((item, index) => {
+          return (
+            <div key={index}>
+              <input className="border border-1" type="text" name={item} id="" />
+            </div>
+          )
+        }
+        )
+      }
+        <div className="flex justify-between">
+          <div>
+            <button className="bg-black w-14 h-5 text-white rounded-sm" onClick={addInput}>add</button>
+          </div>
+          <div>
+            <button className="bg-black w-14 h-5 text-white rounded-sm" onClick={Submit => console.log("h1")}>submit</button>
+          </div>
         </div>
-      );
-    
-
+      </div>
+    </>
+  )
 }
+  
 
 export default Form;
