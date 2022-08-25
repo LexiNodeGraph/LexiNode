@@ -42,7 +42,7 @@ const Artigos = () => {
                     ordenar === "crescente" ? (
                         filtredArtigos
                             .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0))
-                            .map((artigo) => <ArtigoItem artigo={artigo} user={user} />)
+                            .map((artigo) => <ArtigoItem artigo={artigo} user={user} key={artigo.key} />)
                     ) : (
                         filtredArtigos
                             .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0))
