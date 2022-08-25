@@ -34,4 +34,16 @@ model Dataset {
   clusters   Json
   tags       Json
 }
+model Paper {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  journal_title String?
+  field         String
+  year          String
+  international String
+  web_link      String?
+  keywords      String[]
+  abstract      String   // 8
+  authors       Json[] // 9
 
+}
