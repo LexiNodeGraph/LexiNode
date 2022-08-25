@@ -8,6 +8,7 @@ import FilterForm from "../../components/FilterForm";
 
 const Autores = () => {
     const [authors, setAuthors] = useState<any[]>([]);
+    const [ordenar, setOrdenar] = useState("crescente");
     const [input, setInput] = useState("");
 
     const filtredAuthors = authors.filter((author) => author.name.toLowerCase().includes(input));
@@ -22,8 +23,21 @@ const Autores = () => {
 
     return (
         <main className="p-4">
-            <FilterForm input={input} setInput={setInput} />
-            <ul className="mt-4">{authors.length > 0 ? filtredAuthors.map((author) => <AutorItem author={author} />) : <AutorSkeleton />}</ul>
+            <FilterForm input={input} setInput={setInput} setOrdenar={setOrdenar} />
+            <ul className="mt-4">
+                {authors.length > 0 ? (
+                    ordenar === "crescente" ? (
+                        filtredAuthors.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0)).map((author) => <AutorItem author={author} />)
+                    ) : (
+                        filtredAuthors
+                            .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
+                            .reverse()
+                            .map((author) => <AutorItem author={author} />)
+                    )
+                ) : (
+                    <AutorSkeleton />
+                )}
+            </ul>
         </main>
     );
 };

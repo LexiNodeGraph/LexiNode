@@ -11,6 +11,8 @@ const Artigos = () => {
     let url: string;
 
     const [artigos, setArtigos] = useState<any[]>([]);
+
+    const [ordenar, setOrdenar] = useState("crescente");
     const [input, setInput] = useState("");
 
     const filtredArtigos = artigos.filter((artigo) => artigo.label.toLowerCase().includes(input));
@@ -34,9 +36,23 @@ const Artigos = () => {
 
     return (
         <main className="p-4 ">
-            <FilterForm input={input} setInput={setInput} />
-
-            <ul className="mt-4">{artigos.length > 0 ? filtredArtigos.map((artigo) => <ArtigoItem artigo={artigo} user={user} />) : <ArtigoSkeleton />}</ul>
+            <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
+            <ul className="mt-4">
+                {artigos.length > 0 ? (
+                    ordenar === "crescente" ? (
+                        filtredArtigos
+                            .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0))
+                            .map((artigo) => <ArtigoItem artigo={artigo} user={user} />)
+                    ) : (
+                        filtredArtigos
+                            .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0))
+                            .reverse()
+                            .map((artigo) => <ArtigoItem artigo={artigo} user={user} />)
+                    )
+                ) : (
+                    <ArtigoSkeleton />
+                )}
+            </ul>
         </main>
     );
 };
