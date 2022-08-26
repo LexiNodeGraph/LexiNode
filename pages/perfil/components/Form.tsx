@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
   
   
 const Form = () => {
@@ -10,7 +10,10 @@ const Form = () => {
   const num = loop;
 
   function addInput() {
-    setLoop([...loop, "" + num.length]); 
+    if (num.length < 7) {
+      setLoop([...loop, "" + num.length]); 
+      
+    }
   }
   
   function removeInput() {
@@ -21,42 +24,82 @@ const Form = () => {
       setLoop(allNames);
     }
   }
+    
+  const [formValue, setformValue] = React.useState({
+    title: '',
+    journal_title: '',
+    
+  });
+  
+  const handleSubmit = async () => {
+
+    let body = {
+      title: formValue.title,
+      journal_title: formValue.journal_title
+    }
+
+    try {
+      // make axios post request
+      const response = await axios({
+        method: "post",
+        url: "/api/paper/create",
+        data: body,
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch(error) {
+      console.log(error)
+    }
+  }
+  const handleChange = (event:any) => {
+    setformValue({
+      ...formValue,
+      [event.target.name]: event.target.value
+    });
+  }
 
   return (
     <>
       <div className="grid justify-center">
-        <form method="POST" action="/api/paper/create">
+
+        <form onSubmit={handleSubmit}>
+
           <div className="grid">
             <label htmlFor="name">Título</label>
-            <input className="border border-1" type="text" name="title" id="" />
+            <input className="border border-1" type="text" name="title" 
+              value={formValue.title}
+              onChange={handleChange}
+            />
           </div>
           <div className="grid">
             <label htmlFor="name">Título do Journal</label>
-            <input className="border border-1" type="text" name="journal_title" id="" />
+            <input className="border border-1" type="text" name="journal_title"
+              value={formValue.journal_title}
+              onChange={handleChange} 
+            />
           </div>
           <div className="grid">
             <label htmlFor="name">Área de pesquisa</label>
-            <input className="border border-1" type="text" name="field" id="" />
+            <input className="border border-1" type="text" name="field" />
           </div>
           <div className="grid">
             <label htmlFor="name">Ano de publicação</label>
-            <input className="border border-1" type="text" name="year" id="" />
+            <input className="border border-1" type="text" name="year" />
           </div>
           <div className="grid">
             <label htmlFor="name">Internacional(Sim/Não)</label>
-            <input className="border border-1" type="text" name="international" id="" />
+            <input className="border border-1" type="text" name="international" />
           </div>
           <div className="grid">
             <label htmlFor="name">Link Web</label>
-            <input className="border border-1" type="text" name="web_link" id="" />
+            <input className="border border-1" type="text" name="web_link" />
           </div>
           <div className="grid">
             <label htmlFor="name">Palavras-chave:</label>
-            <input className="border border-1" type="text" name="keyword" id="" />
+            <input className="border border-1" type="text" name="keyword" />
           </div>
           <div className="grid">
             <label htmlFor="name">Resumo</label>
-            <input className="border border-1" type="text" name="abstract" id="" />
+            <input className="border border-1" type="text" name="abstract" />
           </div>
           <div className="flex gap-2">
 

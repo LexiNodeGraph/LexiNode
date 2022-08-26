@@ -22,8 +22,6 @@ const Home = () => {
                 }
             });
 
-
-
         return setIsOpen(false);
     }
 
