@@ -35,7 +35,7 @@ const Artigos = () => {
     }
 
     return (
-        <main className="p-4 ">
+        <main className="p-2">
             <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
             <ul className="mt-4">
                 {artigos.length > 0 ? (
