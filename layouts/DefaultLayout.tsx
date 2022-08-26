@@ -1,8 +1,8 @@
 import React from "react";
 import Footer from "../components/Footer";
-import NavBar from "../components/Navbar";
+
 import Head from "next/head";
-import NavBarResp from "../components/NavBarResp";
+import Navbar from "../components/Navbar";
 
 function DefaultLayout({children}: any) {
     return (
@@ -11,7 +11,7 @@ function DefaultLayout({children}: any) {
                 <title>LEXINODE</title>
                 <link rel="icon" href="/favicon.png" />
             </Head>
-            <NavBarResp />
+            <Navbar />
             <div>{children}</div>
             <Footer />
         </>
