@@ -28,7 +28,11 @@ function Dropdown({children, items}: any) {
             <span onClick={toggle} className="cursor-pointer ">
                 {children}
             </span>
-            <div className={`${!isOpen && "hidden"} absolute mt-2 left-0 bg-stone-900 rounded divide-y divide-gray-100 shadow`}>
+            <div
+                className={`${
+                    !isOpen && "hidden"
+                } origin-top-right absolute right-0 mt-4 w-44 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5 focus:outline-none`}
+            >
                 <ul className="p-1 text-sm text-gray-700 dark:text-gray-200 z-auto">
                     {items.map(
                         (item: any) =>

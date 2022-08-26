@@ -87,8 +87,8 @@ const Navbar = () => {
                                                     className="rounded-full"
                                                     src={user.picture || "https://i.imgur.com/eRWRaqG.png"}
                                                     alt={user.name || "NAO CARREGOU"}
-                                                    width="45"
-                                                    height="45"
+                                                    width="35"
+                                                    height="35"
                                                 />
                                             </span>
                                         </Dropdown>

@@ -8,6 +8,7 @@ function ArtigoItem({artigo, user}: any) {
             action: () => {
                 console.log("favoritar");
             },
+            show: true,
         },
     ];
 
