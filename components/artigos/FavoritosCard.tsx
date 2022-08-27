@@ -59,7 +59,7 @@ function FavoritosCard() {
                 <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
                     {favoritos.length > 0 &&
                         favoritos.map((item) => (
-                            <li className="py-3 sm:py-4">
+                            <li className="py-3 sm:py-4" key={item.key}>
                                 <div className="flex items-center space-x-4">
                                     <div className="flex-shrink-0"></div>
                                     <div className="flex-1 min-w-0">
