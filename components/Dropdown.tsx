@@ -38,7 +38,7 @@ function Dropdown({children, items}: any) {
                         (item: any) =>
                             item.show &&
                             (item.to ? (
-                                <li>
+                                <li key={item.to}>
                                     <Link href={item.to}>
                                         <a className={`block py-2 px-4 whitespace-nowrap hover:bg-stone-800 text-white ${item.destaque && "text-red-500"}`}>
                                             {item.label}
@@ -46,7 +46,7 @@ function Dropdown({children, items}: any) {
                                     </Link>
                                 </li>
                             ) : (
-                                <li>
+                                <li key={item.to}>
                                     <a
                                         onClick={item.action}
                                         className={`block py-2 px-4 whitespace-nowrap hover:bg-stone-800 text-white ${item.destaque && "text-red-500"}`}
