@@ -4,6 +4,7 @@ import {useUser} from "@auth0/nextjs-auth0";
 import ArtigoSkeleton from "../../components/skeletons/ArtigoSkeleton";
 import ArtigoItem from "../../components/artigos/ArtigoItem";
 import FilterForm from "../../components/FilterForm";
+import FavoritosCard from "../../components/artigos/FavoritosCard";
 
 const Artigos = () => {
     const {user} = useUser();
@@ -35,9 +36,9 @@ const Artigos = () => {
     }
 
     return (
-        <main className="p-2">
-            <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
-            <ul className="mt-4">
+        <div className="inline-flex gap-2 w-full mt-4 p-2 pr-4">
+            <div className=" w-full h-fit bg-white rounded-lg  shadow-md ">
+                <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
                 {artigos.length > 0 ? (
                     ordenar ? (
                         filtredArtigos
@@ -52,8 +53,9 @@ const Artigos = () => {
                 ) : (
                     <ArtigoSkeleton />
                 )}
-            </ul>
-        </main>
+            </div>
+            <FavoritosCard />
+        </div>
     );
 };
 export default Artigos;

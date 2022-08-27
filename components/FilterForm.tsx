@@ -2,7 +2,7 @@ import {BsFilterLeft, BsArrowDown, BsArrowUp} from "react-icons/bs";
 
 function FilterForm({input, ordenar, setInput, setOrdenar}: any) {
     return (
-        <div className="flex row w-full justify-around gap-x-1 m-2 pr-4">
+        <div className="inline-flex w-full justify-around gap-1  ">
             <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}

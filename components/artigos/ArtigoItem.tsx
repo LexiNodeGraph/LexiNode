@@ -13,7 +13,7 @@ function ArtigoItem({artigo, user}: any) {
     ];
 
     return (
-        <li className="flex row justify-between m-2 bg-white drop-shadow-lg p-2 rounded">
+        <div className="flex row justify-between w-full bg-white rounded-md border p-2 mt-2 shadow-md">
             <div className="flex flex-col w-full p-4">
                 <a href={artigo.URL} className=" font-bold ">
                     {artigo.label}
@@ -25,7 +25,7 @@ function ArtigoItem({artigo, user}: any) {
             <Dropdown items={artigoItems}>
                 <RiArrowDropDownLine className=" text-2xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
             </Dropdown>
-        </li>
+        </div>
     );
 }
 
