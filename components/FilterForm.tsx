@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {BsFilterLeft, BsArrowDown, BsArrowUp} from "react-icons/bs";
 
 function FilterForm({input, ordenar, setInput, setOrdenar}: any) {
     return (
@@ -8,21 +8,24 @@ function FilterForm({input, ordenar, setInput, setOrdenar}: any) {
                 onChange={(e) => setInput(e.target.value)}
                 type="text"
                 className="flex 
-                p-4 w-3/5 
+                p-4 w-full        
                 text-sm
                  text-black bg-white 
                  rounded-lg border
                  focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Pesquiar"
             />
-            <select
-                value={ordenar}
-                onChange={(e) => setOrdenar(e.target.value)}
-                className="bg-white border w-2/5  text-black text-sm rounded-lg focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500 block  p-2.5"
+
+            <button
+                className="bg-white border  text-black text-sm rounded-lg
+                flex justify-center items-center
+                focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500   p-2.5"
+                onClick={() => setOrdenar(!ordenar)}
             >
-                <option value="crescente">Crescente</option>
-                <option value="decrescente">Decrescente</option>
-            </select>
+                {ordenar ? <BsArrowUp /> : <BsArrowDown />}
+
+                <BsFilterLeft className="text-2xl" />
+            </button>
         </div>
     );
 }

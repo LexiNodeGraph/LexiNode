@@ -12,7 +12,7 @@ const Artigos = () => {
 
     const [artigos, setArtigos] = useState<any[]>([]);
 
-    const [ordenar, setOrdenar] = useState("crescente");
+    const [ordenar, setOrdenar] = useState();
     const [input, setInput] = useState("");
 
     const filtredArtigos = artigos.filter((artigo) => artigo.label.toLowerCase().includes(input));
@@ -39,7 +39,7 @@ const Artigos = () => {
             <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
             <ul className="mt-4">
                 {artigos.length > 0 ? (
-                    ordenar === "crescente" ? (
+                    ordenar ? (
                         filtredArtigos
                             .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0))
                             .map((artigo) => <ArtigoItem artigo={artigo} user={user} key={artigo.id} />)
