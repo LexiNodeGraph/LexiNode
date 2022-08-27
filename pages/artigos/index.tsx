@@ -54,7 +54,7 @@ const Artigos = () => {
                     <ArtigoSkeleton />
                 )}
             </div>
-            <FavoritosCard />
+            {user && <FavoritosCard />}
         </div>
     );
 };
