@@ -11,7 +11,10 @@ const Perfil = () => {
     return (
         <>
             {user && (
-                <main className="h-screen p-2 flex row gap-1">
+                <main
+                    className="h-screen p-2 flex flex-col gap-1
+                                sm:flex-row"
+                >
                     <UserCard user={user} />
                     <UserContentCard />
                 </main>
