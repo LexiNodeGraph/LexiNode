@@ -4,15 +4,13 @@ import { useState } from "react";
   
   
 const Form = () => {
-  const [loop, setLoop] = useState([
-  "0"
-  ]);
+
+  const [loop, setLoop] = useState(["0"]); // useState
   const num = loop;
 
   function addInput() {
     if (num.length < 7) {
-      setLoop([...loop, "" + num.length]); 
-      
+      setLoop([...loop, "" + num.length]); // add another input box
     }
   }
   
@@ -24,18 +22,31 @@ const Form = () => {
       setLoop(allNames);
     }
   }
-    
-  const [formValue, setformValue] = React.useState({
+
+  const [formValue, setformValue] = useState({ // useState
     title: '',
     journal_title: '',
-    
+    field: '',
+    year: '',
+    international: '',  
+    web_link: '',
+    keyword: '',    
+    abstract: '',
+    first_name0: '',
   });
-  
-  const handleSubmit = async () => {
 
+  const handleSubmit = async () => {
+    
     let body = {
       title: formValue.title,
-      journal_title: formValue.journal_title
+      journal_title: formValue.journal_title,
+      field: formValue.field,
+      year: formValue.year,
+      international: formValue.international,
+      web_link: formValue.web_link,
+      keyword: formValue.keyword,
+      abstract: formValue.abstract,
+      first_name0: formValue.first_name0,
     }
 
     try {
@@ -60,46 +71,57 @@ const Form = () => {
   return (
     <>
       <div className="grid justify-center">
-
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={() => handleSubmit()}>
 
           <div className="grid">
             <label htmlFor="name">Título</label>
             <input className="border border-1" type="text" name="title" 
               value={formValue.title}
-              onChange={handleChange}
+              onChange={() => handleChange}
             />
           </div>
           <div className="grid">
             <label htmlFor="name">Título do Journal</label>
             <input className="border border-1" type="text" name="journal_title"
               value={formValue.journal_title}
-              onChange={handleChange} 
+              onChange={() => handleChange} 
             />
           </div>
           <div className="grid">
             <label htmlFor="name">Área de pesquisa</label>
-            <input className="border border-1" type="text" name="field" />
+            <input className="border border-1" type="text" name="field" 
+            value={formValue.field}
+            onChange={() => handleChange} />
           </div>
           <div className="grid">
             <label htmlFor="name">Ano de publicação</label>
-            <input className="border border-1" type="text" name="year" />
+            <input className="border border-1" type="text" name="year" 
+            value={formValue.year}
+            onChange={() => handleChange} />
           </div>
           <div className="grid">
             <label htmlFor="name">Internacional(Sim/Não)</label>
-            <input className="border border-1" type="text" name="international" />
+            <input className="border border-1" type="text" name="international" 
+            value={formValue.international}
+            onChange={() => handleChange} />
           </div>
           <div className="grid">
             <label htmlFor="name">Link Web</label>
-            <input className="border border-1" type="text" name="web_link" />
+            <input className="border border-1" type="text" name="web_link" 
+            value={formValue.web_link}
+            onChange={() => handleChange} />
           </div>
           <div className="grid">
             <label htmlFor="name">Palavras-chave:</label>
-            <input className="border border-1" type="text" name="keyword" />
+            <input className="border border-1" type="text" name="keyword" 
+            value={formValue.keyword}
+            onChange={() => handleChange} />
           </div>
           <div className="grid">
             <label htmlFor="name">Resumo</label>
-            <input className="border border-1" type="text" name="abstract" />
+            <input className="border border-1" type="text" name="abstract" 
+            value={formValue.abstract}
+            onChange={() => handleChange} />
           </div>
           <div className="flex gap-2">
 
@@ -113,13 +135,16 @@ const Form = () => {
           
           <div>
             {
-              num.map((item, index) => {
+              num.map((item: any, index) => {
+
                 return (
                   <div key={index}>
                     <hr className="border-2 mt-2 border-black"/>
                     <div className="grid">
                       <label>Primeiro nome</label>
-                      <input className="border border-1" type="text" name={"first_name" + item} />
+                      <input className="border border-1" type="text" name={"first_name" + index} 
+                      value={formValue.first_name0}
+                      onChange={handleChange}/>
                     
                     </div>
                     <div className="grid">
