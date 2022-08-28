@@ -3,7 +3,7 @@ import Image from "next/image";
 function AutorSkeleton() {
     return (
         <>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded">
                 <Image
                     className="rounded-full "
                     src={
@@ -18,7 +18,7 @@ function AutorSkeleton() {
                     <div className="w-44 bg-gray-300 h-4 rounded"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded">
                 <Image
                     className="rounded-full "
                     src={
@@ -33,7 +33,7 @@ function AutorSkeleton() {
                     <div className="w-44 bg-gray-300 h-4 rounded"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded">
                 <Image
                     className="rounded-full "
                     src={
@@ -48,7 +48,7 @@ function AutorSkeleton() {
                     <div className="w-44 bg-gray-300 h-4 rounded"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded">
                 <Image
                     className="rounded-full "
                     src={
@@ -63,7 +63,7 @@ function AutorSkeleton() {
                     <div className="w-44 bg-gray-300 h-4 rounded"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded">
                 <Image
                     className="rounded-full "
                     src={
