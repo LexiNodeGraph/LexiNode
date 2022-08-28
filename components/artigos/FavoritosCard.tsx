@@ -48,7 +48,7 @@ function FavoritosCard() {
     ];
 
     return (
-        <div className="p-4 w-full h-fit max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-4 w-full h-fit lg:max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <div className="flex justify-between items-center mb-4">
                 <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Artigos favoritos</h5>
                 <Link href="/artigos/favoritos" className="text-sm font-medium text-blue-800 hover:underline">

@@ -12,7 +12,7 @@ function DefaultLayout({children}: any) {
                 <link rel="icon" href="/favicon.png" />
             </Head>
             <Navbar />
-            <div className="h-screen">{children}</div>
+            <div>{children}</div>
             <Footer />
         </>
     );
