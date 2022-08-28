@@ -27,9 +27,10 @@ function NavDropdown({children, items}: any) {
                 ref={menuRef}
                 className={`${
                     !isOpen && "hidden"
-                }  origin-top-right  absolute  mt-4 w-44 z-10 rounded p-1  shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                }  origin-top absolute mt-4 w-44 z-10 rounded p-1  shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none
+                 dark:bg-neutral-900 dark:text-neutral-100`}
             >
-                <ul className=" text-sm divide-y divide-gray-200 text-gray-700 dark:text-gray-200 z-auto">
+                <ul className=" text-sm divide-y divide-neutral-700 text-gray-700  z-auto dark:bg-neutral-900 dark:text-neutral-100">
                     {items.map(
                         (item: any) =>
                             item.show &&
@@ -37,8 +38,8 @@ function NavDropdown({children, items}: any) {
                                 <li key={item.to}>
                                     <Link href={item.to}>
                                         <a
-                                            className={`block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white${
-                                                item.destaque && "text-red-500"
+                                            className={`block py-2 px-4 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:text-white ${
+                                                item.destaque && "text-red-500 dark:text-red-500"
                                             }`}
                                         >
                                             {item.label}

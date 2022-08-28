@@ -48,25 +48,28 @@ function FavoritosCard() {
     ];
 
     return (
-        <div className="p-4 w-full h-fit lg:max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-4 w-full h-fit lg:max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-neutral-900 dark:border-neutral-700">
             <div className="flex justify-between items-center mb-4">
-                <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Artigos favoritos</h5>
-                <Link href="/artigos/favoritos" className="text-sm font-medium text-blue-800 hover:underline">
-                    Ver todos
+                <h5 className="text-xl font-bold leading-none text-neutral-900 dark:text-white">Artigos favoritos</h5>
+                <Link href="/artigos/favoritos">
+                    <p className="text-sm font-medium text-blue-800 hover:underline dark:text-neutral-100 cursor-pointer">Ver todos</p>
                 </Link>
             </div>
             <div className="flow-root">
-                <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+                <ul role="list" className="divide-y divide-neutral-200 dark:divide-neutral-700">
                     {favoritos.length > 0 &&
                         favoritos.map((item) => (
                             <li className="py-3 sm:py-4" key={item.key}>
                                 <div className="flex items-center space-x-4">
                                     <div className="flex-shrink-0"></div>
                                     <div className="flex-1 min-w-0">
-                                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">{item.label}</p>
-                                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">NOME AUTOR</p>
+                                        <p className="text-sm font-medium text-neutral-900 truncate dark:text-white">{item.label}</p>
+                                        <p className="text-sm text-neutral-500 truncate dark:text-neutral-400">NOME AUTOR</p>
                                     </div>
-                                    <BiChevronRight className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
+                                    <BiChevronRight
+                                        className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#4f8cfe] hover:bg-[#00000011]
+                                        dark:text-white dark:hover:text-white dark:hover:bg-[#ffffff11]"
+                                    />
                                 </div>
                             </li>
                         ))}

@@ -5,7 +5,7 @@ import {BiChevronRight} from "react-icons/bi";
 
 function AutorItem({author}: any) {
     return (
-        <li className="flex row justify-between  items-center w-full bg-white  border shadow-md p-2 rounded">
+        <li className="flex row justify-between  items-center w-full bg-white  border shadow-md p-2 rounded dark:bg-neutral-900 dark:border-neutral-700">
             <div className="flex items-center text-bold p-1  ">
                 <Image
                     className="rounded-full w-[75px] h-[75px]"
@@ -18,13 +18,17 @@ function AutorItem({author}: any) {
                     height="75"
                 />
                 <div className="flex flex-col mx-4">
-                    <h2 className="font-bold">{author.name}</h2>
-                    <p className="text-gray-800 font-sm">{author.email}</p>
+                    <h2 className="font-bold  dark:text-neutral-50">{author.name}</h2>
+                    <p className="text-gray-800 font-sm  dark:text-neutral-200">{author.email}</p>
                 </div>
             </div>
             <div>
                 <Link href={`/autores/autor/${author.nickname}`}>
-                    <BiChevronRight className=" text-4xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
+                    <BiChevronRight
+                        className=" text-4xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]
+                     dark:text-white dark:hover:text-white dark:hover:bg-[#ffffff11]
+                    "
+                    />
                 </Link>
             </div>
         </li>

@@ -5,7 +5,7 @@ import {BsDot} from "react-icons/bs";
 
 function UserCard({user}: any) {
     return (
-        <div className="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full max-w-sm bg-white rounded-lg border border-neutral-200 shadow-md dark:bg-neutral-800 dark:border-neutral-700">
             <div className="flex flex-col items-center pt-4 pb-10">
                 <Image
                     className="rounded-full md:w-96 "
@@ -18,19 +18,21 @@ function UserCard({user}: any) {
                     height="130"
                 />
                 <span className="flex flex-col items-left m-4">
-                    <h5 className=" text-xl font-bold text-gray-900 dark:text-white">{user.name}</h5>
+                    <h5 className=" text-xl font-bold text-neutral-900 dark:text-white">{user.name}</h5>
                     <span className="inline-flex items-center gap-1">
-                        <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">@{user.nickname}</span>
-                        <BsDot className="text-sm mb-2 text-gray-500 dark:text-gray-400" />
-                        <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">{user?.email?.includes("@ifc.edu.br") ? "Autor" : "Usuário"}</span>
+                        <span className="text-sm mb-2 text-neutral-500 dark:text-neutral-400">@{user.nickname}</span>
+                        <BsDot className="text-sm mb-2 text-neutral-500 dark:text-neutral-400" />
+                        <span className="text-sm mb-2 text-neutral-500 dark:text-neutral-400">
+                            {user?.email?.includes("@ifc.edu.br") ? "Autor" : "Usuário"}
+                        </span>
                     </span>
 
-                    <p className="mb-4 text-sm font-light">
+                    <p className="mb-4 text-sm font-light  dark:text-white">
                         Ta ficando potente essa pagina pprt ta lindao. Alias faz ai a rota pra peguar todas essa informções do usuário
                     </p>
 
                     <div className="flex mt-4 space-x-3 md:mt-6">
-                        <button className=" w-full  items-center py-2 px-4 text-sm font-medium text-center text-gray-600 border-2 rounded-lg focus:ring-4 focus:outline-none ">
+                        <button className=" w-full  items-center py-2 px-4 text-sm font-medium text-center text-neutral-600 border-2 rounded-lg focus:ring-4 focus:outline-none dark:border-neutral-500 dark:text-neutral-400">
                             Editar Perfil
                         </button>
                     </div>

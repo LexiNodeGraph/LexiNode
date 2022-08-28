@@ -8,18 +8,21 @@ function FilterForm({input, ordenar, setInput, setOrdenar}: any) {
                 onChange={(e) => setInput(e.target.value)}
                 type="text"
                 className="flex 
-                p-4 w-full        
+                p-4 pl-6 w-full        
                 text-sm
-                 text-black bg-white 
-                 rounded-lg border
-                 focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500"
+                rounded-lg border
+                text-black bg-white 
+                focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500
+                dark:text-white  dark:bg-neutral-900  dark:border-neutral-700
+                "
                 placeholder="Pesquiar"
             />
 
             <button
                 className="bg-white border  text-black text-sm rounded-lg
                 flex justify-center items-center
-                focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500   p-2.5"
+                focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500   p-2.5
+                dark:text-white  dark:bg-neutral-900  dark:border-neutral-700"
                 onClick={() => setOrdenar(!ordenar)}
             >
                 {ordenar ? <BsArrowUp /> : <BsArrowDown />}

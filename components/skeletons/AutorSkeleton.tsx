@@ -3,79 +3,46 @@ import Image from "next/image";
 function AutorSkeleton() {
     return (
         <>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
-                <Image
-                    className="rounded-full "
-                    src={
-                        "https://imgs.search.brave.com/95uqrX0sPNStAH-hNb9IC1Dq-eZQGRKKEUFV6PMDY_U/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5k/cm9kZC5jb20vaW1h/Z2VzMTQvd2hpdGUx/LmpwZw"
-                    }
-                    alt={"Carregando..."}
-                    width="75"
-                    height="75"
-                />
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded  dark:bg-neutral-900 dark:border-neutral-700">
+                <div className="bg-white dark:bg-neutral-900 "></div>
                 <div className="flex flex-col w-full space-y-6 ">
-                    <div className="w-1/2 bg-gray-300 h-4 rounded-md "></div>
-                    <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                    <div className="w-1/2 bg-gray-300 h-4 rounded-md  dark:bg-neutral-700 dark:border-neutral-700 "></div>
+                    <div className="w-44 bg-gray-300 h-4 rounded  dark:bg-neutral-700 dark:border-neutral-700"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
-                <Image
-                    className="rounded-full "
-                    src={
-                        "https://imgs.search.brave.com/95uqrX0sPNStAH-hNb9IC1Dq-eZQGRKKEUFV6PMDY_U/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5k/cm9kZC5jb20vaW1h/Z2VzMTQvd2hpdGUx/LmpwZw"
-                    }
-                    alt={"Carregando..."}
-                    width="75"
-                    height="75"
-                />
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded  dark:bg-neutral-900 dark:border-neutral-700">
+                <div className="bg-white dark:bg-neutral-900 "></div>
                 <div className="flex flex-col w-full space-y-6 ">
-                    <div className="w-1/2 bg-gray-300 h-4 rounded-md "></div>
-                    <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                    <div className="w-1/2 bg-gray-300 h-4 rounded-md  dark:bg-neutral-700 dark:border-neutral-700 "></div>
+                    <div className="w-44 bg-gray-300 h-4 rounded  dark:bg-neutral-700 dark:border-neutral-700"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
-                <Image
-                    className="rounded-full "
-                    src={
-                        "https://imgs.search.brave.com/95uqrX0sPNStAH-hNb9IC1Dq-eZQGRKKEUFV6PMDY_U/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5k/cm9kZC5jb20vaW1h/Z2VzMTQvd2hpdGUx/LmpwZw"
-                    }
-                    alt={"Carregando..."}
-                    width="75"
-                    height="75"
-                />
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded  dark:bg-neutral-900 dark:border-neutral-700">
+                <div className="bg-white dark:bg-neutral-900 "></div>
                 <div className="flex flex-col w-full space-y-6 ">
-                    <div className="w-1/2 bg-gray-300 h-4 rounded-md "></div>
-                    <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                    <div className="w-1/2 bg-gray-300 h-4 rounded-md  dark:bg-neutral-700 dark:border-neutral-700 "></div>
+                    <div className="w-44 bg-gray-300 h-4 rounded  dark:bg-neutral-700 dark:border-neutral-700"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
-                <Image
-                    className="rounded-full "
-                    src={
-                        "https://imgs.search.brave.com/95uqrX0sPNStAH-hNb9IC1Dq-eZQGRKKEUFV6PMDY_U/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5k/cm9kZC5jb20vaW1h/Z2VzMTQvd2hpdGUx/LmpwZw"
-                    }
-                    alt={"Carregando..."}
-                    width="75"
-                    height="75"
-                />
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded  dark:bg-neutral-900 dark:border-neutral-700">
+                <div className="bg-white dark:bg-neutral-900 "></div>
                 <div className="flex flex-col w-full space-y-6 ">
-                    <div className="w-1/2 bg-gray-300 h-4 rounded-md "></div>
-                    <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                    <div className="w-1/2 bg-gray-300 h-4 rounded-md  dark:bg-neutral-700 dark:border-neutral-700 "></div>
+                    <div className="w-44 bg-gray-300 h-4 rounded  dark:bg-neutral-700 dark:border-neutral-700"></div>
                 </div>
             </li>
-            <li className="flex row justify-between m-2  bg-white drop-shadow-lg p-2 rounded">
-                <Image
-                    className="rounded-full "
-                    src={
-                        "https://imgs.search.brave.com/95uqrX0sPNStAH-hNb9IC1Dq-eZQGRKKEUFV6PMDY_U/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5k/cm9kZC5jb20vaW1h/Z2VzMTQvd2hpdGUx/LmpwZw"
-                    }
-                    alt={"Carregando..."}
-                    width="75"
-                    height="75"
-                />
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded  dark:bg-neutral-900 dark:border-neutral-700">
+                <div className="bg-white dark:bg-neutral-900 "></div>
                 <div className="flex flex-col w-full space-y-6 ">
-                    <div className="w-1/2 bg-gray-300 h-4 rounded-md "></div>
-                    <div className="w-44 bg-gray-300 h-4 rounded"></div>
+                    <div className="w-1/2 bg-gray-300 h-4 rounded-md  dark:bg-neutral-700 dark:border-neutral-700 "></div>
+                    <div className="w-44 bg-gray-300 h-4 rounded  dark:bg-neutral-700 dark:border-neutral-700"></div>
+                </div>
+            </li>
+            <li className="flex row justify-between  bg-white drop-shadow-lg p-2 animate-pulse rounded  dark:bg-neutral-900 dark:border-neutral-700">
+                <div className="bg-white dark:bg-neutral-900 "></div>
+                <div className="flex flex-col w-full space-y-6 ">
+                    <div className="w-1/2 bg-gray-300 h-4 rounded-md  dark:bg-neutral-700 dark:border-neutral-700 "></div>
+                    <div className="w-44 bg-gray-300 h-4 rounded  dark:bg-neutral-700 dark:border-neutral-700"></div>
                 </div>
             </li>
         </>
