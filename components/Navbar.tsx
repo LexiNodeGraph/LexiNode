@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const artigosItems = [
         {label: "Artigos", to: "/artigos", show: true},
-        {label: "Favoritos", to: "/favoritos", show: true},
+        {label: "Favoritos", to: "/artigos/favoritos", show: true},
         {label: "Adicionar", to: "/adicionar", show: !user},
     ];
 
@@ -46,7 +46,7 @@ const Navbar = () => {
 
                             {!user && <NavbarItem to="/api/auth/login">Entrar</NavbarItem>}
 
-                            {user?.email?.includes("@ifc.edu.br") && <NavbarItem to="/perfil/publicar">Adicionar artigo</NavbarItem>}
+                            {user?.email?.includes("ogabrielpereiraa7") && <NavbarItem to="/perfil/publicar">Adicionar artigo</NavbarItem>}
 
                             {user && (
                                 <NavDropdown items={userItems}>
