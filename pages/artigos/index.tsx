@@ -41,7 +41,7 @@ const Artigos = () => {
                 gap-2 mt-4 p-2 pr-4 w-full flex flex-col-reverse
                 sm:flex-row"
         >
-            <div className=" w-full h-fit bg-white rounded-lg  shadow ">
+            <div className=" w-full h-fit bg-white rounded-lg  shadow  dark:bg-gray-800 dark:border-gray-700-">
                 <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
                 {artigos.length > 0 ? (
                     ordenar ? (

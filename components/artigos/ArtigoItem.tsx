@@ -13,7 +13,7 @@ function ArtigoItem({artigo, user}: any) {
     ];
 
     return (
-        <div className="flex row justify-between w-full bg-white rounded-md border p-2 mt-2 shadow-md">
+        <div className="flex row justify-between w-full bg-white rounded-md border p-2 mt-2 shadow-md  dark:bg-gray-800 dark:border-gray-700">
             <div className="flex flex-col w-full p-4">
                 <a href={artigo.URL} className=" font-bold ">
                     {artigo.label}
