@@ -22,7 +22,7 @@ const Autores = () => {
     }, []);
 
     return (
-        <main className="p-2 mr-2">
+        <main className="p-2 mr-2  dark:bg-neutral-900 dark:border-neutral-700">
             <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
             <ul className="mt-4">
                 {authors.length > 0 ? (
