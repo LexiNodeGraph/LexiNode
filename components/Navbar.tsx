@@ -24,7 +24,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="bg-black drop-shadow-lg relative z-10">
+        <nav className="w-full bg-gray-100 text-gray-900  p-2 rounded relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex w-full justify-between items-center">
@@ -32,7 +32,7 @@ const Navbar = () => {
                         <div className="flex-shrink-0">
                             <Link href="/">
                                 <a className="flex items-center py-6 px-2">
-                                    <span className="text-[#EEEEEE] font-semibold text-2xl tracking-tight pl-2">LEXI</span>
+                                    <span className="text-black font-semibold text-2xl tracking-tight pl-2">LEXI</span>
                                     <span className="text-[#0952DB] font-semibold text-2xl tracking-tight pr-2">NODE</span>
                                 </a>
                             </Link>
@@ -43,14 +43,14 @@ const Navbar = () => {
                                 {!user ? (
                                     <Link href="/artigos">
                                         <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
-                                            <span className="text-white">Artigos</span>
+                                            <span className="">Artigos</span>
                                         </a>
                                     </Link>
                                 ) : (
                                     <div className="relative py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
                                         <Dropdown user={user} items={artigosItems}>
-                                            <span className="text-white flex items-center">
-                                                <RiArrowDropDownLine className="text-white text-2xl" />
+                                            <span className=" flex items-center">
+                                                <RiArrowDropDownLine className=" text-2xl" />
                                                 Artigos
                                             </span>
                                         </Dropdown>
@@ -59,14 +59,14 @@ const Navbar = () => {
 
                                 <Link href="/autores">
                                     <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
-                                        <span className="text-white">Autores</span>
+                                        <span className="">Autores</span>
                                     </a>
                                 </Link>
 
                                 {!user && (
                                     <Link href="/api/auth/login">
                                         <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
-                                            <span className="text-white">Entrar</span>
+                                            <span className="">Entrar</span>
                                         </a>
                                     </Link>
                                 )}
@@ -74,7 +74,7 @@ const Navbar = () => {
                                 {user?.email?.includes("@ifc.edu.br") && (
                                     <Link href="/perfil/publicar">
                                         <a className="py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
-                                            <span className="text-white">Adicionar Artigo</span>
+                                            <span className="">Adicionar Artigo</span>
                                         </a>
                                     </Link>
                                 )}
@@ -102,7 +102,7 @@ const Navbar = () => {
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             type="button"
-                            className=" outline-0 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
+                            className=" outline-0 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover: focus:outline-none"
                             aria-controls="mobile-menu"
                             aria-expanded="false"
                         >
@@ -149,56 +149,41 @@ const Navbar = () => {
                         <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                             {!user && (
                                 <Link href="/artigos">
-                                    <a
-                                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                                        onClick={() => setIsOpen(!isOpen)}
-                                    >
+                                    <a className="hover:bg-gray-700  block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
                                         Artigos
                                     </a>
                                 </Link>
                             )}
                             {user && (
                                 <Link href="/artigos">
-                                    <a
-                                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                                        onClick={() => setIsOpen(!isOpen)}
-                                    >
+                                    <a className="hover:bg-gray-700  block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
                                         Todos os Artigos
                                     </a>
                                 </Link>
                             )}
                             {user && (
                                 <Link href="/artigos/favoritos">
-                                    <a
-                                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                                        onClick={() => setIsOpen(!isOpen)}
-                                    >
+                                    <a className="hover:bg-gray-700  block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
                                         Favoritos
                                     </a>
                                 </Link>
                             )}
 
                             <Link href="/autores">
-                                <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
+                                <a className="hover:bg-gray-700  block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
                                     Autores
                                 </a>
                             </Link>
                             {!user && (
                                 <Link href="/api/auth/login">
-                                    <a
-                                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                                        onClick={() => setIsOpen(!isOpen)}
-                                    >
+                                    <a className="hover:bg-gray-700  block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
                                         Entrar
                                     </a>
                                 </Link>
                             )}
                             {user && (
                                 <Link href="/perfil">
-                                    <a
-                                        className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                                        onClick={() => setIsOpen(!isOpen)}
-                                    >
+                                    <a className="hover:bg-gray-700  block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
                                         Meu Perfil
                                     </a>
                                 </Link>

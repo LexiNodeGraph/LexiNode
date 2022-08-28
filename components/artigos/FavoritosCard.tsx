@@ -66,7 +66,7 @@ function FavoritosCard() {
                                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">{item.label}</p>
                                         <p className="text-sm text-gray-500 truncate dark:text-gray-400">NOME AUTOR</p>
                                     </div>
-                                    <BiChevronRight className=" text-2xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
+                                    <BiChevronRight className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
                                 </div>
                             </li>
                         ))}

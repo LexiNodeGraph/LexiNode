@@ -22,9 +22,8 @@ function ArtigoItem({artigo, user}: any) {
 
                 <div className="bg-slate-100 my-2 p-2 rounded w-full">TAGS E MAIS DETALHES</div>
             </div>
-            <Dropdown items={artigoItems}>
-                <RiArrowDropDownLine className=" text-2xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
-            </Dropdown>
+
+            <RiArrowDropDownLine className="cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]" />
         </div>
     );
 }

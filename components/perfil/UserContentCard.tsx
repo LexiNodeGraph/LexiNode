@@ -14,6 +14,11 @@ function UserContentCard() {
                         Favoritos
                     </button>
                 </li>
+                <li className="mr-2">
+                    <button className="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700">
+                        Configurações
+                    </button>
+                </li>
             </ul>
         </div>
     );
