@@ -9,18 +9,16 @@ const Form = () => {
   const num = loop;
 
   function addInput() {
-    if (num.length < 7) {
+    if (num.length < 1) {
       setLoop([...loop, "" + num.length]); // add another input box
     }
   }
   
   function removeInput() {
-    if(loop.length > 1) {
       const index = loop.length - 1;
       const allNames = [...loop];
       allNames.splice(index, 1);
       setLoop(allNames);
-    }
   }
 
   const [formValue, setformValue] = useState({ // useState
