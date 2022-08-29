@@ -15,3 +15,5 @@ export async function createUser(name: string, nickname: string, email: string) 
     await prisma.$disconnect();
     return new response(200, "User created", createU);
 }
+
+// createAuthorUser

@@ -9,7 +9,6 @@ import { useUser } from "@auth0/nextjs-auth0";
 const Home = () => {
     const { user } = useUser();
     let [isOpen, setIsOpen] = useState(true);
-
     // Finding and creating user
     const findUser = async () => await axios.get(`/api/user/find/${user?.nickname}`);
     const createUser = async () => await axios.post('/api/user/create', user || {});

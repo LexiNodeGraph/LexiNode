@@ -25,20 +25,25 @@ export async function findUser(nickname: string) {
     return new response(200, "User found", user);
 }
 
-export async function findAuthor(nickname: string) {
+export async function findAuthorUser(nickname: string) {
     await prisma.$connect();
-    const user = await prisma.author.findUnique({
+    const user = await prisma.user.findMany({
         where: {
-            nickname: nickname
+            nickname: nickname,
+            isAuthor: true
             } 
           });
     await prisma.$disconnect();
     return new response(200, "User found", user);
 }
 
-export async function findAllAuthors() {
+export async function findAllAuthorUsers() {
     await prisma.$connect();
-    const authors = await prisma.author.findMany();
+    const user = await prisma.user.findMany({
+        where: {
+            isAuthor: true
+            } 
+          });
     await prisma.$disconnect();
-    return new response(200, "Authors found", authors);
+    return new response(200, "User found", user);
 }

@@ -11,29 +11,19 @@ datasource db {
 }
 
 model User {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  nickname  String @unique
-  email     String
-  isAuthor  Boolean?
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  picture         String?
+  nickname        String @unique
+  email           String
+  institution     String?
+  author_role     String?
+  city            String?
+  country         String?
+  field           String?
+  isAuthor        Boolean?
 }
 
-model Author {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  nickname  String @unique
-  email     String
-  picture   String
-  isAuthor  Boolean?
-}
-
-model Dataset {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  nodes      Json
-  edges      Json
-  clusters   Json
-  tags       Json
-}
 model Paper {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   title         String
@@ -46,4 +36,12 @@ model Paper {
   abstract      String   // 8
   authors       Json[] // 9
 
+}
+
+model Dataset {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  nodes      Json
+  edges      Json
+  clusters   Json
+  tags       Json
 }
