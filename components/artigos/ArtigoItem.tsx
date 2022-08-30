@@ -27,7 +27,8 @@ function ArtigoItem({artigo, user}: any) {
                 <div className="bg-neutral-100 my-2 p-2 rounded w-full dark:bg-neutral-800 dark:text-neutral-400">
                     {artigo.keywords.map((keyword: any, index: any) => (
                         <span key={index}>
-                            {keyword} {index === artigo.keywords.length - 1 ? "" : ", "}
+                            {keyword}
+                            {index === artigo.keywords.length - 1 ? "" : ", "}
                         </span>
                     ))}
                 </div>

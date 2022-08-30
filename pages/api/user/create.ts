@@ -10,4 +10,4 @@ export default async function handler(
     const create = await createUser(name, nickname, email);
     res.json(create);
     
-}
+}   
