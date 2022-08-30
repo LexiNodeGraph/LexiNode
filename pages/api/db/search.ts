@@ -47,3 +47,10 @@ export async function findAllAuthorUsers() {
     await prisma.$disconnect();
     return new response(200, "User found", user);
 }
+
+export async function findAllPapers(){
+    await prisma.$connect();
+    const papers = await prisma.paper.findMany();
+    await prisma.$disconnect();
+    return new response(200, "Papers found", papers);
+}

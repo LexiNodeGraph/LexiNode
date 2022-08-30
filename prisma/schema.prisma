@@ -28,19 +28,19 @@ model Paper {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   title         String
   journal_title String?
-  field         String
-  year          String
-  international String
+  field         String?
+  year          Int
+  international Int
   web_link      String?
   keywords      String[]
-  abstract      String   // 8
-  authors       Json[] // 9
+  abstract      String
+  authors       Json[]
 
 }
 
 model Dataset {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
-  nodes      Json
+  nodes      Json 
   edges      Json
   clusters   Json
   tags       Json
