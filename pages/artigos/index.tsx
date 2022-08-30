@@ -16,15 +16,15 @@ const Artigos = () => {
     const [ordenar, setOrdenar] = useState();
     const [input, setInput] = useState("");
 
-    const filtredArtigos = artigos.filter((artigo) => artigo.label.toLowerCase().includes(input));
+    const filtredArtigos = artigos.filter((artigo) => artigo.title.toLowerCase().includes(input));
 
     if (typeof window !== "undefined") {
         window.location.protocol == "http:" ? (url = "http://localhost:3000") : (url = "https://lexinode.vercel.app");
     }
     useEffect(() => {
-        fetch(`${url}/api/dataset`)
+        fetch(`${url}/api/paper/find/all`)
             .then((res) => res.json())
-            .then((data) => setArtigos(data.nodes));
+            .then((data) => setArtigos(data));
         return () => {
             setArtigos([]);
         };
@@ -47,11 +47,11 @@ const Artigos = () => {
                 {artigos.length > 0 ? (
                     ordenar ? (
                         filtredArtigos
-                            .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0))
+                            .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
                             .map((artigo) => <ArtigoItem artigo={artigo} user={user} key={artigo.id} />)
                     ) : (
                         filtredArtigos
-                            .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0))
+                            .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
                             .reverse()
                             .map((artigo) => <ArtigoItem artigo={artigo} user={user} key={artigo.id} />)
                     )
