@@ -6,6 +6,7 @@ export default async function handler(
     res: NextApiResponse) {
 
     const papers = await findAllPapers();
-    console.log(papers);
-    res.json(papers.content);
+    res.status(200).json({
+        message: papers.content
+    });
 }
