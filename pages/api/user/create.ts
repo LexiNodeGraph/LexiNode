@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { createUser } from "../../../db/post";
+import { createUser } from "../db/post";
 
 export default async function handler(
    req: NextApiRequest, 
