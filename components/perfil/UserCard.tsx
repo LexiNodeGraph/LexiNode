@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import {BsDot} from "react-icons/bs";
 
-function UserCard({user}: any) {
+function UserCard({user, showModal, setShowModal}: any) {
     return (
         <div className="w-full max-w-sm bg-white rounded-lg border border-neutral-200 shadow-md dark:bg-neutral-800 dark:border-neutral-700">
             <div className="flex flex-col items-center pt-4 pb-10">
@@ -32,7 +32,12 @@ function UserCard({user}: any) {
                     </p>
 
                     <div className="flex mt-4 space-x-3 md:mt-6">
-                        <button className=" w-full  items-center py-2 px-4 text-sm font-medium text-center text-neutral-600 border-2 rounded-lg focus:ring-4 focus:outline-none dark:border-neutral-500 dark:text-neutral-400">
+                        <button
+                            onClick={() => {
+                                setShowModal(true);
+                            }}
+                            className=" w-full  items-center py-2 px-4 text-sm font-medium text-center text-neutral-600 border-2 rounded-lg focus:ring-4 focus:outline-none dark:border-neutral-500 dark:text-neutral-400"
+                        >
                             Editar Perfil
                         </button>
                     </div>
