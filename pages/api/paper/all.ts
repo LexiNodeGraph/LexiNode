@@ -5,6 +5,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse) {
 
-    const find = await findAllPapers();
-    res.json(find.content);
+    const papers = await findAllPapers();
+    console.log(papers);
+    res.json(papers.content);
 }
