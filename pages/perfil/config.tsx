@@ -1,10 +1,10 @@
 import PerfilLayout from "../../layouts/PerfilLayout";
-import Informacoes from "../../components/perfil/Informacoes";
+import Configuracoes from "../../components/perfil/Configuracoes";
 
 const Perfil = () => {
     return (
         <PerfilLayout>
-            <Informacoes />
+            <Configuracoes />
         </PerfilLayout>
     );
 };
