@@ -1,5 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { findUser } from "../../db/search";
 
 

@@ -22,7 +22,7 @@ const Artigos = () => {
         window.location.protocol == "http:" ? (url = "http://localhost:3000") : (url = "https://lexinode.vercel.app");
     }
     useEffect(() => {
-        fetch(`${url}/api/paper/find/all`)
+        fetch(`${url}/api/paper/all`)
             .then((res) => res.json())
             .then((data) => setArtigos(data));
         return () => {
