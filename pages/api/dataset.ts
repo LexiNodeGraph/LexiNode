@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { find_data } from './db/search';
+import { find_data } from '../../db/search';
 
 export default async function handler(
    req: NextApiRequest, 

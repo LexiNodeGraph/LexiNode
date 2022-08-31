@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { findUser } from "../../db/search";
+import { findUser } from "../../../../db/search";
 
 
 export default async function handler(

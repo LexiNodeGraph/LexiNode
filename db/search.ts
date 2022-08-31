@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { response } from "../lib/response"; 
+import { response } from "../pages/api/lib/response"; 
 
 const prisma = new PrismaClient();
 
@@ -50,7 +50,7 @@ export async function findAllAuthorUsers() {
 
 export async function findAllPapers(){
     await prisma.$connect();
-    // const papers = await prisma.paper.findMany();
+    const papers = await prisma.paper.findMany();
     await prisma.$disconnect();
-    return new response(200, "Papers found", "OK"); 
+    return new response(200, "Papers found", papers); 
 }
