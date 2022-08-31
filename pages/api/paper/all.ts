@@ -7,6 +7,6 @@ export default async function handler(
 
     const papers = await findAllPapers();
     res.status(200).json({
-        message: papers.content
+        message: "ok"
     });
 }
