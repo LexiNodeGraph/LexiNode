@@ -4,8 +4,10 @@ import {RiArrowDropDownLine} from "react-icons/ri";
 
 import {useUser} from "@auth0/nextjs-auth0";
 
+import Dropdown from "./Dropdown";
+
 import ItemsContainer from "./navbar/ItemsContainer";
-import NavDropdown from "./navbar/NavDropdown";
+
 import NavbarItem from "./navbar/NavbarItem";
 import Logo from "./navbar/Logo";
 import MobileNav from "./navbar/MobileNav";
@@ -37,20 +39,21 @@ const Navbar = () => {
                             {!user && <NavbarItem to="/artigos">Artigos</NavbarItem>}
 
                             {user && (
-                                <NavDropdown user={user} items={artigosItems}>
+                                <Dropdown user={user} items={artigosItems}>
                                     <RiArrowDropDownLine className="text-white text-2xl" />
                                     Artigos
-                                </NavDropdown>
+                                </Dropdown>
                             )}
 
                             <NavbarItem to="/autores">Autores</NavbarItem>
 
                             {!user && <NavbarItem to="/api/auth/login">Entrar</NavbarItem>}
 
-                            {user?.email?.includes("@ifc") || user?.email?.includes("ogabrielpereiraa7") && <NavbarItem to="/artigos/publicar">Adicionar artigo</NavbarItem>}
+                            {user?.email?.includes("@ifc") ||
+                                (user?.email?.includes("ogabrielpereiraa7") && <NavbarItem to="/artigos/publicar">Adicionar artigo</NavbarItem>)}
 
                             {user && (
-                                <NavDropdown items={userItems}>
+                                <Dropdown items={userItems}>
                                     <Image
                                         className="rounded-full"
                                         src={user.picture || "https://i.imgur.com/eRWRaqG.png"}
@@ -58,7 +61,7 @@ const Navbar = () => {
                                         width="35"
                                         height="35"
                                     />
-                                </NavDropdown>
+                                </Dropdown>
                             )}
                         </ItemsContainer>
                     </div>
