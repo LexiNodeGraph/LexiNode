@@ -9,7 +9,7 @@ import UserInfoEdit from "./UserInfoEdit";
 function UserCard({user}: any) {
     const [edit, setEdit] = useState(false);
     return (
-        <div className="w-full max-w-sm bg-white rounded-lg border border-neutral-200 shadow-md dark:bg-neutral-800 dark:border-neutral-700">
+        <div className="w-full max-w-sm bg-white rounded border border-neutral-200 shadow-md dark:bg-neutral-800 dark:border-neutral-700">
             <div className="flex flex-col items-center pt-4 pb-10">
                 <Image
                     className="rounded-full md:w-96 "
@@ -29,7 +29,7 @@ function UserCard({user}: any) {
                             onClick={() => {
                                 setEdit(!edit);
                             }}
-                            className=" w-full  items-center py-2 px-4 text-sm font-medium text-center text-neutral-600 border-2 rounded-lg focus:ring-4 focus:outline-none dark:border-neutral-500 dark:text-neutral-400"
+                            className=" w-full  items-center py-2 px-4 text-sm font-medium text-center text-neutral-600 border-2 rounded focus:ring-4 focus:outline-none dark:border-neutral-500 dark:text-neutral-400"
                         >
                             Editar Perfil
                         </button>

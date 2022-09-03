@@ -6,7 +6,7 @@ function MobileMenuButton({isOpen, setIsOpen}: any) {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className=" outline-0 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
+                className=" outline-0 inline-flex items-center justify-center p-2 rounded text-gray-400 hover:text-white focus:outline-none"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
             >

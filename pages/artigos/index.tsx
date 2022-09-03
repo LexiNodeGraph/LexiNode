@@ -42,7 +42,7 @@ const Artigos = () => {
                 sm:flex-row
                 dark:bg-neutral-900 dark:border-neutral-700"
         >
-            <div className=" w-full h-fit bg-white rounded-lg  shadow  dark:bg-neutral-900  dark:border-neutral-700">
+            <div className=" w-full h-fit bg-white rounded  shadow  dark:bg-neutral-900  dark:border-neutral-700">
                 <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
                 {artigos.length > 0 ? (
                     ordenar ? (

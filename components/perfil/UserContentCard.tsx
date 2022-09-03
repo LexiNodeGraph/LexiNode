@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function UserContentCard({children}: any) {
     return (
-        <div className="w-full bg-white rounded-lg border shadow-md dark:bg-neutral-800 dark:border-neutral-700">
+        <div className="w-full bg-white rounded border shadow-md dark:bg-neutral-800 dark:border-neutral-700">
             <ul className="flex flex-wrap text-sm font-medium text-center text-neutral-500 bg-neutral-50 rounded-t-lg border-b border-neutral-200 dark:border-neutral-700 dark:text-neutral-400 dark:bg-neutral-800">
                 <li className="mr-2">
                     <Link href="/perfil">
