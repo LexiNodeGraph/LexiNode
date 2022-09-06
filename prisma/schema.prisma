@@ -17,11 +17,10 @@ model User {
   nickname        String @unique
   email           String
   institution     String?
-  author_role     String?
+  isAuthor        Boolean?
   city            String?
   country         String?
   field           String?
-  isAuthor        Boolean?
 }
 
 model Paper {
