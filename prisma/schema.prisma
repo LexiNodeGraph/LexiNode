@@ -25,16 +25,16 @@ model User {
 }
 
 model Paper {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
-  title         String
-  journal_title String?
-  field         String?
-  year          Int
-  international Int
-  web_link      String?
-  keywords      String[]
-  abstract      String
-  authors       Json[]
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  journal_title   String?
+  research_field  String?
+  year            Int
+  international   Int
+  web_link        String?
+  abstract        String
+  keywords        String[]
+  authors         Json[]
 
 }
 
