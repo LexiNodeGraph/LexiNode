@@ -22,7 +22,6 @@ model User {
   country         String?
   field           String?
 }
-
 model Paper {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
   title           String
@@ -34,7 +33,6 @@ model Paper {
   abstract        String
   keywords        String[]
   authors         Json[]
-
 }
 
 model Dataset {
