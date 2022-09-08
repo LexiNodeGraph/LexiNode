@@ -15,7 +15,6 @@ const Autores = () => {
 
     const authors = allAuthors.filter((v, i, a) => a.findIndex((t) => t.name === v.name) === i);
     const filtredAuthors = authors.filter((author) => author.name.toLowerCase().includes(input));
-    console.log(authors);
 
     useEffect(() => {
         getAuthors();
