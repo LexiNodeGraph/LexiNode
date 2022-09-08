@@ -23,13 +23,13 @@ function AutorItem({author}: any) {
                 </div>
             </div>
             <div>
-                <Link href={`/autores/autor/${author.nickname}`}>
-                    <BiChevronRight
-                        className=" text-4xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]
+                {/* <Link href={`/autores/autor/${author.nickname}`}> */}
+                <BiChevronRight
+                    className=" text-4xl ease-out duration-300 rounded-full hover:text-[#0952DB] hover:bg-[#00000011]
                      dark:text-white dark:hover:text-white dark:hover:bg-[#ffffff11]
                     "
-                    />
-                </Link>
+                />
+                {/* </Link> */}
             </div>
         </li>
     );
