@@ -18,6 +18,7 @@ const Autores = () => {
 
     useEffect(() => {
         getAuthors();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [artigos]);
 
     useEffect(() => {
