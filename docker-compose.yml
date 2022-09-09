@@ -1,0 +1,18 @@
+version: "3.7"
+
+# containers to run
+services:
+  # container's name
+  lexinode:
+    # image to use
+    image: node:16
+    # project directory inside the container
+    working_dir: /usr/src/lexinode
+    # install all dependencies and start the project
+    command: bash -c "npm install && npm run dev"
+    # map port 3000 on host to 3000 on container side
+    ports:
+      - 3000:3000
+    # copy all files relative to docker-compose.yml to container
+    volumes:
+      - ./:/usr/src/lexinode
