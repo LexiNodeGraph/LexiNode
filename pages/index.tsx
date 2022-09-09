@@ -29,8 +29,11 @@ const Home = () => {
     return (
         <>
             <main className="fixed h-screen w-full top-50 z-0">
-                <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}>
-                </Dialog>
+                {
+                    user && <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}>
+                            </Dialog>
+                }
+
                 <Root />
                 
             </main>

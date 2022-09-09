@@ -3,11 +3,12 @@ import { response } from "../lib/response";
 
 const prisma = new PrismaClient();
 
-export async function createUser(name: string, nickname: string, email: string) {
+export async function createUser(name: string, picture: string, nickname: string, email: string) {
     await prisma.$connect();
     const createU = await prisma.user.create({
         data: {
             name: name,
+            picture: picture,
             nickname: nickname,
             email: email
         }
