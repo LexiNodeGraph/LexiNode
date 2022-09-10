@@ -1,12 +1,11 @@
 import {RiArrowDropDownLine} from "react-icons/ri";
+import Dropdown from "../Dropdown";
 
 function ArtigoItem({artigo, user}: any) {
     const artigoItems = [
         {
-            label: "Favoritar",
-            action: () => {
-                console.log("favoritar");
-            },
+            label: "Adicionar aos favoritos",
+            to: "/",
             show: true,
         },
     ];
@@ -24,20 +23,24 @@ function ArtigoItem({artigo, user}: any) {
                     ))}
                 </span>
 
-                <div className="bg-neutral-100 my-2 p-2 rounded w-full dark:bg-neutral-800 dark:text-neutral-400">
+                <div className="mt-2 rounded w-full inline-flex  flex-wrap gap-2">
                     {artigo.keywords.map((keyword: any, index: any) => (
-                        <span key={index}>
+                        <div
+                            key={index}
+                            className="rounded p-1 px-2  bg-neutral-200 cursor-pointer flex flex-nowrap hover:bg-neutral-300   transition duration-300
+                             dark:hover:bg-neutral-700 dark:bg-neutral-800 dark:text-neutral-50"
+                        >
                             {keyword}
-                            {index === artigo.keywords.length - 1 ? "" : ", "}
-                        </span>
+                        </div>
                     ))}
                 </div>
             </div>
-
-            <RiArrowDropDownLine
-                className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#4f8cfe] hover:bg-[#00000011]
+            <Dropdown items={artigoItems}>
+                <RiArrowDropDownLine
+                    className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#4f8cfe] hover:bg-[#00000011]
                 dark:text-white dark:hover:text-white dark:hover:bg-[#ffffff11]"
-            />
+                />
+            </Dropdown>
         </div>
     );
 }

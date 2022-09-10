@@ -19,7 +19,6 @@ const Navbar = () => {
 
     const artigosItems = [
         {label: "Artigos", to: "/artigos", show: true},
-        {label: "Favoritos", to: "/artigos/favoritos", show: true},
         {label: "Adicionar", to: "/adicionar", show: !user},
     ];
 
@@ -36,13 +35,13 @@ const Navbar = () => {
                         <Logo />
 
                         <ItemsContainer>
-                            {!user && <NavbarItem to="/artigos">Artigos</NavbarItem>}
-
-                            {user && (
+                            {user?.email?.includes("@ifc") ? (
                                 <Dropdown user={user} items={artigosItems}>
                                     <RiArrowDropDownLine className="text-white text-2xl" />
                                     Artigos
                                 </Dropdown>
+                            ) : (
+                                <NavbarItem to="/artigos">Artigos</NavbarItem>
                             )}
 
                             <NavbarItem to="/autores">Autores</NavbarItem>

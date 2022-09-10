@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Dropdown({children, items}: any) {
     return (
-        <Menu as="div" className="relative py-2 px-6 font-semibold rounded hover:bg-[#ffffff11] transition duration-300 mx-1">
+        <Menu as="div" className="relative py-2 px-6 font-semibold rounded transition duration-300 mx-1">
             <Menu.Button className="cursor-pointer text-white flex items-center "> {children}</Menu.Button>
             <Menu.Items className="absolute right-0 mt-2 w-44 p-1  origin-top-right divide-y divide-gray-100 rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900">
                 {items.map(
