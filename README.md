@@ -2,7 +2,32 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+### Running with Docker
+
+To run with docker, ensure both are installed:
+
+- docker
+- docker-compose
+
+Now, run the dev container:
+
+```
+docker-compose up
+```
+
+Done, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Running with npm/yarn
+
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
