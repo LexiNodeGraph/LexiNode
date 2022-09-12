@@ -10,7 +10,7 @@ datasource db {
 model User {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
   name            String
-  picture         String
+  picture         String?
   nickname        String @unique
   email           String
   institution     String?
@@ -21,13 +21,13 @@ model User {
 }
 model Paper {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
-  title           String
+  title           String?
   journal_title   String?
   research_field  String?
-  year            Int
-  international   Int
+  year            String?
+  international   Boolean?
   web_link        String?
-  abstract        String
+  abstract        String?
   keywords        String[]
   authors         Json[]
 }

@@ -17,4 +17,20 @@ export async function createUser(name: string, picture: string, nickname: string
     return new response(200, "User created", createU);
 }
 
-// createAuthorUser
+export async function createPaper(title: string, journal_title: string, research_field: string, 
+                                  year: string, international: boolean, web_link: string, abstract: string) {
+    await prisma.$connect();
+    const createU = await prisma.paper.create({
+        data: {
+            title: title,
+            journal_title: journal_title,
+            research_field: research_field,
+            year: year,
+            international: international,
+            web_link: web_link,
+            abstract: abstract
+        }
+    });
+    await prisma.$disconnect();
+    return new response(200, "User created", createU);
+}
