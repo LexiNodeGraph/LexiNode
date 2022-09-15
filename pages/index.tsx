@@ -1,9 +1,8 @@
 import Root from "../graphs/components/Root";
 import React, { useState, useRef } from "react";
-
 import axios from "axios";
-import { Dialog } from '@headlessui/react'
 
+import { Dialog } from '@headlessui/react'
 import { useUser } from "@auth0/nextjs-auth0";
 
 const Home = () => {
@@ -22,7 +21,6 @@ const Home = () => {
                 }
             });
             
-
         return setIsOpen(false);
     }
 
@@ -33,7 +31,6 @@ const Home = () => {
                     user && <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}>
                             </Dialog>
                 }
-
                 <Root />
                 
             </main>

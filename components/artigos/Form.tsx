@@ -10,7 +10,7 @@ const Form = () => {
     journal_title: '',
     research_field: '',
     year: '',
-    international: 'false',  
+    international: 0,  
     web_link: '',
     abstract: '',
   });
@@ -80,14 +80,7 @@ const Form = () => {
           </div>
           <div className="grid">
             <label htmlFor="name">Internacional</label>
-            <select name="international">
-              {/* parei aqui */}
-              <option value={paperForm.international }>Não</option> 
-              <option value={paperForm.international }>Sim</option>
-            </select>
-            {/* <input className="border border-1" type="text" name="international"
-              value={paperForm.international}
-              onChange={handleChange} /> */}
+            <h1>CANSEI</h1>
           </div>
           <div className="grid">
             <label htmlFor="name">Link Web</label>

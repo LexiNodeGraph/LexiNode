@@ -32,10 +32,10 @@ const Root: FC = () => {
 
     let url: string;
 
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined") { 
             window.location.protocol == 'http:' ? url = 'http://localhost:3000'  : url = 'https://lexinode.vercel.app';
         }
-
+        
     // Load data on mount:
     useEffect(() => {
         //change fetch to axios
