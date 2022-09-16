@@ -55,66 +55,109 @@ const Form = () => {
       <div className="grid justify-center mb-96">
         <form onSubmit={() => handleSubmit()}>
           <div className="grid">
-            <label htmlFor="name">Título</label>
+            <label htmlFor="titulo">Título</label>
             <input className="border border-1" type="text" name="title"
               value={paperForm.title}
               onChange={handleChange}
             />
           </div>
           <div className="grid">
-            <label htmlFor="name">Título do Journal</label>
+            <label htmlFor="journal">Título do Journal</label>
             <input className="border border-1" type="text" name="journal_title"
               value={paperForm.journal_title}
               onChange={handleChange}
             />
           </div>
           <div className="grid">
-            <label htmlFor="name">Área de pesquisa</label>
+            <label htmlFor="field">Área de pesquisa</label>
             <input className="border border-1" type="text" name="research_field"
               value={paperForm.research_field}
               onChange={handleChange} />
           </div>
           <div className="grid">
-            <label htmlFor="name">Ano de publicação</label>
+            <label htmlFor="year">Ano de publicação</label>
             <input className="border border-1" type="text" name="year"
               value={paperForm.year}
               onChange={handleChange} />
           </div>
           <div className="grid">
-            <label htmlFor="name">Internacional</label>
+            <label htmlFor="international">Internacional</label>
             <select name="international" value={paperForm.international} onChange={handleChange}>
               <option value={0}>Não</option>
               <option value={1}>Sim</option>
             </select>
           </div>
           <div className="grid">
-            <label htmlFor="name">Link Web</label>
+            <label htmlFor="link">Link Web</label>
             <input className="border border-1" type="text" name="web_link"
               value={paperForm.web_link}
               onChange={handleChange} />
           </div>
           <div className="grid">
-            <label htmlFor="name">Resumo</label>
+            <label htmlFor="abstract">Resumo</label>
             <input className="border border-1" type="text" name="abstract"
               value={paperForm.abstract}
               onChange={handleChange} />
           </div>
           <div className="grid">
-            <label htmlFor="name">Palavras-chave</label>
+            <label htmlFor="keys">Palavras-chave</label>
             <input className="border border-1" type="text" name="keywords"
               value={paperForm.keywords}
               onChange={handleChange} />
           </div>
-          {/* <div className="grid">
-            <label htmlFor="name">Palavras-chave:</label>
-            <input className="border border-1" type="text" name="keyword"
-              value={paperForm.keyword}
-              onChange={() => handleChange} />
-          </div> */}
-          <div className="flex justify-center mb-96">
+
+          <div >
+            <label htmlFor="authors">Autores:</label>
+
+            <hr className="border-2 border-black" />
+            <div className="grid">
+              <label>Nome Completo</label>
+              <input className="border border-1" type="text" name="first_name"
+              />
+
+            </div>
+            <div className="grid">
+              <label>Email</label>
+              <input className="border border-1" type="text" name="email" />
+
+            </div>
+            <div className="grid">
+              <label>Instituição</label>
+              <input className="border border-1" type="text" name="institution" />
+
+            </div>
+            <div className="grid">
+              <label>Autor principal/colaborador</label>
+              <input className="border border-1" type="text" name="author_role" />
+
+            </div>
+            <div className="grid">
+              <label>Cidade</label>
+              <input className="border border-1" type="text" name="city" />
+
+            </div>
+            <div className="grid">
+              <label>País</label>
+              <input className="border border-1" type="text" name="country" />
+
+            </div>
+            <div className="grid">
+              <label>Área de atuação</label>
+              <input className="border border-1" type="text" name="field" />
+
+            </div>
+            <div className="flex justify-center">
+              <a className="flex justify-center w-full bg-black text-white rounded-sm cursor-pointer"
+              onClick={() => console.log("CLICOU SEU ANIMAL")}
+              >Adicionar</a>
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-4">
             <button type="submit" value="save" className="bg-black w-14 h-5 text-white rounded-sm">Salvar</button>
           </div>
         </form>
+
       </div>
     </>
   )
