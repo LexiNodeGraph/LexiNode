@@ -18,7 +18,7 @@ export async function createUser(name: string, picture: string, nickname: string
 }
 
 export async function createPaper(title: string, journal_title: string, research_field: string, 
-                                  year: string, international: boolean, web_link: string, abstract: string) {
+                                  year: string, international: number, web_link: string, abstract: string, keywords: string[]) {
     await prisma.$connect();
     const createU = await prisma.paper.create({
         data: {
@@ -28,7 +28,8 @@ export async function createPaper(title: string, journal_title: string, research
             year: year,
             international: international,
             web_link: web_link,
-            abstract: abstract
+            abstract: abstract,
+            keywords: keywords
         }
     });
     await prisma.$disconnect();

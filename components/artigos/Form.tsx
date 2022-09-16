@@ -10,9 +10,10 @@ const Form = () => {
     journal_title: '',
     research_field: '',
     year: '',
-    international: 0,  
+    international: '0',  
     web_link: '',
     abstract: '',
+    keywords: '',
   });
   
   const handleChange = (e:any) => {
@@ -32,6 +33,7 @@ const Form = () => {
       international: paperForm.international,
       web_link: paperForm.web_link,
       abstract: paperForm.abstract,
+      keywords: paperForm.keywords,
       // keyword: paperForm.keyword,
     }
 
@@ -80,7 +82,10 @@ const Form = () => {
           </div>
           <div className="grid">
             <label htmlFor="name">Internacional</label>
-            <h1>CANSEI</h1>
+            <select name="international" value={paperForm.international} onChange={handleChange}>
+              <option value={0}>Não</option>
+              <option value={1}>Sim</option>
+            </select>
           </div>
           <div className="grid">
             <label htmlFor="name">Link Web</label>
@@ -92,6 +97,12 @@ const Form = () => {
             <label htmlFor="name">Resumo</label>
             <input className="border border-1" type="text" name="abstract"
               value={paperForm.abstract}
+              onChange={handleChange} />
+          </div>
+          <div className="grid">
+            <label htmlFor="name">Palavras-chave</label>
+            <input className="border border-1" type="text" name="keywords"
+              value={paperForm.keywords}
               onChange={handleChange} />
           </div>
           {/* <div className="grid">

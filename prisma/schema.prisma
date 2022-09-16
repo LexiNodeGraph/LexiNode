@@ -25,7 +25,7 @@ model Paper {
   journal_title   String?
   research_field  String?
   year            String?
-  international   Boolean?
+  international   Int?
   web_link        String?
   abstract        String?
   keywords        String[]
