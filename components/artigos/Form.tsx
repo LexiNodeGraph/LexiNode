@@ -15,8 +15,39 @@ const Form = () => {
     abstract: '',
     keywords: '',
   });
-  
-  const handleChange = (e:any) => {
+  const [authors, setAuthors] = useState(
+    {
+      name: '',
+      email: '',
+      institution: '',
+      author_role: '',
+      city: '',
+      country: '',
+      field: '',
+    }
+  ); // useState -- data of the authors
+  const [authorsList, setAuthorsList] = useState([{}]); // useState -- list of authors
+  function addAuthors(){ // function to add authors to the list
+    setAuthorsList([...authorsList, authors]);
+    setAuthors({
+      name: "",
+      email: "",
+      institution: "",
+      author_role: "",
+      city: "",
+      country: "",
+      field: ""
+    })
+  }
+
+  const handleAuthorChange = (e: any) => {
+    setAuthors({
+      ...authors,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handlePaperChange = (e: any) => {
     setPaperForm({
       ...paperForm,
       [e.target.name]: e.target.value
@@ -24,8 +55,7 @@ const Form = () => {
   }
 
   const handleSubmit = async () => {
-    
-    let body = {
+    let paper = {
       title: paperForm.title,
       journal_title: paperForm.journal_title,
       research_field: paperForm.research_field,
@@ -34,7 +64,7 @@ const Form = () => {
       web_link: paperForm.web_link,
       abstract: paperForm.abstract,
       keywords: paperForm.keywords,
-      // keyword: paperForm.keyword,
+      author: authorsList
     }
 
     try {
@@ -42,7 +72,7 @@ const Form = () => {
       const response = await axios({
         method: "post",
         url: "/api/paper/create",
-        data: body,
+        data: paper,
         headers: { "Content-Type": "application/json" },
       });
     } catch(error) {
@@ -58,31 +88,31 @@ const Form = () => {
             <label htmlFor="titulo">Título</label>
             <input className="border border-1" type="text" name="title"
               value={paperForm.title}
-              onChange={handleChange}
+              onChange={handlePaperChange}
             />
           </div>
           <div className="grid">
             <label htmlFor="journal">Título do Journal</label>
             <input className="border border-1" type="text" name="journal_title"
               value={paperForm.journal_title}
-              onChange={handleChange}
+              onChange={handlePaperChange}
             />
           </div>
           <div className="grid">
             <label htmlFor="field">Área de pesquisa</label>
             <input className="border border-1" type="text" name="research_field"
               value={paperForm.research_field}
-              onChange={handleChange} />
+              onChange={handlePaperChange} />
           </div>
           <div className="grid">
             <label htmlFor="year">Ano de publicação</label>
             <input className="border border-1" type="text" name="year"
               value={paperForm.year}
-              onChange={handleChange} />
+              onChange={handlePaperChange} />
           </div>
           <div className="grid">
             <label htmlFor="international">Internacional</label>
-            <select name="international" value={paperForm.international} onChange={handleChange}>
+            <select name="international" value={paperForm.international} onChange={handlePaperChange}>
               <option value={0}>Não</option>
               <option value={1}>Sim</option>
             </select>
@@ -91,67 +121,88 @@ const Form = () => {
             <label htmlFor="link">Link Web</label>
             <input className="border border-1" type="text" name="web_link"
               value={paperForm.web_link}
-              onChange={handleChange} />
-          </div>
+              onChange={handlePaperChange} />
+          </div>    
           <div className="grid">
             <label htmlFor="abstract">Resumo</label>
             <input className="border border-1" type="text" name="abstract"
               value={paperForm.abstract}
-              onChange={handleChange} />
+              onChange={handlePaperChange} />
           </div>
           <div className="grid">
             <label htmlFor="keys">Palavras-chave</label>
             <input className="border border-1" type="text" name="keywords"
               value={paperForm.keywords}
-              onChange={handleChange} />
+              onChange={handlePaperChange} />
           </div>
 
-          <div >
+          < >
             <label htmlFor="authors">Autores:</label>
 
             <hr className="border-2 border-black" />
             <div className="grid">
               <label>Nome Completo</label>
-              <input className="border border-1" type="text" name="first_name"
-              />
+              <input className="border border-1" type="text" name="name"
+                value={authors.name}
+                onChange={handleAuthorChange} />
 
             </div>
             <div className="grid">
               <label>Email</label>
-              <input className="border border-1" type="text" name="email" />
+              <input className="border border-1" type="text" name="email" 
+                value={authors.email}
+                onChange={handleAuthorChange} />
 
             </div>
             <div className="grid">
               <label>Instituição</label>
-              <input className="border border-1" type="text" name="institution" />
+              <input className="border border-1" type="text" name="institution" 
+                value={authors.institution}
+                onChange={handleAuthorChange}
+              />
 
             </div>
             <div className="grid">
               <label>Autor principal/colaborador</label>
-              <input className="border border-1" type="text" name="author_role" />
+              <input className="border border-1" type="text" name="author_role" 
+                value={authors.author_role}
+                onChange={handleAuthorChange}
+              />
 
             </div>
             <div className="grid">
               <label>Cidade</label>
-              <input className="border border-1" type="text" name="city" />
+              <input className="border border-1" type="text" name="city" 
+                value={authors.city}
+                onChange={handleAuthorChange}
+              />
 
             </div>
             <div className="grid">
               <label>País</label>
-              <input className="border border-1" type="text" name="country" />
+              <input className="border border-1" type="text" name="country" 
+                value={authors.country}
+                onChange={handleAuthorChange}
+              />
 
             </div>
             <div className="grid">
               <label>Área de atuação</label>
-              <input className="border border-1" type="text" name="field" />
+              <input className="border border-1" type="text" name="field" 
+                value={authors.field}
+                onChange={handleAuthorChange}
+              />
 
             </div>
+            {
+              console.log(authorsList)
+            }
             <div className="flex justify-center">
               <a className="flex justify-center w-full bg-black text-white rounded-sm cursor-pointer"
-              onClick={() => console.log("CLICOU SEU ANIMAL")}
-              >Adicionar</a>
+                onClick={() => addAuthors()}
+                >Adicionar</a>
             </div>
-          </div>
+          </>
 
           <div className="flex justify-center mt-4">
             <button type="submit" value="save" className="bg-black w-14 h-5 text-white rounded-sm">Salvar</button>
