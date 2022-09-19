@@ -26,7 +26,7 @@ const Form = () => {
       field: '',
     }
   ); // useState -- data of the authors
-  const [authorsList, setAuthorsList] = useState([{}]); // useState -- list of authors
+  const [authorsList, setAuthorsList] = useState([{email: ''}]); // useState -- list of authors
   function addAuthors(){ // function to add authors to the list
     setAuthorsList([...authorsList, authors]);
     setAuthors({
@@ -136,9 +136,15 @@ const Form = () => {
               onChange={handlePaperChange} />
           </div>
 
-          < >
+          <>
             <label htmlFor="authors">Autores:</label>
-
+            {
+              authorsList.filter((x:any)=> Object.keys(x).length != 0).map((x) => (
+                <div key={x.email}>
+                  <h1>{x.email}</h1>
+                </div>
+              )
+            )}
             <hr className="border-2 border-black" />
             <div className="grid">
               <label>Nome Completo</label>
