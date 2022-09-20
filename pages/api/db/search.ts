@@ -31,3 +31,16 @@ export async function findAllPapers(){
     await prisma.$disconnect();
     return new response(200, "Papers found", papers); 
 }
+
+export async function findKeyword(key: string) {
+    await prisma.$connect();
+    const keyword = await prisma.paper.findMany({
+        where: {
+            keywords: {
+                has: key
+            }
+        }
+    });
+    await prisma.$disconnect();
+    return new response(200, "Papers found", keyword);
+}
