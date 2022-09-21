@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useUser} from "@auth0/nextjs-auth0";
-
+import axios from "axios";
 import ArtigoSkeleton from "../../components/skeletons/ArtigoSkeleton";
 import ArtigoItem from "../../components/artigos/ArtigoItem";
 import FilterForm from "../../components/FilterForm";
@@ -22,9 +22,8 @@ const Artigos = () => {
         window.location.protocol == "http:" ? (url = "http://localhost:3000") : (url = "https://lexinode.vercel.app");
     }
     useEffect(() => {
-        fetch(`${url}/api/paper/find/all`)
-            .then((res) => res.json())
-            .then((data) => setArtigos(data));
+        axios.get(`${url}/api/paper/find/all`)
+            .then((data) => setArtigos(data.data));
         return () => {
             setArtigos([]);
         };
