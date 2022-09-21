@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-function autor() {
+function Autor() {
 
     const router = useRouter();
     const { keyword } = router.query;
@@ -12,14 +12,12 @@ function autor() {
     useEffect(() => {
         axios.get(`/api/paper/find/keywords/${keyword}`)
             .then((data) => setKey(data.data));
-        return () => {
-            setKey([]);
-        };
+            
     }, []);
 
     return (
         <div>
-            <h1>Artigos com a palavra-chave " {keyword} "</h1>
+            <h1>Artigos com a palavra-chave --{'>'} {keyword}</h1>
             {key.map((artigo) => (
                 <div key={artigo.id}>
                     <h2>{artigo.title}</h2>
@@ -29,4 +27,4 @@ function autor() {
     );
 }
 
-export default autor;
+export default Autor;
