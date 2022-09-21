@@ -4,34 +4,6 @@ import {useState} from "react";
 
 import Input from "./adicionar/Input";
 
-const FormInputs = [
-    {
-        id: "titulo",
-        label: "Título",
-        placeholder: "Título do artigo",
-    },
-    {
-        id: "conteudo",
-        label: "Conteúdo",
-        placeholder: "Conteúdo",
-    },
-    {
-        id: "conteudo",
-        label: "Conteúdo",
-        placeholder: "Conteúdo",
-    },
-    {
-        id: "conteudo",
-        label: "Conteúdo",
-        placeholder: "Conteúdo",
-    },
-    {
-        id: "conteudo",
-        label: "Conteúdo",
-        placeholder: "Conteúdo",
-    },
-];
-
 const Form = () => {
     const [paperForm, setPaperForm] = useState({
         // useState -- data of the papers
@@ -111,17 +83,23 @@ const Form = () => {
     return (
         <>
             <form onSubmit={() => handleSubmit()}>
-                <Input id="titulo" label="Título" placeholder="Título do artigo" handle={handlePaperChange} value={paperForm.title} />
+                <Input id="title" label="Título" placeholder="Título do artigo" handle={handlePaperChange} value={paperForm.title} />
 
                 <Input
-                    id={"journal"}
+                    id={"journal_title"}
                     label={"Título do Journal"}
                     placeholder={"Título do Journal"}
                     handle={handlePaperChange}
                     value={paperForm.journal_title}
                 />
 
-                <Input id="field" label="Área de pesquisa" placeholder="Área de pesquisa" handle={handlePaperChange} value={paperForm.research_field} />
+                <Input
+                    id="research_field"
+                    label="Área de pesquisa"
+                    placeholder="Área de pesquisa"
+                    handle={handlePaperChange}
+                    value={paperForm.research_field}
+                />
 
                 <Input id={"year"} label={"Ano de publicação"} placeholder={"Ano de publicação"} handle={handlePaperChange} value={paperForm.year} />
 
@@ -133,11 +111,11 @@ const Form = () => {
                     <option value={1}>Sim</option>
                 </select>
 
-                <Input id={"link"} label={"Link Web"} placeholder={"Link Web"} handle={handlePaperChange} value={paperForm.web_link} />
+                <Input id={"web_link"} label={"Link Web"} placeholder={"Link Web"} handle={handlePaperChange} value={paperForm.web_link} />
 
                 <Input id="abstract" label="Resumo" placeholder="Resumo" handle={handlePaperChange} value={paperForm.abstract} />
 
-                <Input id={"keys"} label={"Palavras-chave"} placeholder={"Palavras-chave"} handle={handlePaperChange} value={paperForm.keywords} />
+                <Input id={"keywords"} label={"Palavras-chave"} placeholder={"Palavras-chave"} handle={handlePaperChange} value={paperForm.keywords} />
 
                 <>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor="authors">
