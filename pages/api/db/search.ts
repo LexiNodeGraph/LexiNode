@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { has } from "lodash";
 import { response } from "../lib/response"; 
 
 const prisma = new PrismaClient();

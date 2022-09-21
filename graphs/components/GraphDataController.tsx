@@ -24,7 +24,7 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; childre
       image: `../../images/${tags[node.tag].image}`,
     }),
     );
-    dataset.edges.forEach(([source, target]) => graph.addEdge(source, target, { size: 1 })); // tamanho da aresta
+    dataset.edges?.forEach(([source, target]) => graph.addEdge(source, target, { size: 1 })); // tamanho da aresta
 
     // Use degrees as node sizes:
     const scores = graph.nodes().map((node) => graph.getNodeAttribute(node, "score"));
