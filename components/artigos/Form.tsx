@@ -18,6 +18,7 @@ const Form = () => {
     });
     const [authors, setAuthors] = useState({
         name: "",
+        picture: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
         email: "",
         institution: "",
         author_role: "",
@@ -31,6 +32,7 @@ const Form = () => {
         setAuthorsList([...authorsList, authors]);
         setAuthors({
             name: "",
+            picture: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
             email: "",
             institution: "",
             author_role: "",

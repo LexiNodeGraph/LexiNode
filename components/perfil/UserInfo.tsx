@@ -12,7 +12,7 @@ function UserInfo({user}: any) {
             </span>
 
             <p className="mb-4 text-sm font-light  dark:text-white">
-                Ta ficando potente essa pagina pprt ta lindao. Alias faz ai a rota pra peguar todas essa informções do usuário
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam
             </p>
         </>
     );

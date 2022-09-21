@@ -34,7 +34,7 @@ model Paper {
 model Dataset {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   nodes      Json 
-  edges      Json
-  clusters   Json
-  tags       Json
+  edges      Json?
+  clusters   Json?
+  tags       Json?
 }
