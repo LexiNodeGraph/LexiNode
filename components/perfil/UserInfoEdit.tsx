@@ -10,7 +10,7 @@ function UserInfoEdit({user}: any) {
                 <span className="text-sm mb-2 text-neutral-500 dark:text-neutral-400">{user?.email?.includes("@ifc.edu.br") ? "Autor" : "Usuário"}</span>
             </span>
 
-            <p className="mb-4 text-sm font-light  dark:text-white">MODO DE EDIÇÂO (AINDA NÃO IMPLEMENTADO)</p>
+            <p className="mb-4 text-sm font-light  dark:text-white">MODO DE EDIÇÃO (AINDA NÃO IMPLEMENTADO)</p>
         </>
     );
 }
