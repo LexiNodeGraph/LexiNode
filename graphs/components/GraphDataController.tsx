@@ -21,7 +21,7 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; childre
     graph.addNode(node.key, {
       ...node,
       ...omit(clusters[node.cluster], "key"),
-      image: `../../images/${tags[node.tag].image}`,
+      image: `../../images/${tags[node.tag]?.image}`,
     }),
     );
     dataset.edges?.forEach(([source, target]) => graph.addEdge(source, target, { size: 1 })); // tamanho da aresta

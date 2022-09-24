@@ -70,8 +70,8 @@ const Form = () => {
             ))}
 
             <AutorForm setAuthor={setAuthor} author={author} />
-            <Button onClick={() => setAllAuthors([...allAuthors, author])}>Add autor</Button>
-
+            <Button onClick={() => setAllAuthors([...allAuthors, author])}>Adicionar autor</Button>
+            
             <Button onClick={handleSubmit}>Salvar</Button>
         </div>
     );
