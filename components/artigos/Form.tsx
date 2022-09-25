@@ -5,6 +5,7 @@ import {useState} from "react";
 import Button from "./adicionar/Button";
 import AutorForm from "./adicionar/AutorForm";
 import PaperForm from "./adicionar/PaperForm";
+import Tag from "../Tag";
 
 const picUrl = "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y";
 
@@ -17,7 +18,7 @@ const Form = () => {
         international: "0",
         web_link: "",
         abstract: "",
-        keywords: "",
+        keywords: [],
     });
 
     const [author, setAuthor] = useState({
@@ -30,8 +31,22 @@ const Form = () => {
         country: "",
         field: "",
     });
+
     const [allAuthors, setAllAuthors] = useState<any[]>([]);
 
+    function handleAddAuthor() {
+        setAllAuthors([...allAuthors, author]);
+        setAuthor({
+            name: "",
+            picture: picUrl,
+            email: "",
+            institution: "",
+            author_role: "",
+            city: "",
+            country: "",
+            field: "",
+        });
+    }
     const handleSubmit = async (e: any) => {
         let fullPaper = {
             title: paper.title,
@@ -44,7 +59,7 @@ const Form = () => {
             keywords: paper.keywords,
             author: allAuthors,
         };
-        console.log(fullPaper);
+
         try {
             // make axios post request
             const response = await axios({
@@ -56,6 +71,17 @@ const Form = () => {
         } catch (error) {
             console.log(error);
         }
+
+        setPaper({
+            title: "",
+            journal_title: "",
+            research_field: "",
+            year: "",
+            international: "0",
+            web_link: "",
+            abstract: "",
+            keywords: [],
+        });
     };
 
     return (
@@ -64,13 +90,14 @@ const Form = () => {
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor="authors">
                 Autor(es):
             </label>
-
-            {allAuthors.map((author, index) => (
-                <p key={index}>{author.name}</p>
-            ))}
+            <div className="mt-2 rounded w-full inline-flex  flex-wrap gap-2">
+                {allAuthors.map((author, index) => (
+                    <Tag key={index} label={author.name} />
+                ))}
+            </div>
 
             <AutorForm setAuthor={setAuthor} author={author} />
-            <Button onClick={() => setAllAuthors([...allAuthors, author])}>Add autor</Button>
+            <Button onClick={() => handleAddAuthor()}>Adicionar novo autor</Button>
 
             <Button onClick={handleSubmit}>Salvar</Button>
         </div>

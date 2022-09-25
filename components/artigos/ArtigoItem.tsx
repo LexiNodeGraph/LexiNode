@@ -1,5 +1,6 @@
 import {RiArrowDropDownLine} from "react-icons/ri";
 import Dropdown from "../Dropdown";
+import Tag from "../Tag";
 import Link from "next/link";
 
 function ArtigoItem({artigo, user}: any) {
@@ -27,13 +28,7 @@ function ArtigoItem({artigo, user}: any) {
                 <div className="mt-2 rounded w-full inline-flex  flex-wrap gap-2">
                     {artigo.keywords.map((keyword: any, index: any) => (
                         <Link key={index} href={"/artigos/keyword/" + keyword}>
-                            <div
-                                className="rounded p-1 px-2  bg-neutral-200 cursor-pointer flex flex-nowrap hover:bg-neutral-300   transition duration-300
-                                dark:hover:bg-neutral-700 dark:bg-neutral-800 dark:text-neutral-50"
-                            >
-                                    {keyword}
-                            
-                            </div>
+                            <Tag label={keyword} />
                         </Link>
                     ))}
                 </div>

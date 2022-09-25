@@ -1,8 +1,8 @@
 import React from "react";
 
-function Input({placeholder, label, name, id, value, onChange}: any) {
+function Input({placeholder, label, name, id, value, onChange, width}: any) {
     return (
-        <>
+        <div className={`${!width ? "w-full" : width}`}>
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor={id}>
                 {label}
             </label>
@@ -22,7 +22,7 @@ function Input({placeholder, label, name, id, value, onChange}: any) {
                 value={value}
                 onChange={onChange}
             />
-        </>
+        </div>
     );
 }
 

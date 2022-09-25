@@ -1,17 +1,29 @@
-import React from "react";
+import {useState} from "react";
 
 import Input from "./Input";
 import Button from "./Button";
-
+import KeywordForm from "./KeywordForm";
 import Select from "./Select";
 
 function PaperForm({setPaper, paper}: any) {
+    const [keywords, setKeywords] = useState<string[]>([]);
+    const [keyword, setKeyword] = useState("");
+
     const handlePaperChange = (e: any) => {
         setPaper({
             ...paper,
             [e.target.name]: e.target.value,
         });
     };
+
+    function handleAddKeyword(keyword: string) {
+        setKeywords([...keywords, keyword]);
+        setKeyword("");
+        setPaper({
+            ...paper,
+            keywords: keywords,
+        });
+    }
     return (
         <div>
             <Input name="title" label="Título" placeholder="Título do artigo" onChange={(e: any) => handlePaperChange(e)} value={paper.title} />
@@ -42,13 +54,7 @@ function PaperForm({setPaper, paper}: any) {
             />
             <Input name={"web_link"} label={"Link Web"} placeholder={"Link Web"} onChange={(e: any) => handlePaperChange(e)} value={paper.web_link} />
             <Input name="abstract" label="Resumo" placeholder="Resumo" onChange={(e: any) => handlePaperChange(e)} value={paper.abstract} />
-            <Input
-                name={"keywords"}
-                label={"Palavras-chave"}
-                placeholder={"Palavras-chave"}
-                onChange={(e: any) => handlePaperChange(e)}
-                value={paper.keywords}
-            />
+            <KeywordForm handleAddKeyword={handleAddKeyword} setKeyword={setKeyword} keyword={keyword} keywords={keywords} />
         </div>
     );
 }
