@@ -1,17 +1,19 @@
 import React from "react";
 
-function Select({label, name, value, onChange, options}: any) {
+function Select({label, name, id, value, onChange, options, width}: any) {
     return (
-        <>
-            <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+        <div>
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor={id}>
                 {label}
             </label>
             <select
+                id={id}
                 name={name}
                 value={value}
                 onChange={onChange}
                 className="flex 
-               p-4 pl-6        
+                
+               p-4 pl-6 w-full        
                text-sm
                rounded border
                text-black bg-white 
@@ -25,7 +27,7 @@ function Select({label, name, value, onChange, options}: any) {
                     </option>
                 ))}
             </select>
-        </>
+        </div>
     );
 }
 

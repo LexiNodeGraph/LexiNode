@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({placeholder, label, name, id, value, onChange, width}: any) {
+function Input({placeholder, label, name, id, value, type, onChange, width}: any) {
     return (
         <div className={`${!width ? "w-full" : width}`}>
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor={id}>
@@ -15,7 +15,7 @@ function Input({placeholder, label, name, id, value, onChange, width}: any) {
                focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500
                dark:text-white  dark:bg-neutral-900  dark:border-neutral-700
                "
-                type="text"
+                type={`${type ? type : "text"}`}
                 id={id}
                 name={name}
                 placeholder={placeholder}

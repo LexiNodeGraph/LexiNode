@@ -25,7 +25,7 @@ function PaperForm({setPaper, paper}: any) {
         });
     }
     return (
-        <div>
+        <div className="px-16">
             <Input name="title" label="Título" placeholder="Título do artigo" onChange={(e: any) => handlePaperChange(e)} value={paper.title} />
             <Input
                 name={"journal_title"}
@@ -41,17 +41,28 @@ function PaperForm({setPaper, paper}: any) {
                 onChange={(e: any) => handlePaperChange(e)}
                 value={paper.research_field}
             />
-            <Input name={"year"} label={"Ano de publicação"} placeholder={"Ano de publicação"} onChange={(e: any) => handlePaperChange(e)} value={paper.year} />
-            <Select
-                options={[
-                    {value: 1, label: "Sim"},
-                    {value: 0, label: "Não"},
-                ]}
-                label="Internacional"
-                name="international"
-                value={paper.international}
-                onChange={(e: any) => handlePaperChange(e)}
-            />
+
+            <div className="flex flex-row  gap-2 ">
+                <Input
+                    name={"year"}
+                    label={"Ano de publicação"}
+                    placeholder={"Ano de publicação"}
+                    onChange={(e: any) => handlePaperChange(e)}
+                    value={paper.year}
+                />
+                <Select
+                    options={[
+                        {value: 1, label: "Sim"},
+                        {value: 0, label: "Não"},
+                    ]}
+                    id="international"
+                    label="Internacional"
+                    name="international"
+                    value={paper.international}
+                    onChange={(e: any) => handlePaperChange(e)}
+                />
+            </div>
+
             <Input name={"web_link"} label={"Link Web"} placeholder={"Link Web"} onChange={(e: any) => handlePaperChange(e)} value={paper.web_link} />
             <Input name="abstract" label="Resumo" placeholder="Resumo" onChange={(e: any) => handlePaperChange(e)} value={paper.abstract} />
             <KeywordForm handleAddKeyword={handleAddKeyword} setKeyword={setKeyword} keyword={keyword} keywords={keywords} />

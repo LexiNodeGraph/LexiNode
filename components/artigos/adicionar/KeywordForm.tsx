@@ -6,7 +6,7 @@ import Tag from "../../Tag";
 
 function KeywordForm({handleAddKeyword, setKeyword, keyword, keywords}: any) {
     return (
-        <div className="flex">
+        <div className=" ">
             <Input
                 id="keyword"
                 name={"keywords"}
@@ -15,7 +15,9 @@ function KeywordForm({handleAddKeyword, setKeyword, keyword, keywords}: any) {
                 onChange={(e: any) => setKeyword(e.target.value)}
                 value={keyword}
             />
-            <Button onClick={() => handleAddKeyword(keyword)}>Adicionar</Button>
+            <Button style=" " onClick={() => handleAddKeyword(keyword)}>
+                Adicionar
+            </Button>
         </div>
     );
 }

@@ -87,17 +87,8 @@ const Form = () => {
     return (
         <div className="p-2">
             <PaperForm setPaper={setPaper} paper={paper} />
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor="authors">
-                Autor(es):
-            </label>
-            <div className="mt-2 rounded w-full inline-flex  flex-wrap gap-2">
-                {allAuthors.map((author, index) => (
-                    <Tag key={index} label={author.name} />
-                ))}
-            </div>
 
-            <AutorForm setAuthor={setAuthor} author={author} />
-            <Button onClick={() => handleAddAuthor()}>Adicionar novo autor</Button>
+            <AutorForm setAuthor={setAuthor} author={author} allAuthors={allAuthors} handleAddAuthor={handleAddAuthor} />
 
             <Button onClick={handleSubmit}>Salvar</Button>
         </div>
