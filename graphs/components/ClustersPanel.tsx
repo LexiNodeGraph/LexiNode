@@ -94,16 +94,6 @@ const ClustersPanel: FC<{
                 <span className="circle" style={{ background: cluster.color, borderColor: cluster.color }} />{" "}
                 <div className="node-label">
                   <span>{cluster.clusterLabel}</span>
-                  
-                  {/* { nodesCount > 0 ? (
-                        <span className="text-muted text-small">
-                          {" "}
-                          ({visibleNodesCount} / {nodesCount})
-                        </span>
-                      ) : (
-                        ""
-                      )} */}
-
                   <div className="bar" style={{ width: (100 * nodesCount) / maxNodesPerCluster + "%" }}>
                     <div
                       className="inside-bar"

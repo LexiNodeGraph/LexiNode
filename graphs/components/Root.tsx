@@ -8,7 +8,7 @@ import GraphSettingsController from "./GraphSettingsController";
 import GraphEventsController from "./GraphEventsController";
 import GraphDataController from "./GraphDataController";
 import DescriptionPanel from "./DescriptionPanel";
-import {Dataset, FiltersState} from "../types";
+// import {Dataset, FiltersState} from "../types";
 import ClustersPanel from "./ClustersPanel";
 import SearchField from "./SearchField";
 import drawLabel from "../canvas-utils";
@@ -39,7 +39,7 @@ const Root: FC = () => {
     // Load data on mount:
     useEffect(() => {
         //change fetch to axios
-        fetch(`${url}/api/dataset`)
+        fetch(`${url}/api/paper/find/keywords/all`)
             .then((res) => res.json())
             .then((dataset: Dataset) => {
                 setDataset(dataset);
@@ -100,13 +100,13 @@ const Root: FC = () => {
                                     clusters={dataset.clusters}
                                     filters={filtersState}
                                     setClusters={(clusters) =>
-                                        setFiltersState((filters) => ({
+                                        setFiltersState((filters: any) => ({
                                             ...filters,
                                             clusters,
                                         }))
                                     }
                                     toggleCluster={(cluster) => {
-                                        setFiltersState((filters) => ({
+                                        setFiltersState((filters: any) => ({
                                             ...filters,
                                             clusters: filters.clusters[cluster] ? omit(filters.clusters, cluster) : {...filters.clusters, [cluster]: true},
                                         }));
@@ -116,13 +116,13 @@ const Root: FC = () => {
                                     tags={dataset.tags}
                                     filters={filtersState}
                                     setTags={(tags) =>
-                                        setFiltersState((filters) => ({
+                                        setFiltersState((filters: any) => ({
                                             ...filters,
                                             tags,
                                         }))
                                     }
                                     toggleTag={(tag) => {
-                                        setFiltersState((filters) => ({
+                                        setFiltersState((filters: any) => ({
                                             ...filters,
                                             tags: filters.tags[tag] ? omit(filters.tags, tag) : {...filters.tags, [tag]: true},
                                         }));

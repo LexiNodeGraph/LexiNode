@@ -2,9 +2,8 @@ import { useSigma } from "react-sigma-v2";
 import { FC, useEffect } from "react";
 import { keyBy, omit } from "lodash";
 import FA2Layout from 'graphology-layout-forceatlas2/worker';
-import { Dataset, FiltersState } from "../types";
 
-const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; children?: [] | string | undefined }> = ({ dataset, filters, children }) => {
+const GraphDataController: FC<{ children?: [] | string | undefined }> = ({ dataset, filters, children }) => {
   const sigma = useSigma();
   const graph = sigma.getGraph();
 
@@ -24,23 +23,25 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; childre
     const clusters = keyBy(dataset.clusters, "key");
     const tags = keyBy(dataset.tags, "key");
 
-    dataset.nodes.forEach((node) =>
-    graph.addNode(node.key, {
-      ...node,
-      x: 2 * Math.random() - 1,
-      y: 2 * Math.random() - 1,
-      ...omit(clusters[node.cluster], "key"),
-      image: `../../images/${tags[node.tag]?.image}`,
-    }),
+    dataset.nodes.forEach((node:any, index: any) =>
+      graph.addNode(node, {
+        label: node,
+        tag: "Field",
+        URL: "https://www.google.com",
+        // cluster: clusters[node.cluster].key,
+        x: 2 * Math.random() - 1,
+        y: 2 * Math.random() - 1,
+        size: 20,
+        // ...omit(clusters[node.cluster], "key"),
+        image: "../../images/field.svg",
+      }),
     );
-    dataset.edges?.forEach(([source, target]) => graph.addEdge(source, target, { size: 1 })); // tamanho da aresta
+    dataset.edges?.forEach(([source, target]:any) => graph.addEdge(source, target, { size: 1 })); // tamanho da aresta
 
     // Use degrees as node sizes:
-    const scores = graph.nodes().map((node) => graph.getNodeAttribute(node, "score"));
-    const minDegree = Math.min(...scores);
-    const maxDegree = Math.max(...scores);
-    const MIN_NODE_SIZE = 3;
-    const MAX_NODE_SIZE = 50;
+    // const scores = graph.nodes().map((node) => graph.getNodeAttribute(node, "score"));
+    // const minDegree = Math.min(...scores);
+    // const maxDegree = Math.max(...scores);
     // graph.forEachNode((node) =>
     //   graph.setNodeAttribute(
     //     node,
@@ -54,9 +55,6 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; childre
     return () => graph.clear();
   }, [graph, dataset]);
 
-  /**
-   * Apply filters to graphology:
-   */
   useEffect(() => {
     const { clusters, tags } = filters;
     graph.forEachNode((node, { cluster, tag }) =>
