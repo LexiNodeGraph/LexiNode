@@ -2,6 +2,8 @@ import {useState, useEffect} from "react";
 import Tag from "../../Tag";
 import Input from "./Input";
 import Button from "../adicionar/Button";
+import Select from "./Select";
+import AuthorCard from "./AuthorCard";
 
 function AutorForm({author, setAuthor, allAuthors, handleAddAuthor}: any) {
     function handleAuthorChange(e: any) {
@@ -12,27 +14,39 @@ function AutorForm({author, setAuthor, allAuthors, handleAddAuthor}: any) {
     }
 
     return (
-        <div className="px-16">
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor="authors">
-                Autor(es):
-            </label>
-
-            <div className="mt-2 rounded w-full inline-flex  flex-wrap gap-2">
+        <div className="">
+            <h2 className="text-center mb-3 font-bold text-neutral-300 dark:text-neutral-100">Autores</h2>
+            <div className="my-4 flex flex-row gap-2">
                 {allAuthors.map((author: any) => (
-                    <Tag key={author.name} label={author.name} />
+                    <AuthorCard key={author.id} author={author} />
                 ))}
             </div>
 
-            <Input placeholder="Nome Completo" label="Nome Completo" type="text" name="name" value={author.name} onChange={(e: any) => handleAuthorChange(e)} />
+            <div className="flex sm:flex-row flex-col gap-2">
+                <Input
+                    placeholder="Nome Completo"
+                    label="Nome Completo"
+                    type="text"
+                    name="name"
+                    value={author.name}
+                    onChange={(e: any) => handleAuthorChange(e)}
+                />
+                <Select
+                    label="Função"
+                    options={[
+                        {value: 1, label: "Autor Principal"},
+                        {value: 0, label: "Colaborador"},
+                    ]}
+                    placeholder="Autor"
+                    type="text"
+                    name="author_role"
+                    value={author.author_role}
+                    onChange={(e: any) => handleAuthorChange(e)}
+                />
+            </div>
+
             <Input label="Email" placeholder="Email" type="text" name="email" value={author.email} onChange={(e: any) => handleAuthorChange(e)} />
-            <Input
-                label="Autor principal/colaborador"
-                placeholder="Autor"
-                type="text"
-                name="author_role"
-                value={author.author_role}
-                onChange={(e: any) => handleAuthorChange(e)}
-            />
+
             <div className="flex sm:flex-row flex-col gap-2">
                 <Input
                     width="sm:w-3/5 w-full"
@@ -59,7 +73,9 @@ function AutorForm({author, setAuthor, allAuthors, handleAddAuthor}: any) {
 
                 <Input label="País" placeholder="País" type="text" name="country" value={author.country} onChange={(e: any) => handleAuthorChange(e)} />
             </div>
-            <Button onClick={() => handleAddAuthor()}>Adicionar novo autor</Button>
+            <div className=" m-6 flex justify-center items-center">
+                <Button onClick={() => handleAddAuthor()}>Adicionar autor</Button>
+            </div>
         </div>
     );
 }

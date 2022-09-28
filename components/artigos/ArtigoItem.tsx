@@ -27,7 +27,7 @@ function ArtigoItem({artigo, user}: any) {
 
                 <div className="mt-2 rounded w-full inline-flex  flex-wrap gap-2">
                     {artigo.keywords.map((keyword: any, index: any) => (
-                        <Link key={index} href={"/artigos/keyword/" + keyword}>
+                        <Link key={index} href={`/artigos/keyword/${keyword}`}>
                             <Tag label={keyword} />
                         </Link>
                     ))}

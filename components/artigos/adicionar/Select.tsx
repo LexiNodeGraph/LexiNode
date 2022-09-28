@@ -13,7 +13,7 @@ function Select({label, name, id, value, onChange, options, width}: any) {
                 onChange={onChange}
                 className="flex 
                 
-               p-4 pl-6 w-full        
+               p-4 pr-6 w-full h-[54px]      
                text-sm
                rounded border
                text-black bg-white 

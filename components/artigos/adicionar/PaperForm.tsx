@@ -25,7 +25,8 @@ function PaperForm({setPaper, paper}: any) {
         });
     }
     return (
-        <div className="px-16">
+        <div className=" mb-6">
+            <h2 className="text-center mb-3 font-bold text-neutral-300 dark:text-neutral-100">Informações do artigo</h2>
             <Input name="title" label="Título" placeholder="Título do artigo" onChange={(e: any) => handlePaperChange(e)} value={paper.title} />
             <Input
                 name={"journal_title"}

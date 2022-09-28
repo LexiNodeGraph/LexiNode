@@ -1,15 +1,16 @@
 import React from "react";
 
-function Button({type, onClick, value, children}: any) {
+function Button({type, onClick, value, children, style}: any) {
     return (
         <button
             type={type}
             onClick={onClick}
             value={value}
-            className="bg-white border  text-black text-sm rounded h-min
+            className={`text-sm rounded  p-2.5 h-min
+            bg-white border  text-black 
             flex justify-center items-center
-            focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500   p-2.5
-            dark:text-white  dark:bg-neutral-900  dark:border-neutral-700"
+            focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500  
+            dark:text-white  dark:bg-neutral-900  dark:border-neutral-700 ${style}`}
         >
             {children}
         </button>

@@ -86,11 +86,14 @@ const Form = () => {
 
     return (
         <div className="p-2">
-            <PaperForm setPaper={setPaper} paper={paper} />
+            <div className=" p-2 m-10 mb-0 border rounded  border-neutral-200 shadow-md dark:border-neutral-600">
+                <PaperForm setPaper={setPaper} paper={paper} />
 
-            <AutorForm setAuthor={setAuthor} author={author} allAuthors={allAuthors} handleAddAuthor={handleAddAuthor} />
-
-            <Button onClick={handleSubmit}>Salvar</Button>
+                <AutorForm setAuthor={setAuthor} author={author} allAuthors={allAuthors} handleAddAuthor={handleAddAuthor} />
+            </div>
+            <div className=" m-6 flex justify-center items-center">
+                <Button onClick={handleSubmit}>Adicionar artigo</Button>
+            </div>
         </div>
     );
 };
