@@ -34,8 +34,8 @@ function AutorForm({author, setAuthor, allAuthors, handleAddAuthor}: any) {
                 <Select
                     label="Função"
                     options={[
-                        {value: 1, label: "Autor Principal"},
-                        {value: 0, label: "Colaborador"},
+                        {value: "0", label: "Autor Principal"},
+                        {value: "1", label: "Colaborador"},
                     ]}
                     placeholder="Autor"
                     type="text"
