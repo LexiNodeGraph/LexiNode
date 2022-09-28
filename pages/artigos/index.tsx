@@ -9,8 +9,6 @@ import FavoritosCard from "../../components/artigos/FavoritosCard";
 const Artigos = () => {
     const {user} = useUser();
 
-    let url: string;
-
     const [artigos, setArtigos] = useState<any[]>([]);
 
     const [ordenar, setOrdenar] = useState();
@@ -18,12 +16,8 @@ const Artigos = () => {
 
     const filtredArtigos = artigos.filter((artigo) => artigo.title.toLowerCase().includes(input));
 
-    if (typeof window !== "undefined") {
-        window.location.protocol == "http:" ? (url = "http://localhost:3000") : (url = "https://lexinode.vercel.app");
-    }
     useEffect(() => {
-        axios.get(`${url}/api/paper/find/all`)
-            .then((data) => setArtigos(data.data));
+        axios.get(`/api/paper/find/all`).then((data) => setArtigos(data.data));
         return () => {
             setArtigos([]);
         };
