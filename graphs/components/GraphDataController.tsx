@@ -1,7 +1,7 @@
 import { useSigma } from "react-sigma-v2";
 import { FC, useEffect } from "react";
 import { keyBy, omit } from "lodash";
-
+import FA2Layout from 'graphology-layout-forceatlas2/worker';
 import { Dataset, FiltersState } from "../types";
 
 const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; children?: [] | string | undefined }> = ({ dataset, filters, children }) => {
@@ -11,6 +11,13 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; childre
   /**
    * Feed graphology with the new dataset:
    */
+  const layout = new FA2Layout(graph, {
+    settings: { gravity: 1 }
+   });
+
+  // To start the layout
+  layout.start();
+
   useEffect(() => {  
     if (!graph || !dataset) return;
 
@@ -20,6 +27,8 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; childre
     dataset.nodes.forEach((node) =>
     graph.addNode(node.key, {
       ...node,
+      x: 2 * Math.random() - 1,
+      y: 2 * Math.random() - 1,
       ...omit(clusters[node.cluster], "key"),
       image: `../../images/${tags[node.tag]?.image}`,
     }),
@@ -31,16 +40,16 @@ const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; childre
     const minDegree = Math.min(...scores);
     const maxDegree = Math.max(...scores);
     const MIN_NODE_SIZE = 3;
-    const MAX_NODE_SIZE = 30;
-    graph.forEachNode((node) =>
-      graph.setNodeAttribute(
-        node,
-        "size",
-        ((graph.getNodeAttribute(node, "score") - minDegree) / (maxDegree - minDegree)) *
-          (MAX_NODE_SIZE - MIN_NODE_SIZE) +
-          MIN_NODE_SIZE,
-      ),
-    );
+    const MAX_NODE_SIZE = 50;
+    // graph.forEachNode((node) =>
+    //   graph.setNodeAttribute(
+    //     node,
+    //     "size",
+    //     ((graph.getNodeAttribute(node, "score") - minDegree) / (maxDegree - minDegree)) *
+    //       (MAX_NODE_SIZE - MIN_NODE_SIZE) +
+    //       MIN_NODE_SIZE,
+    //   ),
+    // );
 
     return () => graph.clear();
   }, [graph, dataset]);
