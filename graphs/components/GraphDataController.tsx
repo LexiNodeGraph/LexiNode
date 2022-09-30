@@ -1,59 +1,88 @@
 import { useSigma } from "react-sigma-v2";
 import { FC, useEffect } from "react";
-import { keyBy, omit } from "lodash";
+// import force atlas 2 react-sigma-v2
 
-import { Dataset, FiltersState } from "../types";
+import FA2Layout from 'graphology-layout-forceatlas2/worker';
 
-const GraphDataController: FC<{ dataset: Dataset; filters: FiltersState; children?: [] | string | undefined }> = ({ dataset, filters, children }) => {
+const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, children }) => {
   const sigma = useSigma();
   const graph = sigma.getGraph();
 
-  /**
-   * Feed graphology with the new dataset:
-   */
-  useEffect(() => {  
+  const layout = new FA2Layout(graph, {
+    settings: { gravity: 8, scalingRatio: 13, strongGravityMode: false, barnesHutOptimize: true, barnesHutTheta: 0.4 },
+  });
+
+  // To start the layout
+  layout.start();
+  setTimeout(() => {
+    layout.stop();
+  }, 80);
+  useEffect(() => {
     if (!graph || !dataset) return;
 
-    const clusters = keyBy(dataset.clusters, "key");
-    const tags = keyBy(dataset.tags, "key");
+    let teste = dataset.flat(1);
+    console.log(teste)
+    teste.map((item: any) => {
+      if (graph.nodes().includes(item) == false) {
+        graph.addNode(item, {
+          label: item,
+          x: 2 * Math.random() - 1,
+          y: 2 * Math.random() - 1,
+          size: 5,
+          image: "../../images/field.svg",
+          color: "#727EE0"
+        });
+      } else {
+        graph.setNodeAttribute(
+          item,
+          "size",
+          ((graph.getNodeAttribute(item, "size") as number) + 6)
+        );
+      };
+    })
 
-    dataset.nodes.forEach((node) =>
-    graph.addNode(node.key, {
-      ...node,
-      ...omit(clusters[node.cluster], "key"),
-      image: `../../images/${tags[node.tag].image}`,
-    }),
-    );
-    dataset.edges?.forEach(([source, target]) => graph.addEdge(source, target, { size: 1 })); // tamanho da aresta
+    let keywords = dataset;
+    let listaFinal: any[] = [];
+    let paper1: any;
+    for (paper1 of keywords) {
+      let tamanho = paper1.length;
+      paper1.sort();
 
-    // Use degrees as node sizes:
-    const scores = graph.nodes().map((node) => graph.getNodeAttribute(node, "score"));
-    const minDegree = Math.min(...scores);
-    const maxDegree = Math.max(...scores);
-    const MIN_NODE_SIZE = 3;
-    const MAX_NODE_SIZE = 30;
-    graph.forEachNode((node) =>
-      graph.setNodeAttribute(
-        node,
-        "size",
-        ((graph.getNodeAttribute(node, "score") - minDegree) / (maxDegree - minDegree)) *
-          (MAX_NODE_SIZE - MIN_NODE_SIZE) +
-          MIN_NODE_SIZE,
-      ),
-    );
+      let key = "";
+      let source = "";
+      let target = "";
+      let weight: number = 1;
+      let item = {};
 
-    return () => graph.clear();
+      for (let i = 0; i <= tamanho - 2; i++) {
+        for (let j = i + 1; j < paper1.length; j++) {
+          source = paper1[i];
+          target = paper1[j];
+          key = source + "-" + target;
+          weight = 1;
+          item = { key, source, target, weight };
+
+          if (!listaFinal.find(l => l.key === key)) {
+            listaFinal.push(item);
+          }
+          else {
+            listaFinal.find(l => l.key === key).weight++;
+          }
+        }
+      }
+    }
+
+    for (let elemento of listaFinal) {
+      console.log(`key: ${elemento.key} | origem: ${elemento.source} | destino: ${elemento.target} | peso: ${elemento.weight}`);
+      graph.addEdge(elemento.source, elemento.target, { size: elemento.weight * 2 });
+      // Stop the layout
+      if (elemento.weight >= 3) {
+        graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#727EE0");
+      }
+    }
+    return;
   }, [graph, dataset]);
 
-  /**
-   * Apply filters to graphology:
-   */
-  useEffect(() => {
-    const { clusters, tags } = filters;
-    graph.forEachNode((node, { cluster, tag }) =>
-      graph.setNodeAttribute(node, "hidden", !clusters[cluster] || !tags[tag]),
-    );
-  }, [graph, filters]);
 
   return <>{children}</>;
 };

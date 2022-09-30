@@ -36,20 +36,20 @@ const GraphSettingsController: FC<{ hoveredNode: string | null }> = ({ hoveredNo
       "nodeReducer",
       debouncedHoveredNode
         ? (node, data) =>
-            node === debouncedHoveredNode ||
+          node === debouncedHoveredNode ||
             graph.hasEdge(node, debouncedHoveredNode) ||
             graph.hasEdge(debouncedHoveredNode, node)
-              ? { ...data, zIndex: 1 }
-              : { ...data, zIndex: 0, label: "", color: NODE_FADE_COLOR, image: null, highlighted: false }
+            ? { ...data, zIndex: 1 }
+            : { ...data, zIndex: 0, label: "", color: NODE_FADE_COLOR, image: null, highlighted: false }
         : null,
     );
     sigma.setSetting(
       "edgeReducer",
       debouncedHoveredNode
         ? (edge, data) =>
-            graph.hasExtremity(edge, debouncedHoveredNode)
-              ? { ...data, color: hoveredColor, size: 7 }
-              : { ...data, color: EDGE_FADE_COLOR, hidden: false }
+          graph.hasExtremity(edge, debouncedHoveredNode)
+            ? { ...data, color: hoveredColor, size: 7 }
+            : { ...data, color: EDGE_FADE_COLOR, hidden: false }
         : null,
     );
   }, [debouncedHoveredNode]);

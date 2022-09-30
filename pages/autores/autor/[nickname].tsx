@@ -19,11 +19,13 @@ function Autor() {
 
         return () => {
             setArtigos([]);
+            
         };
     }, []);
-
+    
     useEffect(() => {
         getAuthorPapers();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [artigos]);
 
     function getAuthorPapers() {
