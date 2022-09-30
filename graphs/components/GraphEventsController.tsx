@@ -21,18 +21,18 @@ const GraphEventsController: FC<{ setHoveredNode: (node: string | null) => void 
           window.open(graph.getNodeAttribute(node, "URL"), "_blank");
         }
       },
-      enterNode({ node }) {
-        setHoveredNode(node);
-        // TODO: Find a better way to get the DOM mouse layer:
-        const mouseLayer = getMouseLayer();
-        if (mouseLayer) mouseLayer.classList.add("mouse-pointer"); // MOUSE HOVER
-      },
-      leaveNode() {
-        setHoveredNode(null);
-        // TODO: Find a better way to get the DOM mouse layer:
-        const mouseLayer = getMouseLayer();
-        if (mouseLayer) mouseLayer.classList.remove("mouse-pointer");
-      },
+      // enterNode({ node }) {
+      //   setHoveredNode(node);
+      //   // TODO: Find a better way to get the DOM mouse layer:
+      //   const mouseLayer = getMouseLayer();
+      //   if (mouseLayer) mouseLayer.classList.add("mouse-pointer"); // MOUSE HOVER
+      // },
+      // leaveNode() {
+      //   setHoveredNode(null);
+      //   // TODO: Find a better way to get the DOM mouse layer:
+      //   const mouseLayer = getMouseLayer();
+      //   if (mouseLayer) mouseLayer.classList.remove("mouse-pointer");
+      // },
     });
   }, []);
 

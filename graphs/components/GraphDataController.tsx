@@ -28,6 +28,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
           label: item,
           x: 2 * Math.random() - 1,
           y: 2 * Math.random() - 1,
+          URL: `/artigos/keyword/${item}`,
           size: 5,
           image: "../../images/field.svg",
           color: "#727EE0"

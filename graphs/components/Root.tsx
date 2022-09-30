@@ -4,6 +4,7 @@ import getNodeProgramImage from "sigma/rendering/webgl/programs/node.image";
 
 import GraphSettingsController from "./GraphSettingsController";
 import GraphDataController from "./GraphDataController";
+import GraphEventsController from "./GraphEventsController";
 import drawLabel from "../canvas-utils";
 
 import "react-sigma-v2/lib/react-sigma-v2.css";
@@ -54,6 +55,7 @@ const Root: FC = () => {
                 }}
                 className="react-sigma"
             >
+                <GraphEventsController setHoveredNode={setHoveredNode} />
                 <GraphSettingsController hoveredNode={hoveredNode} />
                 <GraphDataController dataset={data} />
 
