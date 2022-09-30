@@ -31,7 +31,8 @@ const Home = () => {
                     user && <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}>
                             </Dialog>
                 }
-                <Root />
+                
+               <Root />
                 
             </main>
         </>

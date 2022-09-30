@@ -14,5 +14,5 @@ export default async function handler(
             )
         )].map((s: any) => JSON.parse(s));
 
-    res.status(200).json(keywords.flat());
+    res.status(200).json(keywords);
 }
