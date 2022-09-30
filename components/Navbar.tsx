@@ -49,7 +49,7 @@ const Navbar = () => {
                             {!user && <NavbarItem to="/api/auth/login">Entrar</NavbarItem>}
 
                             {user?.email?.includes("@ifc") ||
-                                (user?.email?.includes("ogabrielpereiraa7") && <NavbarItem to="/artigos/publicar">Adicionar artigo</NavbarItem>)}
+                                (user?.email?.includes("@ifc") && <NavbarItem to="/artigos/publicar">Adicionar artigo</NavbarItem>)}
 
                             {user && (
                                 <Dropdown items={userItems}>
