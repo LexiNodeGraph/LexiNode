@@ -4,8 +4,7 @@ import { FC, useEffect } from "react";
 
 import FA2Layout from 'graphology-layout-forceatlas2/worker';
 
-
-const GraphDataController: FC<{ children?: [] | string | undefined }> = ({ dataset, children }) => {
+const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, children }) => {
   const sigma = useSigma();
   const graph = sigma.getGraph();
 
@@ -21,7 +20,7 @@ const GraphDataController: FC<{ children?: [] | string | undefined }> = ({ datas
   useEffect(() => {  
     if (!graph || !dataset) return;
     
-    let teste = dataset.flat(1)
+    let teste = dataset.flat(1);
     console.log(teste)
     teste.map((item: any) => {
       if (graph.nodes().includes(item) == false) {
@@ -30,6 +29,7 @@ const GraphDataController: FC<{ children?: [] | string | undefined }> = ({ datas
           x: 2 * Math.random() - 1,
           y: 2 * Math.random() - 1,
           size: 5,
+          image: "../../images/field.svg",
           color: "#727EE0"
         });
       } else {
@@ -43,8 +43,8 @@ const GraphDataController: FC<{ children?: [] | string | undefined }> = ({ datas
 
     let keywords = dataset;
     let listaFinal: any[] = [];
-
-    for (let paper1 of keywords) {
+    let paper1: any;
+    for (paper1 of keywords) {
       let tamanho = paper1.length;
       paper1.sort();
 

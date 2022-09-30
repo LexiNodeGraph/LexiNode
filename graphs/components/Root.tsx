@@ -1,10 +1,9 @@
 import React, {FC, useEffect, useState} from "react";
 import {SigmaContainer, ZoomControl, FullScreenControl} from "react-sigma-v2";
-
+import { Dataset } from "../types"; 
 import getNodeProgramImage from "sigma/rendering/webgl/programs/node.image";
 
 import GraphSettingsController from "./GraphSettingsController";
-import GraphEventsController from "./GraphEventsController";
 import GraphDataController from "./GraphDataController";
 import drawLabel from "../canvas-utils";
 
@@ -17,7 +16,7 @@ import axios from "axios";
 const Root: FC = () => {
     const [showContents, setShowContents] = useState(false);
     const [dataReady, setDataReady] = useState(false);
-    const [dataset, setDataset] = useState([]);
+    const [data, setData] = useState<any[] | null>(null);
 
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
@@ -32,12 +31,12 @@ const Root: FC = () => {
         //change fetch to axios
         axios.get(`${url}/api/paper/find/keywords/all`)
             .then((data: any) => {
-                setDataset(data.data);
+                setData(data.data);
                 requestAnimationFrame(() => setDataReady(true));
             });
         }, []);
 
-    if (!dataset) return null;
+    if (!data) return null;
 
     return (
         <div id="app-root" className={"z-0" + (showContents ? "show-contents" : "")}>
@@ -47,7 +46,7 @@ const Root: FC = () => {
                     labelRenderer: drawLabel,
                     defaultNodeType: "image",
                     defaultEdgeType: "line",
-                    labelDensity: 0.07,
+                    labelDensity: 0.1,
                     labelGridCellSize: 60,
                     labelRenderedSizeThreshold: 15,
                     labelFont: "Lato, sans-serif",
@@ -57,7 +56,7 @@ const Root: FC = () => {
                 className="react-sigma"
             >
                 <GraphSettingsController hoveredNode={hoveredNode} />
-                <GraphDataController dataset={dataset} />
+                <GraphDataController dataset={data} />
 
                 {dataReady && (
                     <>

@@ -12,7 +12,7 @@ function Autor() {
     useEffect(() => {
         axios.get(`/api/paper/find/keywords/${keyword}`)
             .then((data) => setKey(data.data));
-            
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

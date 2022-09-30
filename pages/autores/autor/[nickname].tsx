@@ -24,6 +24,7 @@ function Autor() {
 
     useEffect(() => {
         getAuthorPapers();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [artigos]);
 
     function getAuthorPapers() {
