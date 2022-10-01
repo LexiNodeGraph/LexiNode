@@ -35,16 +35,16 @@ export function drawHover(context: CanvasRenderingContext2D, data: PlainObject, 
   const size = settings.labelSize;
   const font = settings.labelFont;
   const weight = settings.labelWeight;
-  const subLabelSize = size - 2;
+  const subLabelSize = size - 1;
 
   const label = data.label;
-  const subLabel = data.tag !== "unknown" ? data.tag : "";
-  const clusterLabel = data.clusterLabel;
+  const subLabel = data.subLabel;
+  const clusterLabel = "Tamanho: "+ Math.ceil(data.size);
 
   // Then we draw the label background
   context.beginPath();
   context.fillStyle = "#fff";
-  context.shadowOffsetX = 0;
+  context.shadowOffsetX = 1;
   context.shadowOffsetY = 2;
   context.shadowBlur = 8;
   context.shadowColor = "#000";
