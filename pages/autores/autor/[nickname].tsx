@@ -16,7 +16,6 @@ function Autor() {
 
     useEffect(() => {
         axios.get("/api/paper/find/all").then((data) => setArtigos(data.data));
-
         return () => {
             setArtigos([]);
             
