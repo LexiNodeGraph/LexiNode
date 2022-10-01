@@ -1,8 +1,9 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import {useRouter} from "next/router";
+import Router from "next/router";
 
-import Image from "next/image";
+import {BiArrowBack} from "react-icons/bi";
 
 import ArtigoSkeleton from "../../../components/skeletons/ArtigoSkeleton";
 import ArtigoItem from "../../../components/artigos/ArtigoItem";
@@ -47,6 +48,7 @@ function Autor() {
     return (
         <div>
             <div className=" p-4 dark:bg-neutral-900 dark:border-neutral-700">
+                <BiArrowBack className=" cursor-pointer text-xl  ease-out duration-300 rounded-full dark:text-white " onClick={() => Router.back()} />
                 <h1 className="text-center text-4xl font-bold text-neutral-900 dark:text-neutral-200">{nickname}</h1>
             </div>
             <div
