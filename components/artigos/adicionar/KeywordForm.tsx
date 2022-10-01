@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../adicionar/Button";
 import Input from "./Input";
-
 import Tag from "../../Tag";
 
 function KeywordForm({handleAddKeyword, setKeyword, keyword, keywords}: any) {
