@@ -51,6 +51,7 @@ const Root: FC = () => {
                     labelRenderedSizeThreshold: 15,
                     labelFont: "Lato, sans-serif",
                     zIndex: true,
+                    allowInvalidContainer: true
 
                 }}
                 className="react-sigma"

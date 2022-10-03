@@ -1,6 +1,5 @@
 import { useSigma } from "react-sigma-v2";
 import { FC, useEffect } from "react";
-// import force atlas 2 react-sigma-v2
 
 import FA2Layout from 'graphology-layout-forceatlas2/worker';
 
@@ -20,9 +19,9 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
   useEffect(() => {
     if (!graph || !dataset) return;
 
-    let teste = dataset.flat(1);
-    console.log(teste)
-    teste.map((item: any) => {
+    let AllKeys = dataset.flat(1);
+    console.log(AllKeys)
+    AllKeys.map((item: any) => {
       if (graph.nodes().includes(item) == false) {
         graph.addNode(item, {
           label: item,
