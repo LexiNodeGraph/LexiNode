@@ -29,7 +29,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
           y: 2 * Math.random() - 1,
           URL: `/artigos/keyword/${item}`,
           size: 5,
-          image: "../../images/field.svg",
+          image: "../../images/black-key.png",
           color: "#727EE0"
         });
       } else {
