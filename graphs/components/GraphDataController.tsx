@@ -39,7 +39,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
           ((graph.getNodeAttribute(item, "size") as number) + 5)
         );
       };
-      console.log((graph.getNodeAttribute(item, "size") as number))
+      // console.log((graph.getNodeAttribute(item, "size") as number))
       switch ((graph.getNodeAttribute(item, "size") as number)) {
         case 5:
           graph.setNodeAttribute(item, "color", "#727EE0");

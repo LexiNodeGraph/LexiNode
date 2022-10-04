@@ -33,6 +33,10 @@ function Autor() {
         getAuthorPapers();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [artigos]);
+    
+    // Rota pra achar os dados dos autores /api/paper/find/authors/{nickname}
+
+
 
     function getAuthorPapers() {
         artigos.forEach((artigo: any) => {
@@ -43,7 +47,7 @@ function Autor() {
             });
         });
     }
-    console.log(authorPapers);
+    // console.log(authorPapers);
 
     return (
         <div>
