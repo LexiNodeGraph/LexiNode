@@ -20,7 +20,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
     if (!graph || !dataset) return;
 
     let AllKeys = dataset.flat(1);
-    console.log(AllKeys)
+    // console.log(AllKeys) 
     AllKeys.map((item: any) => {
       if (graph.nodes().includes(item) == false) {
         graph.addNode(item, {
@@ -29,55 +29,77 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
           y: 2 * Math.random() - 1,
           URL: `/artigos/keyword/${item}`,
           size: 5,
-          image: "../../images/field.svg",
+          image: "../../images/black-key.png",
           color: "#727EE0"
         });
       } else {
         graph.setNodeAttribute(
           item,
           "size",
-          ((graph.getNodeAttribute(item, "size") as number) + 6)
+          ((graph.getNodeAttribute(item, "size") as number) + 5)
         );
       };
+      // console.log((graph.getNodeAttribute(item, "size") as number))
+      switch ((graph.getNodeAttribute(item, "size") as number)) {
+        case 5:
+          graph.setNodeAttribute(item, "color", "#727EE0");
+          break;
+        case 10:
+          graph.setNodeAttribute(item, "color", "#5A67D8");
+          break;
+        case 15:
+          graph.setNodeAttribute(item, "color", "#434FC0");
+          break;
+        case 20:
+          graph.setNodeAttribute(item, "color", "#2D3898");
+          break;
+      }
     })
 
-    let keywords = dataset;
     let listaFinal: any[] = [];
-    let paper1: any;
-    for (paper1 of keywords) {
-      let tamanho = paper1.length;
-      paper1.sort();
 
-      let key = "";
-      let source = "";
-      let target = "";
-      let weight: number = 1;
+    for (let paper of dataset) {
+      let tamanho = paper.length;
+      paper.sort();
+
+      let key: string = "";
+      let source: string = "";
+      let target: string = "";
+      let size: number = 1;
       let item = {};
 
       for (let i = 0; i <= tamanho - 2; i++) {
-        for (let j = i + 1; j < paper1.length; j++) {
-          source = paper1[i];
-          target = paper1[j];
+        for (let j = i + 1; j < paper.length; j++) {
+          source = paper[i];
+          target = paper[j];
           key = source + "-" + target;
-          weight = 1;
-          item = { key, source, target, weight };
+          size = 1;
+          item = { key, source, target, size };
 
           if (!listaFinal.find(l => l.key === key)) {
             listaFinal.push(item);
           }
           else {
-            listaFinal.find(l => l.key === key).weight++;
+            listaFinal.find(l => l.key === key).size++;
           }
         }
       }
     }
 
     for (let elemento of listaFinal) {
-      console.log(`key: ${elemento.key} | origem: ${elemento.source} | destino: ${elemento.target} | peso: ${elemento.weight}`);
-      graph.addEdge(elemento.source, elemento.target, { size: elemento.weight * 2 });
-      // Stop the layout
-      if (elemento.weight >= 3) {
-        graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#727EE0");
+      // console.log(`key: ${elemento.key} | origem: ${elemento.source} | destino: ${elemento.target} | tamanho: ${elemento.size * 2}`);
+      graph.addEdge(elemento.source, elemento.target, { size: elemento.size * 2, color: "#999999" });
+
+      switch (elemento.size * 2) {
+        case 2:
+          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#ffd900");
+          break;
+        case 4:
+          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#ffb800");
+          break;
+        case 6:
+          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#ff5e00");
+          break;
       }
     }
     return;
