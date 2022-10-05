@@ -5,8 +5,7 @@ import Button from "./Button";
 import KeywordForm from "./KeywordForm";
 import Select from "./Select";
 
-function PaperForm({setPaper, paper}: any) {
-    const [keywords, setKeywords] = useState<string[]>([]);
+function PaperForm({paper, setPaper, keywords, setKeywords}: any) {
     const [keyword, setKeyword] = useState("");
 
     const handlePaperChange = (e: any) => {
@@ -19,10 +18,6 @@ function PaperForm({setPaper, paper}: any) {
     function handleAddKeyword(keyword: string) {
         setKeywords([...keywords, keyword]);
         setKeyword("");
-        setPaper({
-            ...paper,
-            keywords: keywords,
-        });
     }
     return (
         <div className=" mb-6">
@@ -66,7 +61,7 @@ function PaperForm({setPaper, paper}: any) {
 
             <Input name={"web_link"} label={"Link Web"} placeholder={"Link Web"} onChange={(e: any) => handlePaperChange(e)} value={paper.web_link} />
             <Input name="abstract" label="Resumo" placeholder="Resumo" onChange={(e: any) => handlePaperChange(e)} value={paper.abstract} />
-            <KeywordForm handleAddKeyword={handleAddKeyword} setKeyword={setKeyword} keyword={keyword} keywords={keywords} />
+            <KeywordForm handleAddKeyword={handleAddKeyword} setKeyword={setKeyword} setKeywords={setKeywords} keyword={keyword} keywords={keywords} />
         </div>
     );
 }

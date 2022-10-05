@@ -1,15 +1,33 @@
 import {useState, useEffect} from "react";
-import Tag from "../../Tag";
+
 import Input from "./Input";
 import Button from "../adicionar/Button";
 import Select from "./Select";
 import AuthorCard from "./AuthorCard";
 
-function AutorForm({author, setAuthor, allAuthors, handleAddAuthor}: any) {
+const picUrl = "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y";
+
+function AutorForm({paper, setPaper, authors, setAuthors}: any) {
+    const [author, setAuthor] = useState({
+        name: "",
+        picture: picUrl,
+        email: "",
+        institution: "",
+        author_role: "0",
+        city: "",
+        country: "",
+        field: "",
+    });
+
     function handleAuthorChange(e: any) {
-        setAuthor({
-            ...author,
-            [e.target.name]: e.target.value,
+        setAuthor({...author, [e.target.name]: e.target.value});
+    }
+
+    function handleAddAuthor() {
+        setAuthors([...authors, author]);
+        setPaper({
+            ...paper,
+            author: authors,
         });
     }
 
@@ -17,8 +35,8 @@ function AutorForm({author, setAuthor, allAuthors, handleAddAuthor}: any) {
         <div className="">
             <h2 className="text-center mb-3 font-bold text-neutral-300 dark:text-neutral-100">Autores</h2>
             <div className="my-4 flex flex-row gap-2">
-                {allAuthors.map((author: any) => (
-                    <AuthorCard key={author.id} author={author} />
+                {authors.map((author: any) => (
+                    <AuthorCard key={author.name} author={author} />
                 ))}
             </div>
 
