@@ -32,6 +32,17 @@ export async function findAllPapers(){
     return new response(200, "Papers found", papers); 
 }
 
+export async function findPaper(id: string) {
+    await prisma.$connect();
+    const paper = await prisma.paper.findUnique({
+        where: {
+            id: id
+        }
+    });
+    await prisma.$disconnect();
+    return new response(200, "Paper found", paper);
+}
+
 export async function findKeyword(key: string) {
     await prisma.$connect();
     const keyword = await prisma.paper.findMany({
@@ -44,6 +55,4 @@ export async function findKeyword(key: string) {
     await prisma.$disconnect();
     return new response(200, "Papers found", keyword);
 }
-
-
 
