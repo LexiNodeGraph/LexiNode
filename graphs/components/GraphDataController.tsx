@@ -39,21 +39,6 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
           ((graph.getNodeAttribute(item, "size") as number) + 5)
         );
       };
-      // console.log((graph.getNodeAttribute(item, "size") as number))
-      switch ((graph.getNodeAttribute(item, "size") as number)) {
-        case 5:
-          graph.setNodeAttribute(item, "color", "#727EE0");
-          break;
-        case 10:
-          graph.setNodeAttribute(item, "color", "#5A67D8");
-          break;
-        case 15:
-          graph.setNodeAttribute(item, "color", "#434FC0");
-          break;
-        case 20:
-          graph.setNodeAttribute(item, "color", "#2D3898");
-          break;
-      }
     })
 
     let listaFinal: any[] = [];
