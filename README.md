@@ -60,4 +60,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## API Docs
 
-Click [here](https://app.gitbook.com/s/SxCxV9tu0ae3N3Ry1WkS/) to see LexiNode's API documentation.
+Click [here](https://gabriel-l-pereira.gitbook.io/api-docs/) to see LexiNode's API documentation.
