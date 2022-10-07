@@ -92,13 +92,13 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
 
       switch (elemento.size * 2) {
         case 2:
-          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#ffd900");
+          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#888888");
           break;
         case 4:
-          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#ffb800");
+          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#555555");
           break;
         case 6:
-          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#ff5e00");
+          graph.setEdgeAttribute(elemento.source, elemento.target, "color", "#000000");
           break;
       }
     }
