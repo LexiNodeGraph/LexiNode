@@ -15,7 +15,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
   layout.start();
   setTimeout(() => {
     layout.stop();
-  }, 80);
+  }, 100);
   useEffect(() => {
     if (!graph || !dataset) return;
 
