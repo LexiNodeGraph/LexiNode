@@ -12,16 +12,15 @@ function artigo() {
     const {id} = router.query;
 
     const [isLoading, setIsLoading] = useState(true);
-    const [artigo, setArtigo] = useState<any>(false);
+    const [artigo, setArtigo] = useState<any>({});
 
     useEffect(() => {
-        console.log(id);
-        id &&
+        if (id) {
             axios.get(`/api/paper/find/${id}`).then((data: any) => {
                 setArtigo(data.data);
                 setIsLoading(false);
             });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }
     }, [id]);
 
     return (
