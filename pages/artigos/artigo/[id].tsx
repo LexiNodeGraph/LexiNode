@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+
 import Router from "next/router";
 import axios from "axios";
 import Link from "next/link";
@@ -7,7 +8,7 @@ import Link from "next/link";
 import Tag from "../../../components/Tag";
 import {BiArrowBack} from "react-icons/bi";
 
-function artigo() {
+function SinglePaper() {
     const router = useRouter();
     const {id} = router.query;
 
@@ -91,4 +92,4 @@ function artigo() {
     );
 }
 
-export default artigo;
+export default SinglePaper;
