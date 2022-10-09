@@ -15,7 +15,10 @@ function ArtigoItem({artigo, user}: any) {
     return (
         <div className="flex row justify-between w-full bg-white rounded border p-2 mt-2 shadow-md dark:bg-neutral-900  dark:border-neutral-700">
             <div className="flex flex-col w-full p-4">
-                <a className=" font-bold dark:text-neutral-50">{artigo.title}</a>
+                <Link href={`/artigos/artigo/${artigo.id}`}>
+                    <a className=" font-bold dark:text-neutral-50">{artigo.title}</a>
+                </Link>
+
                 <span className="text-neutral-900 dark:text-neutral-200">
                     {artigo.authors.map((author: any, index: any) => (
                         <span key={author.email}>
