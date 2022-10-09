@@ -9,7 +9,7 @@ services:
         # project directory inside the container
         working_dir: /usr/src/lexinode
         # install all dependencies and start the project
-        command: bash -c "npm i --force && npx prisma generate && npm run build"
+        command: bash -c "npm i --force && npx prisma generate && npm run dev"
         # map port 3000 on host to 3000 on container side
         ports:
             - 3000:3000
