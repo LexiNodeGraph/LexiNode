@@ -1,11 +1,9 @@
 import {useRouter} from "next/router";
 import {useState, useEffect} from "react";
 import axios from "axios";
-import Router from "next/router";
 
 import PaperFilter from "../../../components/PaperFilter";
 
-import {BiArrowBack} from "react-icons/bi";
 import UserCard from "../../../components/perfil/UserCard";
 
 function Autor() {
@@ -36,7 +34,7 @@ function Autor() {
     }
 
     return (
-        <div className="inline-flex w-full gap-2 p-2 h-screen bg-neutral-900">
+        <div className="inline-flex w-full gap-2 p-2 min-h-screen bg-neutral-900">
             <UserCard user={autor} />
             <PaperFilter artigos={artigos} />
         </div>

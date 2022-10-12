@@ -32,7 +32,7 @@ function UserCard({user}: any) {
                     </div>
                     <div className=" mb-2 text-neutral-500 dark:text-neutral-400 inline-flex items-center gap-1">
                         <MdLocationOn />
-                        {user.city}
+                        {user.city}, {user.country}
                     </div>
                     <div className=" mb-2 text-neutral-500 dark:text-neutral-400 inline-flex items-center gap-1">
                         <MdOutlineShare />

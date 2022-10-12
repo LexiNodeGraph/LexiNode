@@ -17,15 +17,17 @@ function ArtigoItem({artigo, user}: any) {
         <div className="flex row justify-between w-full bg-white rounded border p-2 mt-2 shadow-md dark:bg-neutral-900  dark:border-neutral-700">
             <div className="flex flex-col w-full p-4">
                 <Link href={`/artigos/artigo/${artigo.id}`}>
-                    <a className=" font-bold dark:text-neutral-50">{artigo.title}</a>
+                    <a className="hover:underline font-bold dark:text-neutral-50">{artigo.title}</a>
                 </Link>
 
                 <span className="text-neutral-900 dark:text-neutral-200">
                     {artigo.authors.map((author: any, index: any) => (
-                        <span key={author.email}>
-                            {author.name}
-                            {index === artigo.authors.length - 1 ? "" : ", "}
-                        </span>
+                        <Link href={`/autores/autor/${author.email}`} key={index}>
+                            <span className="hover:underline cursor-pointer">
+                                {author.name}
+                                {index === artigo.authors.length - 1 ? "" : ", "}
+                            </span>
+                        </Link>
                     ))}
                 </span>
 
