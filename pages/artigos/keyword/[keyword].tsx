@@ -10,7 +10,7 @@ import PaperFilter from "../../../components/PaperFilter";
 function Autor() {
     const router = useRouter();
     const {keyword} = router.query;
-    const key = keyword as string;
+
     const [artigos, setArtigos] = useState<any[]>([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ function Autor() {
                 <BiArrowBack className=" cursor-pointer text-xl  ease-out duration-300 rounded-full dark:text-white " onClick={() => Router.back()} />
                 <div className="">
                     <div className="text-center text-xl font-bold text-neutral-800 dark:text-neutral-300">Artigos contendo a palavra-chave</div>
-                    <h1 className="text-center text-4xl font-bold text-neutral-900 dark:text-neutral-200">{key.toUpperCase()}</h1>
+                    <h1 className="text-center text-4xl font-bold text-neutral-900 dark:text-neutral-200">{keyword}</h1>
                 </div>
             </div>
             <div

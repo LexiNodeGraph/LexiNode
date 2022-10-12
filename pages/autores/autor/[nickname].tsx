@@ -16,9 +16,12 @@ function Autor() {
     useEffect(() => {
         axios.get("/api/paper/find/all").then((data) => getAuthorPapers(data.data));
         axios.get(`/api/paper/find/authors/${nickname}`).then((data) => setAutor(data.data[0]));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+
         return () => {
             setArtigos([]);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Rota pra achar os dados dos autores /api/paper/find/authors/{nickname}
