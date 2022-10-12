@@ -1,10 +1,13 @@
 import {useState} from "react";
+import {useUser} from "@auth0/nextjs-auth0";
 
 import ArtigoSkeleton from "./skeletons/ArtigoSkeleton";
 import ArtigoItem from "./artigos/ArtigoItem";
 import FilterForm from "./FilterForm";
 
-function PaperFilter({artigos, user}: any) {
+function PaperFilter({artigos}: any) {
+    const {user} = useUser();
+
     const [ordenar, setOrdenar] = useState();
     const [input, setInput] = useState("");
 
