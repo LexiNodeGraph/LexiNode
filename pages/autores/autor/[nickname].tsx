@@ -6,6 +6,7 @@ import Router from "next/router";
 import PaperFilter from "../../../components/PaperFilter";
 
 import {BiArrowBack} from "react-icons/bi";
+import UserCard from "../../../components/perfil/UserCard";
 
 function Autor() {
     const router = useRouter();
@@ -35,20 +36,9 @@ function Autor() {
     }
 
     return (
-        <div>
-            <div className=" p-4 dark:bg-neutral-900 dark:border-neutral-700">
-                <BiArrowBack className=" cursor-pointer text-xl  ease-out duration-300 rounded-full dark:text-white " onClick={() => Router.back()} />
-                <h1 className="text-center text-4xl font-bold text-neutral-900 dark:text-neutral-200">{autor.name}</h1>
-            </div>
-            <div
-                className="
-            gap-2  p-2 pr-4 w-full h-screen flex flex-col-reverse
-            sm:flex-row
-            dark:bg-neutral-900 dark:border-neutral-700
-          "
-            >
-                <PaperFilter artigos={artigos} />
-            </div>
+        <div className="inline-flex w-full gap-2 p-2 h-screen bg-neutral-900">
+            <UserCard user={autor} />
+            <PaperFilter artigos={artigos} />
         </div>
     );
 }

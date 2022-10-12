@@ -1,15 +1,13 @@
-import Link from "next/link";
 import Image from "next/image";
-import {useState} from "react";
-
-import {BsDot} from "react-icons/bs";
-import UserInfo from "./UserInfo";
-import UserInfoEdit from "./UserInfoEdit";
+import {MdOutlineAlternateEmail, MdLocationOn, MdDomain, MdOutlineShare} from "react-icons/md";
+import Router from "next/router";
+import {BiArrowBack} from "react-icons/bi";
 
 function UserCard({user}: any) {
-    const [edit, setEdit] = useState(false);
     return (
         <div className="w-full max-w-sm bg-white rounded border border-neutral-200 shadow-md dark:bg-neutral-900 dark:border-neutral-700">
+            <BiArrowBack className=" cursor-pointer text-xl  ease-out duration-300 rounded-full dark:text-white m-4 " onClick={() => Router.back()} />
+
             <div className="flex flex-col items-center pt-4 pb-10">
                 <Image
                     className="rounded-full md:w-96 "
@@ -21,20 +19,26 @@ function UserCard({user}: any) {
                     width="130"
                     height="130"
                 />
-                <span className="flex flex-col items-left m-4">
-                    {!edit ? <UserInfo user={user} /> : <UserInfoEdit user={user} />}
+                <div className="w-full p-6 flex flex-col ">
+                    <h5 className=" text-2xl font-bold py-2 text-neutral-900 dark:text-white">{user.name}</h5>
 
-                    <div className="flex mt-4 space-x-3 md:mt-6">
-                        <button
-                            onClick={() => {
-                                setEdit(!edit);
-                            }}
-                            className=" w-full  items-center py-2 px-4 text-sm font-medium text-center text-neutral-600 border-2 rounded focus:ring-4 focus:outline-none dark:border-neutral-500 dark:text-neutral-400"
-                        >
-                            Editar Perfil
-                        </button>
+                    <div className=" mb-2 text-neutral-500 dark:text-neutral-400 inline-flex items-center gap-1">
+                        <MdOutlineAlternateEmail />
+                        {user.email}
                     </div>
-                </span>
+                    <div className=" mb-2 text-neutral-500 dark:text-neutral-400 inline-flex items-center gap-1">
+                        <MdDomain />
+                        {user.institution}
+                    </div>
+                    <div className=" mb-2 text-neutral-500 dark:text-neutral-400 inline-flex items-center gap-1">
+                        <MdLocationOn />
+                        {user.city}
+                    </div>
+                    <div className=" mb-2 text-neutral-500 dark:text-neutral-400 inline-flex items-center gap-1">
+                        <MdOutlineShare />
+                        {user.field}
+                    </div>
+                </div>
             </div>
         </div>
     );
