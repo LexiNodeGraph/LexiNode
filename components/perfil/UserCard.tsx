@@ -9,7 +9,7 @@ import UserInfoEdit from "./UserInfoEdit";
 function UserCard({user}: any) {
     const [edit, setEdit] = useState(false);
     return (
-        <div className="w-full max-w-sm bg-white rounded border border-neutral-200 shadow-md dark:bg-neutral-800 dark:border-neutral-700">
+        <div className="w-full max-w-sm bg-white rounded border border-neutral-200 shadow-md dark:bg-neutral-900 dark:border-neutral-700">
             <div className="flex flex-col items-center pt-4 pb-10">
                 <Image
                     className="rounded-full md:w-96 "

@@ -4,7 +4,6 @@ import axios from "axios";
 import ArtigoSkeleton from "../../components/skeletons/ArtigoSkeleton";
 import ArtigoItem from "../../components/artigos/ArtigoItem";
 import FilterForm from "../../components/FilterForm";
-import FavoritosCard from "../../components/artigos/FavoritosCard";
 
 const Artigos = () => {
     const {user} = useUser();
@@ -52,7 +51,6 @@ const Artigos = () => {
                     <ArtigoSkeleton />
                 )}
             </div>
-            {user && <FavoritosCard />}
         </div>
     );
 };

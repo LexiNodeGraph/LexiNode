@@ -1,11 +1,9 @@
 import React from "react";
-
+import FavoritosCard from "../artigos/FavoritosCard";
 function Informacoes() {
     return (
         <div>
-            <h2>Informações</h2>
-            <p>Vistos recentemente</p>
-            <p>Favoritos</p>
+            <FavoritosCard />
         </div>
     );
 }

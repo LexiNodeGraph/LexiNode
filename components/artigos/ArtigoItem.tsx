@@ -1,4 +1,5 @@
 import {RiArrowDropDownLine} from "react-icons/ri";
+
 import Dropdown from "../Dropdown";
 import Tag from "../Tag";
 import Link from "next/link";
@@ -38,12 +39,14 @@ function ArtigoItem({artigo, user}: any) {
                     ))}
                 </div>
             </div>
-            <Dropdown items={artigoItems}>
-                <RiArrowDropDownLine
-                    className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#4f8cfe] hover:bg-[#00000011]
+            {user && (
+                <Dropdown items={artigoItems}>
+                    <RiArrowDropDownLine
+                        className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#4f8cfe] hover:bg-[#00000011]
                 dark:text-white dark:hover:text-white dark:hover:bg-[#ffffff11]"
-                />
-            </Dropdown>
+                    />
+                </Dropdown>
+            )}
         </div>
     );
 }
