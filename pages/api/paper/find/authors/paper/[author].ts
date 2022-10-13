@@ -6,7 +6,8 @@ export default async function handler(
     res: NextApiResponse) {
 
     const query = req.query;
-    const { author } = query;
+    const papers = await (await findAllPapers()).content;
 
-    res.status(200).json(author);
+    const findPaperByAuthor = (allPapers: any) => allPapers.filter((paper: any) => Object.values(paper.authors).some((author: any) => author.email === query.author));
+    res.status(200).json(findPaperByAuthor(papers));
 }
