@@ -25,7 +25,7 @@ function SinglePaper() {
     }, [id]);
 
     return (
-        <div className="h-screen dark:bg-neutral-900">
+        <div className="min-h-screen dark:bg-neutral-900">
             {!isLoading ? (
                 <div>
                     <div

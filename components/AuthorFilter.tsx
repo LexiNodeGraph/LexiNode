@@ -10,9 +10,9 @@ function AuthorFilter({autores}: any) {
 
     const filtredAuthors = autores.filter((author: any) => author.name.toLowerCase().includes(input));
     return (
-        <div className=" w-full h-fit bg-white rounded  shadow  dark:bg-neutral-900  dark:border-neutral-700">
+        <div className=" w-full h-fit  bg-white rounded  shadow  dark:bg-neutral-900  dark:border-neutral-700">
             <FilterForm input={input} ordenar={ordenar} setOrdenar={setOrdenar} setInput={setInput} />
-            <ul className="mt-4">
+            <ul className="mt-1 flex flex-col gap-1 ">
                 {autores.length > 0 ? (
                     ordenar ? (
                         filtredAuthors
