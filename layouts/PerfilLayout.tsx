@@ -2,7 +2,7 @@ import {withPageAuthRequired, useUser} from "@auth0/nextjs-auth0";
 import {useState} from "react";
 
 import UserCard from "../components/perfil/UserCard";
-import UserContentCard from "../components/perfil/UserContentCard";
+import UserContentCard from "../components/perfil/UserEditCard";
 
 const PerfilLayout = ({children}: any) => {
     const {user} = useUser();

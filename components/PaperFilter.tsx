@@ -5,7 +5,7 @@ import ArtigoSkeleton from "./skeletons/ArtigoSkeleton";
 import ArtigoItem from "./artigos/ArtigoItem";
 import FilterForm from "./FilterForm";
 
-function PaperFilter({artigos}: any) {
+function PaperFilter({artigos, loading}: any) {
     const {user} = useUser();
 
     const [ordenar, setOrdenar] = useState();

@@ -41,14 +41,6 @@ function ArtigoItem({artigo, user}: any) {
                     ))}
                 </div>
             </div>
-            {user && (
-                <Dropdown items={artigoItems}>
-                    <RiArrowDropDownLine
-                        className=" cursor-pointer text-2xl ease-out duration-300 rounded-full hover:text-[#4f8cfe] hover:bg-[#00000011]
-                dark:text-white dark:hover:text-white dark:hover:bg-[#ffffff11]"
-                    />
-                </Dropdown>
-            )}
         </div>
     );
 }

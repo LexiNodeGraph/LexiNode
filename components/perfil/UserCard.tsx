@@ -2,8 +2,9 @@ import Image from "next/image";
 import {MdOutlineAlternateEmail, MdLocationOn, MdDomain, MdOutlineShare} from "react-icons/md";
 import Router from "next/router";
 import {BiArrowBack} from "react-icons/bi";
+import Button from "../artigos/adicionar/Button";
 
-function UserCard({user}: any) {
+function UserCard({user, setEdit}: any) {
     return (
         <div className="w-full max-w-sm bg-white rounded border border-neutral-200 shadow-md dark:bg-neutral-900 dark:border-neutral-700">
             <BiArrowBack className=" cursor-pointer text-xl  ease-out duration-300 rounded-full dark:text-white m-4 " onClick={() => Router.back()} />
@@ -38,6 +39,7 @@ function UserCard({user}: any) {
                         <MdOutlineShare />
                         {user.field}
                     </div>
+                    <Button onClick={() => setEdit(true)}>Editar perfil</Button>
                 </div>
             </div>
         </div>
