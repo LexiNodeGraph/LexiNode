@@ -39,7 +39,7 @@ function UserCard({user, setEdit}: any) {
                         <MdOutlineShare />
                         {user.field}
                     </div>
-                    <Button onClick={() => setEdit(true)}>Editar perfil</Button>
+                    {/* <Button onClick={() => setEdit(true)}>Editar perfil</Button> */}
                 </div>
             </div>
         </div>
