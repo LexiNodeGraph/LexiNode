@@ -86,7 +86,7 @@ function SinglePaper() {
                     </div>
                 </div>
             ) : (
-                <h1>Carregando...</h1>
+                <h1 className="text-center m-auto font-bold text-4xl dark:bg-neutral-900 pt-44 dark:text-white">Carregando...</h1>
             )}
         </div>
     );
