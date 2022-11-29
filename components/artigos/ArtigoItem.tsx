@@ -31,7 +31,7 @@ function ArtigoItem({artigo, user}: any) {
                     ))}
                 </span>
 
-                <div className="mt-2 rounded w-full inline-flex  flex-wrap gap-2">
+                <div className="mt-2 rounded w-full inline-flex flex-wrap gap-2">
                     {artigo.keywords.map((keyword: any, index: any) => (
                         <Link href={`../../artigos/keyword/${keyword}`} key={index}>
                             <div>

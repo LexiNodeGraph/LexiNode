@@ -6,8 +6,8 @@ import {BiChevronRight} from "react-icons/bi";
 function AutorItem({author}: any) {
     return (
         <Link href={`/autores/autor/${author.email}`}>
-            <li className="flex row justify-between  items-center w-full cursor-pointer bg-white  border shadow-md p-2 rounded dark:bg-neutral-900 dark:border-neutral-700">
-                <div className="flex items-center text-bold p-1  ">
+            <li className="flex row justify-between items-center w-full cursor-pointer bg-white border shadow-md p-2 rounded dark:bg-neutral-900 dark:border-neutral-700">
+                <div className="flex items-center text-bold p-1">
                     <Image
                         className="rounded-full w-[75px] h-[75px]"
                         src={
@@ -23,7 +23,6 @@ function AutorItem({author}: any) {
                         <p className="text-gray-800 font-sm  dark:text-neutral-200">{author.email}</p>
                     </div>
                 </div>
-                <div></div>
             </li>
         </Link>
     );
