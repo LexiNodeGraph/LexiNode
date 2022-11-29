@@ -15,28 +15,11 @@ function MobileNav({isOpen, setIsOpen, user}: any) {
             {(ref) => (
                 <div className="md:hidden" id="mobile-menu">
                     <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        {!user && (
-                            <Link href="/artigos">
-                                <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
-                                    Artigos
-                                </a>
-                            </Link>
-                        )}
-                        {user && (
-                            <Link href="/artigos">
-                                <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
-                                    Todos os Artigos
-                                </a>
-                            </Link>
-                        )}
-                        {user && (
-                            <Link href="/artigos/favoritos">
-                                <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
-                                    Favoritos
-                                </a>
-                            </Link>
-                        )}
-
+                        <Link href="/artigos">
+                            <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
+                                Artigos
+                            </a>
+                        </Link>
                         <Link href="/autores">
                             <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded text-base font-medium" onClick={() => setIsOpen(!isOpen)}>
                                 Autores
@@ -56,7 +39,6 @@ function MobileNav({isOpen, setIsOpen, user}: any) {
                                 </a>
                             </Link>
                         )}
-
                         {user && (
                             <Link href="/api/auth/logout">
                                 <a

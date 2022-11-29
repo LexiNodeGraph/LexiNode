@@ -55,6 +55,7 @@ const Root: FC = () => {
                 className="react-sigma"
             >
 
+
                 <>
                     <div className="controls">
                         <div className="ico">
