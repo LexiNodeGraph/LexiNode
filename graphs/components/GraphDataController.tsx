@@ -15,7 +15,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
   layout.start();
   setTimeout(() => {
     layout.stop();
-  }, 100);
+  }, 500);
   useEffect(() => {
     if (!graph || !dataset) return;
 
@@ -72,7 +72,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
     }
 
     for (let elemento of listaFinal) {
-      // console.log(`key: ${elemento.key} | origem: ${elemento.source} | destino: ${elemento.target} | tamanho: ${elemento.size * 2}`);
+
       graph.addEdge(elemento.source, elemento.target, { size: elemento.size * 2, color: "#999999" });
 
       switch (elemento.size * 2) {
@@ -89,7 +89,6 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
     }
     return;
   }, [graph, dataset]);
-
 
   return <>{children}</>;
 };

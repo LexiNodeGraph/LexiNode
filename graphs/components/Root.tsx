@@ -36,7 +36,48 @@ const Root: FC = () => {
             });
     }, []);
 
-    if (!data) return null;
+    if (!data) return (
+        <div id="app-root" className={"z-0" + (showContents ? "show-contents" : "")}>
+            <SigmaContainer
+                initialSettings={{
+                    nodeProgramClasses: { image: getNodeProgramImage() },
+                    labelRenderer: drawLabel,
+                    defaultNodeType: "image",
+                    defaultEdgeType: "line",
+                    labelDensity: 0.1,
+                    labelGridCellSize: 60,
+                    labelRenderedSizeThreshold: 15,
+                    labelFont: "Lato, sans-serif",
+                    zIndex: true,
+                    allowInvalidContainer: true
+
+                }}
+                className="react-sigma"
+            >
+
+                <>
+                    <div className="controls">
+                        <div className="ico">
+                            <button type="button" className="show-contents" onClick={() => setShowContents(true)} title="Show caption and description">
+                                <BiBookContent />
+                            </button>
+                        </div>
+                        <FullScreenControl className="ico" customEnterFullScreen={<BsArrowsFullscreen />} customExitFullScreen={<BsFullscreenExit />} />
+                        <ZoomControl className="ico" customZoomIn={<BsZoomIn />} customZoomOut={<BsZoomOut />} customZoomCenter={<BiRadioCircleMarked />} />
+                    </div>
+                    <div className="contents">
+                        <div className="ico">
+                            <button type="button" className="ico hide-contents" onClick={() => setShowContents(false)} title="Show caption and description">
+                                <GrClose />
+                            </button>
+                        </div>
+                        <div className="panels">
+                        </div>
+                    </div>
+                </>
+            </SigmaContainer>
+        </div>
+    );
 
     return (
         <div id="app-root" className={"z-0" + (showContents ? "show-contents" : "")}>
@@ -60,7 +101,7 @@ const Root: FC = () => {
                 <GraphSettingsController hoveredNode={hoveredNode} />
                 <GraphDataController dataset={data} />
 
-                {dataReady && (
+        
                     <>
                         <div className="controls">
                             <div className="ico">
@@ -81,7 +122,6 @@ const Root: FC = () => {
                             </div>
                         </div>
                     </>
-                )}
             </SigmaContainer>
         </div>
     );
