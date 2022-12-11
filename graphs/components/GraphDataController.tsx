@@ -8,14 +8,14 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
   const graph = sigma.getGraph();
 
   const layout = new FA2Layout(graph, {
-    settings: { gravity: 8, scalingRatio: 13, strongGravityMode: false, barnesHutOptimize: true, barnesHutTheta: 0.4 },
+    settings: { gravity: 25, scalingRatio: 20, strongGravityMode: false, barnesHutOptimize: true, barnesHutTheta: 0.4 },
   });
 
-  // To start the layout
   layout.start();
   setTimeout(() => {
     layout.stop();
   }, 500);
+
   useEffect(() => {
     if (!graph || !dataset) return;
 
@@ -28,7 +28,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
           x: 2 * Math.random() - 1,
           y: 2 * Math.random() - 1,
           URL: `/artigos/keyword/${item}`,
-          size: 5,
+          size: 4,
           image: "../../images/black-key.png",
           color: "#727EE0"
         });
@@ -36,7 +36,7 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
         graph.setNodeAttribute(
           item,
           "size",
-          ((graph.getNodeAttribute(item, "size") as number) + 5)
+          ((graph.getNodeAttribute(item, "size") as number) + 4)
         );
       };
     })
@@ -87,6 +87,9 @@ const GraphDataController: FC<{ dataset: any[]; children?: [] }> = ({ dataset, c
           break;
       }
     }
+
+
+
     return;
   }, [graph, dataset]);
 
