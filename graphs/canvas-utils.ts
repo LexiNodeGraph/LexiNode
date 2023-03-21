@@ -39,7 +39,7 @@ export function drawHover(context: CanvasRenderingContext2D, data: PlainObject, 
 
   const label = data.label;
   const subLabel = data.subLabel;
-  // const clusterLabel = "Tamanho " + Math.ceil(data.size);
+  const clusterLabel = "Tamanho " + Math.ceil(data.size);
 
   // Then we draw the label background
   context.beginPath();
@@ -54,9 +54,9 @@ export function drawHover(context: CanvasRenderingContext2D, data: PlainObject, 
   context.font = `${weight} ${subLabelSize}px ${font}`;
   const subLabelWidth = subLabel ? context.measureText(subLabel).width : 0;
   context.font = `${weight} ${subLabelSize}px ${font}`;
-  // const clusterLabelWidth = clusterLabel ? context.measureText(clusterLabel).width : 0;
+  const clusterLabelWidth = clusterLabel ? context.measureText(clusterLabel).width : 0;
 
-  // const textWidth = Math.max(labelWidth, subLabelWidth, clusterLabelWidth);
+  const textWidth = Math.max(labelWidth, subLabelWidth, clusterLabelWidth);
 
   const x = Math.round(data.x);
   const y = Math.round(data.y);
