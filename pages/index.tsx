@@ -1,32 +1,35 @@
 import Root from "../graphs/components/Root";
-import React, {useState, useRef} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import {Dialog} from "@headlessui/react";
-import {useUser} from "@auth0/nextjs-auth0";
+import { Dialog } from "@headlessui/react";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const Home = () => {
-    const {user} = useUser();
-    let [isOpen, setIsOpen] = useState(true);
+    const { user } = useUser();
+    const [isOpen, setIsOpen] = useState(true);
+    const [userExists, setUserExists] = useState(false);
 
-    // Finding and creating user
-    const findUser = async () => await axios.get(`/api/user/find/${user?.nickname}`);
-    const createUser = async () => await axios.post("/api/user/create", user || {});
+    useEffect(() => {
+        const findUser = async () => {
+            const res = await axios.get(`/api/user/find/${user?.nickname}`);
+            setUserExists(res.data !== null);
+        };
 
-    function PopupHandler(): void {
-        findUser().then((res) => {
-            if (res.data === null) {
-                createUser();
-            }
-        });
-
-        return setIsOpen(false);
-    }
+        if (user) {
+            findUser();
+        }
+    }, [user]);
 
     return (
         <>
             <main className="fixed min-h-screen w-full top-50 z-0">
-                {user && <Dialog className="relative z-40" open={isOpen} onClose={() => PopupHandler()}></Dialog>}
+                <Dialog
+                    className="relative z-40"
+                    static
+                    open={isOpen && user && !userExists}
+                    onClose={() => setIsOpen(false)}
+                ></Dialog>
                 <Root />
             </main>
         </>
