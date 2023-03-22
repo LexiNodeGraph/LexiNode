@@ -32,9 +32,7 @@ function PaperFilter({ artigos, loading }: any) {
             {loading ? (
                 <ArtigoSkeleton />
             ) : (
-                sortedArtigos.map((artigo: any) => (
-                    <ArtigoItem artigo={artigo} user={user} key={artigo.id} />
-                ))
+                sortedArtigos.map((artigo: any) => <ArtigoItem artigo={artigo} key={artigo.id} />)
             )}
         </div>
     );

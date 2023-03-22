@@ -1,17 +1,37 @@
-import {RiArrowDropDownLine} from "react-icons/ri";
-
-import Dropdown from "../Dropdown";
 import Tag from "../Tag";
 import Link from "next/link";
+import { memo } from "react";
 
-function ArtigoItem({artigo, user}: any) {
-    const artigoItems = [
-        {
-            label: "Adicionar aos favoritos",
-            to: "/",
-            show: true,
-        },
-    ];
+type Author = {
+    name: string;
+    email: string;
+};
+
+type Artigo = {
+    id: string;
+    title: string;
+    authors: Author[];
+    keywords: string[];
+};
+
+type ArtigoItemProps = {
+    artigo: Artigo;
+};
+
+function ArtigoItem({ artigo }: ArtigoItemProps) {
+    const authors = artigo.authors.map((author) => (
+        <Link href={`/autores/autor/${author.email}`} key={author.email}>
+            <a className="hover:underline cursor-pointer">{author.name}</a>
+        </Link>
+    ));
+
+    const keywords = artigo.keywords.map((keyword) => (
+        <Link href={`../../artigos/keyword/${keyword}`} key={keyword}>
+            <div>
+                <Tag label={keyword} />
+            </div>
+        </Link>
+    ));
 
     return (
         <div className="flex row justify-between w-full bg-white rounded border p-2 mt-2 shadow-md dark:bg-neutral-900  dark:border-neutral-700">
@@ -20,29 +40,12 @@ function ArtigoItem({artigo, user}: any) {
                     <a className="hover:underline font-bold dark:text-neutral-50">{artigo.title}</a>
                 </Link>
 
-                <span className="text-neutral-900 dark:text-neutral-200">
-                    {artigo.authors.map((author: any, index: any) => (
-                        <Link href={`/autores/autor/${author.email}`} key={index}>
-                            <span className="hover:underline cursor-pointer">
-                                {author.name}
-                                {index === artigo.authors.length - 1 ? "" : ", "}
-                            </span>
-                        </Link>
-                    ))}
-                </span>
+                <span className="text-neutral-900 dark:text-neutral-200">{authors}</span>
 
-                <div className="mt-2 rounded w-full inline-flex flex-wrap gap-2">
-                    {artigo.keywords.map((keyword: any, index: any) => (
-                        <Link href={`../../artigos/keyword/${keyword}`} key={index}>
-                            <div>
-                                <Tag label={keyword} />
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+                <div className="mt-2 rounded w-full inline-flex flex-wrap gap-2">{keywords}</div>
             </div>
         </div>
     );
 }
 
-export default ArtigoItem;
+export default memo(ArtigoItem);
