@@ -25,8 +25,6 @@ function ArtigoItem({ artigo }: ArtigoItemProps) {
                 {author.name}
                 {index === artigo.authors.length - 1 ? "" : ", "}
             </a>
-
-            {index === artigo.authors.length - 1 ? "" : ", "}
         </Link>
     ));
 
