@@ -23,6 +23,7 @@ function ArtigoItem({ artigo }: ArtigoItemProps) {
         <Link href={`/autores/autor/${author.email}`} key={author.email}>
             <a className="hover:underline cursor-pointer text-neutral-900 dark:text-neutral-200">
                 {author.name}
+                {index === artigo.authors.length - 1 ? "" : ", "}
             </a>
 
             {index === artigo.authors.length - 1 ? "" : ", "}
@@ -44,7 +45,7 @@ function ArtigoItem({ artigo }: ArtigoItemProps) {
                     <a className="hover:underline font-bold dark:text-neutral-50">{artigo.title}</a>
                 </Link>
 
-                <span className="text-neutral-900 dark:text-neutral-200">{authors}</span>
+                <span className="">{authors}</span>
 
                 <div className="mt-2 rounded w-full inline-flex flex-wrap gap-2">{keywords}</div>
             </div>
