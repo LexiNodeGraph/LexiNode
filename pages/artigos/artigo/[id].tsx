@@ -28,24 +28,28 @@ function SinglePaper() {
     }, []);
 
     const authors = useMemo(() => {
-        return artigo.authors.map((author: any, index: any) => (
-            <Link href={`../../autores/autor/${author.email}`} key={author.email}>
-                <span key={author.email} className="hover:underline hover:cursor-pointer">
-                    {author.name}
-                    {index === artigo.authors.length - 1 ? "" : ", "}
-                </span>
-            </Link>
-        ));
+        return artigo.authors
+            ? artigo.authors.map((author: any, index: any) => (
+                  <Link href={`../../autores/autor/${author.email}`} key={author.email}>
+                      <span key={author.email} className="hover:underline hover:cursor-pointer">
+                          {author.name}
+                          {index === artigo.authors.length - 1 ? "" : ", "}
+                      </span>
+                  </Link>
+              ))
+            : [];
     }, [artigo.authors]);
 
     const keywords = useMemo(() => {
-        return artigo.keywords.map((keyword: any, index: any) => (
-            <Link href={`../../artigos/keyword/${keyword}`} key={index}>
-                <div>
-                    <Tag label={keyword} />
-                </div>
-            </Link>
-        ));
+        return artigo.keywords
+            ? artigo.keywords.map((keyword: any, index: any) => (
+                  <Link href={`../../artigos/keyword/${keyword}`} key={index}>
+                      <div>
+                          <Tag label={keyword} />
+                      </div>
+                  </Link>
+              ))
+            : [];
     }, [artigo.keywords]);
 
     return (
@@ -54,7 +58,7 @@ function SinglePaper() {
                 <div>
                     <div
                         className=" p-4 dark:bg-neutral-900 dark:border-neutral-700
-                   "
+                    "
                     >
                         <BiArrowBack
                             className="cursor-pointer text-xl ease-out duration-300 rounded-full dark:text-white "

@@ -27,7 +27,7 @@ const Home = () => {
                 <Dialog
                     className="relative z-40"
                     static
-                    open={isOpen && user && !userExists}
+                    open={isOpen}
                     onClose={() => setIsOpen(false)}
                 ></Dialog>
                 <Root />
