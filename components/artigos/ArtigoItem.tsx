@@ -45,7 +45,7 @@ function ArtigoItem({ artigo }: ArtigoItemProps) {
                     <a className="hover:underline font-bold dark:text-neutral-50">{artigo.title}</a>
                 </Link>
 
-                <span className="">{authors}</span>
+                <span className="text-neutral-900 dark:text-neutral-200">{authors}</span>
 
                 <div className="mt-2 rounded w-full inline-flex flex-wrap gap-2">{keywords}</div>
             </div>
