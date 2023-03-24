@@ -19,9 +19,13 @@ type ArtigoItemProps = {
 };
 
 function ArtigoItem({ artigo }: ArtigoItemProps) {
-    const authors = artigo.authors.map((author) => (
+    const authors = artigo.authors.map((author, index) => (
         <Link href={`/autores/autor/${author.email}`} key={author.email}>
-            <a className="hover:underline cursor-pointer">{author.name}</a>
+            <a className="hover:underline cursor-pointer text-neutral-900 dark:text-neutral-200">
+                {author.name}
+            </a>
+
+            {index === artigo.authors.length - 1 ? "" : ", "}
         </Link>
     ));
 
