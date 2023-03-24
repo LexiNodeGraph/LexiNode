@@ -1,17 +1,19 @@
-import React, { FC, useEffect, useMemo, useState, useCallback } from "react";
+import React, { FC, useEffect, useState, useMemo } from "react";
+import axios from "axios";
+
 import { SigmaContainer, ZoomControl, FullScreenControl } from "react-sigma-v2";
 import getNodeProgramImage from "sigma/rendering/webgl/programs/node.image";
+import drawLabel from "../canvas-utils";
+
+import { GrClose } from "react-icons/gr";
+import { BiRadioCircleMarked, BiBookContent } from "react-icons/bi";
+import { BsArrowsFullscreen, BsFullscreenExit, BsZoomIn, BsZoomOut } from "react-icons/bs";
 
 import GraphSettingsController from "./GraphSettingsController";
 import GraphDataController from "./GraphDataController";
 import GraphEventsController from "./GraphEventsController";
-import drawLabel from "../canvas-utils";
-
+import Spinner from "../../components/Spinner";
 import "react-sigma-v2/lib/react-sigma-v2.css";
-import { GrClose } from "react-icons/gr";
-import { BiRadioCircleMarked, BiBookContent } from "react-icons/bi";
-import { BsArrowsFullscreen, BsFullscreenExit, BsZoomIn, BsZoomOut } from "react-icons/bs";
-import axios from "axios";
 
 const Root: FC = () => {
     const [showContents, setShowContents] = useState(false);
@@ -36,7 +38,7 @@ const Root: FC = () => {
     }, [url]);
 
     if (!data) {
-        return null; // or a loading spinner, etc.
+        return <Spinner />;
     }
 
     return (
