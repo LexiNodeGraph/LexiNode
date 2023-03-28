@@ -26,7 +26,7 @@ function Autor() {
     }, [nickname]);
 
     return (
-        <div className="inline-flex w-full gap-2 p-2 min-h-screen dark:bg-neutral-900 bg-neutral-50">
+        <div className="sm:inline-flex flex-col w-full gap-2 p-2 min-h-screen dark:bg-neutral-900 bg-neutral-50 ">
             <UserCard user={autor} />
             <PaperFilter artigos={artigos} />
         </div>
