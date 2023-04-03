@@ -21,16 +21,14 @@ const Root: FC = () => {
     const [data, setData] = useState<any[] | null>(null);
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
-    const url = "https://lexinode.vercel.app";
-
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`${url}/api/paper/find/keywords/all`);
+            const response = await axios.get(`/api/paper/find/keywords/all`);
             setData(response.data);
         };
 
         fetchData();
-    }, [url]);
+    }, []);
 
     return (
         <div id="app-root" className={`z-0 ${showContents ? "show-contents" : ""}`}>
